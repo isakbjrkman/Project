@@ -70,9 +70,6 @@
 /gui/addIcon "Run beam on" user_icon "/run/beamOn 1" run.png
 /run/beamOn 1
 /vis/scene/notifyHandlers scene-0
-/gun/position
-/gun/position -10 -10 -20 mm
 /run/beamOn 1
 /run/beamOn 10
-/run/beamOn 10
-/run/beamOn 10
+/run/beamOn 100
