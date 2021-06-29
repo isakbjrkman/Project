@@ -1,0 +1,8 @@
+/home/isak/Desktop/B5/build/CMakeFiles/install/local.dir
+/home/isak/Desktop/B5/build/CMakeFiles/install.dir
+/home/isak/Desktop/B5/build/CMakeFiles/list_install_components.dir
+/home/isak/Desktop/B5/build/CMakeFiles/rebuild_cache.dir
+/home/isak/Desktop/B5/build/CMakeFiles/edit_cache.dir
+/home/isak/Desktop/B5/build/CMakeFiles/B5.dir
+/home/isak/Desktop/B5/build/CMakeFiles/install/strip.dir
+/home/isak/Desktop/B5/build/CMakeFiles/exampleB5.dir
