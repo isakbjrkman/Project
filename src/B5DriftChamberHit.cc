@@ -49,14 +49,14 @@ G4ThreadLocal G4Allocator<B5DriftChamberHit>* B5DriftChamberHitAllocator;
 
 B5DriftChamberHit::B5DriftChamberHit()
 : G4VHit(), 
-  fLayerID(-1), fTime(0.), fLocalPos(0), fWorldPos(0)
+  fLayerID(-1), fTime(0.), fLocalPos(0), fWorldPos(0), fpdg(0)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5DriftChamberHit::B5DriftChamberHit(G4int layerID)
 : G4VHit(), 
-  fLayerID(layerID), fTime(0.), fLocalPos(0), fWorldPos(0)
+  fLayerID(layerID), fTime(0.), fLocalPos(0), fWorldPos(0), fpdg(0)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -71,7 +71,8 @@ B5DriftChamberHit::B5DriftChamberHit(const B5DriftChamberHit &right)
   fLayerID(right.fLayerID),
   fTime(right.fTime),
   fLocalPos(right.fLocalPos),
-  fWorldPos(right.fWorldPos)
+  fWorldPos(right.fWorldPos),
+  fpdg(right.fpdg) 
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -82,6 +83,7 @@ const B5DriftChamberHit& B5DriftChamberHit::operator=(const B5DriftChamberHit &r
   fTime = right.fTime;
   fLocalPos = right.fLocalPos;
   fWorldPos = right.fWorldPos;
+  fpdg = right.fpdg;
   return *this;
 }
 
@@ -127,6 +129,9 @@ const std::map<G4String,G4AttDef>* B5DriftChamberHit::GetAttDefs() const
       
       (*store)["Pos"] 
         = G4AttDef("Pos", "Position", "Physics","G4BestUnit","G4ThreeVector");
+      
+      (*store)["PDG"] 
+        = G4AttDef("PDG", "ParticlePDG", "Physics","G4BestUnit","G4int");  
   }
   
   return store;
@@ -146,6 +151,8 @@ std::vector<G4AttValue>* B5DriftChamberHit::CreateAttValues() const
     ->push_back(G4AttValue("Time",G4BestUnit(fTime,"Time"),""));
   values
     ->push_back(G4AttValue("Pos",G4BestUnit(fWorldPos,"Length"),""));
+  values
+    ->push_back(G4AttValue("PDG",G4BestUnit(fpdg,"PDG"),""));
   
   return values;
 }
@@ -156,7 +163,7 @@ void B5DriftChamberHit::Print()
 {
   G4cout << "  Layer[" << fLayerID << "] : time " << fTime/ns
   << " (nsec) --- local (x,y) " << fLocalPos.x()
-  << ", " << fLocalPos.y() << G4endl;
+  << ", " << fLocalPos.y() << fpdg << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

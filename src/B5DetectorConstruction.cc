@@ -297,109 +297,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
     G4Material* shape6_mat = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
   G4ThreeVector pos7 = G4ThreeVector(-13.255*mm, 13.255*mm, 12.015*mm);
         
-  // Conical section shape       
-/*
-  G4Box* solidShape7 =    
-    new G4Box("Shape7", 
-    0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
-                      
-  G4LogicalVolume* logicShape7 =                         
-    new G4LogicalVolume(solidShape7,         //its solid
-                        shape6_mat,          //its material
-                        "Shape7");           //its name
-        
-  logicShape7->SetVisAttributes(yellowVis);      
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos7,                    //at position
-                    logicShape7,             //its logical volume
-                    "Shape7",                //its name
-                    worldLogical,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-
-
-
-  //     
-  // Shape 2
-  //
-
-  G4ThreeVector pos8 = G4ThreeVector(-13.255*mm, -13.255*mm, 12.015*mm);
-
-  // Trapezoid shape       
-  
-  G4Box* solidShape8=    
-    new G4Box("Shape8",                      //its name
-              0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm); //its size
-                
-  G4LogicalVolume* logicShape8 =                         
-    new G4LogicalVolume(solidShape8,         //its solid
-                        shape6_mat,          //its material
-                        "Shape8");           //its name
-                        
-  logicShape8->SetVisAttributes(yellowVis);  
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos8,                    //at position
-                    logicShape8,             //its logical volume
-                    "Shape8",                //its name
-                    worldLogical,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                    
-
-  G4ThreeVector pos9 = G4ThreeVector(13.255*mm, 13.255*mm, 12.015*mm);
-        
-  // Conical section shape       
-
-  G4Box* solidShape9 =    
-    new G4Box("Shape9", 
-    0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
-                      
-  G4LogicalVolume* logicShape9 =                         
-    new G4LogicalVolume(solidShape9,         //its solid
-                        shape6_mat,          //its material
-                        "Shape9");           //its name
-                        
-  logicShape9->SetVisAttributes(yellowVis);                        
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos9,                    //at position
-                    logicShape9,             //its logical volume
-                    "Shape9",                //its name
-                    worldLogical,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                  
-  
-   G4ThreeVector pos10 = G4ThreeVector(13.255*mm, -13.255*mm, 12.015*mm);
-        
-  // Conical section shape       
-
-  G4Box* solidShape10 =    
-    new G4Box("Shape10", 
-    0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
-                      
-  G4LogicalVolume* logicShape10 =                         
-    new G4LogicalVolume(solidShape10,         //its solid
-                        shape6_mat,          //its material
-                        "Shape10");           //its name
-                        
-  logicShape10->SetVisAttributes(yellowVis);                        
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos10,                    //at position
-                    logicShape10,             //its logical volume
-                    "Shape10",                //its name
-                    worldLogical,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                  
-   */
+ 
    
   //Photocathode
   G4Material* shape11_mat = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
@@ -427,14 +325,9 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                                                           
                     
                     
-                    
-  /*
-  // set step limit in tube with magnetic field  
-  G4UserLimits* userLimits = new G4UserLimits(1*m);
-  fMagneticLogical->SetUserLimits(userLimits);
   
   // first arm
-  */
+  
   auto firstArmSolid 
     = new G4Box("firstArmBox",1*27.5*mm, 1*27.5*mm, 1*0.01*mm);
   auto firstArmLogical
@@ -443,17 +336,6 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     "firstArmPhysical",logicEnv,
                     false,0,checkOverlaps);
   
-  // second arm
-  /*auto secondArmSolid 
-    = new G4Box("secondArmBox",1*27.5*mm, 1*27.5*mm, 1*0.01*mm);
-  auto secondArmLogical
-    = new G4LogicalVolume(secondArmSolid,air,"secondArmLogical");
-  //auto x = -5.*m * std::sin(fArmAngle);
-  //auto z = 5.*m * std::cos(fArmAngle);
-  new G4PVPlacement(0,G4ThreeVector(0.,0.,35.015*mm),secondArmLogical,
-                        "secondArmPhys",logicEnv,
-                        false,0,checkOverlaps);
-  */
   // hodoscopes in first arm
   
   auto chamber1Solid
@@ -472,41 +354,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   }
     chamber1Logical->SetVisAttributes(yellowVis);  
     
-/*    
-    auto chamber2Solid
-    = new G4Box("chamber2Box",0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
-  auto chamber2Logical
-    = new G4LogicalVolume(chamber2Solid,shape6_mat,"chamber2Logical");
 
-  for (auto i=0;i<2;i++) {
-      G4double x1 = -13.255*mm+i*2*13.255*mm;
-      for (auto j=0;j<2; j++){
-      G4double y1 = -13.255*mm+j*2*13.255*mm;
-      new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),chamber2Logical,
-                        "chamber2Physical",secondArmLogical,
-                        false,i+j+1,checkOverlaps);
-  	}
-  }
-    chamber2Logical->SetVisAttributes(yellowVis);  
-    
-  */  
-    
-   
-    
-  /*
-  // drift chambers in first arm
-  auto chamber1Solid 
-    = new G4Box("chamber1Box",1.*m,30.*cm,1.*cm);
-  auto chamber1Logical
-    = new G4LogicalVolume(chamber1Solid,argonGas,"chamber1Logical");
-
-  for (auto i=0;i<kNofChambers;i++) {
-    G4double z1 = (i-kNofChambers/2)*0.5*m;
-    new G4PVPlacement(0,G4ThreeVector(0.,0.,z1),chamber1Logical,
-                      "chamber1Physical",firstArmLogical,
-                      false,i,checkOverlaps);
-  }
-  */
   //"virtual" wire plane
   auto wirePlane1Solid 
     = new G4Box("wirePlane1Box", 0.5*26.5*mm, 0.5*26.5*mm, 0.25*0.01*mm);
@@ -516,7 +364,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     "wirePlane1Physical",chamber1Logical,
                     false,0,checkOverlaps);
                     
-  
+ 
   // return the world physical volume ----------------------------------------
   
   return worldPhysical;

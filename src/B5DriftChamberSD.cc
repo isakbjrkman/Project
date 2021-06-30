@@ -30,6 +30,8 @@
 #include "B5DriftChamberSD.hh"
 #include "B5DriftChamberHit.hh"
 
+#include "G4VTrajectory.hh"
+#include "G4Trajectory.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4TouchableHistory.hh"
 #include "G4Track.hh"
@@ -41,7 +43,7 @@
 
 B5DriftChamberSD::B5DriftChamberSD(G4String name)
 : G4VSensitiveDetector(name), 
-  fHitsCollection(nullptr), fHCID(-1)
+  fHitsCollection(nullptr), fHCID(-1), fTrack(nullptr)
 {
   collectionName.insert("driftChamberColl");
 }
@@ -85,6 +87,7 @@ G4bool B5DriftChamberSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   hit->SetWorldPos(worldPos);
   hit->SetLocalPos(localPos);
   hit->SetTime(preStepPoint->GetGlobalTime());
+  hit->SetPDG(fTrack->GetDefinition()->GetPDGEncoding()); //added
   
   fHitsCollection->insert(hit);
   

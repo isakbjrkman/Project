@@ -30,6 +30,7 @@
 #ifndef B5DriftChamberHit_h
 #define B5DriftChamberHit_h 1
 
+#include "G4Trajectory.hh"
 #include "G4VHit.hh"
 #include "G4THitsCollection.hh"
 #include "G4Allocator.hh"
@@ -79,11 +80,15 @@ class B5DriftChamberHit : public G4VHit
     void SetWorldPos(G4ThreeVector xyz) { fWorldPos = xyz; }
     G4ThreeVector GetWorldPos() const { return fWorldPos; }
     
+    void SetPDG(G4int p) { fpdg = p; }
+    G4int GetPDG() const { return fpdg; }
+    
   private:
     G4int fLayerID;
     G4double fTime;
     G4ThreeVector fLocalPos;
     G4ThreeVector fWorldPos;
+    G4int fpdg;             //added
 };
 
 using B5DriftChamberHitsCollection = G4THitsCollection<B5DriftChamberHit>;

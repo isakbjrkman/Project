@@ -82,6 +82,7 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
     analysisManager->CreateNtupleDColumn("HCEnergy"); // column Id = 3
     analysisManager->CreateNtupleDColumn("Time1");    // column Id = 4
     analysisManager->CreateNtupleDColumn("Time2");    // column Id = 5
+    analysisManager->CreateNtupleDColumn("PDG");
     analysisManager                                   // column Id = 6
       ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 
     analysisManager                                   // column Id = 7

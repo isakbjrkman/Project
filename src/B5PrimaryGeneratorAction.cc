@@ -43,7 +43,7 @@ B5PrimaryGeneratorAction::B5PrimaryGeneratorAction()
 : G4VUserPrimaryGeneratorAction(),     
   fParticleGun(nullptr), fMessenger(nullptr), 
   fPositron(nullptr), fMuon(nullptr), fPion(nullptr), 
-  fKaon(nullptr), fProton(nullptr),
+  fKaon(nullptr), fProton(nullptr), fElectron(nullptr),
   fMomentum(1000.*MeV),
   fSigmaMomentum(50.*MeV),
   fSigmaAngle(2.*deg),
@@ -58,10 +58,11 @@ B5PrimaryGeneratorAction::B5PrimaryGeneratorAction()
   fPion = particleTable->FindParticle("pi+");
   fKaon = particleTable->FindParticle("kaon+");
   fProton = particleTable->FindParticle("proton");
+  fElectron = particleTable->FindParticle("e-");
   
   // default particle kinematics
-  fParticleGun->SetParticlePosition(G4ThreeVector(0.,0.,-8.*m));
-  fParticleGun->SetParticleDefinition(fPositron);
+  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-20.*cm));
+  fParticleGun->SetParticleDefinition(fElectron);
   
   // define commands for this class
   DefineCommands();

@@ -77,6 +77,7 @@ class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     G4ParticleDefinition* fPion;
     G4ParticleDefinition* fKaon;
     G4ParticleDefinition* fProton;
+    G4ParticleDefinition* fElectron;
     G4double fMomentum;
     G4double fSigmaMomentum;
     G4double fSigmaAngle;
