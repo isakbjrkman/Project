@@ -4,7 +4,7 @@
 CMakeFiles/exampleB5.dir/exampleB5.cc.o
  ../include/B5ActionInitialization.hh
  ../include/B5DetectorConstruction.hh
- /home/isak/Desktop/B5/exampleB5.cc
+ /home/isak/Desktop/Project-master/exampleB5.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -163,8 +163,10 @@ CMakeFiles/exampleB5.dir/exampleB5.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NullModel.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateQt.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateX.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLQt.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredQt.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredX.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParameterisedNavigation.hh
@@ -374,7 +376,7 @@ CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o
  ../include/B5EventAction.hh
  ../include/B5PrimaryGeneratorAction.hh
  ../include/B5RunAction.hh
- /home/isak/Desktop/B5/src/B5ActionInitialization.cc
+ /home/isak/Desktop/Project-master/src/B5ActionInitialization.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EnvironmentUtils.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exception.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ExceptionSeverity.hh
@@ -394,7 +396,7 @@ CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o
 CMakeFiles/exampleB5.dir/src/B5CellParameterisation.cc.o
  ../include/B5CellParameterisation.hh
  ../include/B5Constants.hh
- /home/isak/Desktop/B5/src/B5CellParameterisation.cc
+ /home/isak/Desktop/Project-master/src/B5CellParameterisation.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/PhysicalConstants.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Utility/defs.h
@@ -451,7 +453,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  ../include/B5HodoscopeHit.hh
  ../include/B5HodoscopeSD.hh
  ../include/B5MagneticField.hh
- /home/isak/Desktop/B5/src/B5DetectorConstruction.cc
+ /home/isak/Desktop/Project-master/src/B5DetectorConstruction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -698,7 +700,9 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingMessenger.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryContainer.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TransportationManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TransportationManager.icc
@@ -739,6 +743,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserDetectorConstruction.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserEventInformation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
@@ -768,9 +773,10 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o
  ../include/B5DriftChamberHit.hh
- /home/isak/Desktop/B5/src/B5DriftChamberHit.cc
+ /home/isak/Desktop/Project-master/src/B5DriftChamberHit.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -806,23 +812,71 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Circle.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Color.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Colour.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DataVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DataVector.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DynamicParticle.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DynamicParticle.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElectronOccupancy.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Element.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElementTable.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElementVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EnvironmentUtils.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exception.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ExceptionSeverity.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exp.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4GeomSplitter.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4GlobalConfig.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IonisParamElm.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IonisParamMat.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Isotope.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IsotopeVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Log.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LorentzVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Material.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesIndex.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesTable.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesTable.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertyVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialTable.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleMomentum.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsModelCatalog.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsOrderedFreeVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsVector.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsVectorType.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Point3D.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Profiler.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Profiler.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ReferenceCountedHandle.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Region.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Region.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4RotationMatrix.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SandiaTable.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Step.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Step.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4StepPoint.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4StepPoint.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4StepStatus.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SteppingControl.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SystemOfUnits.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4THitsCollection.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Threading.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ThreeVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TouchableHandle.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackStatus.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TypeKey.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
@@ -838,22 +892,33 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VMarker.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VPhysicalVolume.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VPhysicalVolume.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VVisManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VisAttributes.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VisAttributes.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Visible.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Visible.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Globals.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Types.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Utility.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/geomdefs.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/geomwdefs.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/globals.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/graphics_reps_defs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/pwdefs.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o
  ../include/B5DriftChamberHit.hh
  ../include/B5DriftChamberSD.hh
- /home/isak/Desktop/B5/src/B5DriftChamberSD.cc
+ /home/isak/Desktop/Project-master/src/B5DriftChamberSD.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -960,6 +1025,8 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackStatus.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VExceptionHandler.hh
@@ -972,6 +1039,8 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSensitiveDetector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Globals.hh
@@ -984,9 +1053,10 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o
  ../include/B5EmCalorimeterHit.hh
- /home/isak/Desktop/B5/src/B5EmCalorimeterHit.cc
+ /home/isak/Desktop/Project-master/src/B5EmCalorimeterHit.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1064,7 +1134,7 @@ CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o
  ../include/B5Constants.hh
  ../include/B5EmCalorimeterHit.hh
  ../include/B5EmCalorimeterSD.hh
- /home/isak/Desktop/B5/src/B5EmCalorimeterSD.cc
+ /home/isak/Desktop/Project-master/src/B5EmCalorimeterSD.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1202,7 +1272,7 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o
  ../include/B5EventAction.hh
  ../include/B5HadCalorimeterHit.hh
  ../include/B5HodoscopeHit.hh
- /home/isak/Desktop/B5/src/B5EventAction.cc
+ /home/isak/Desktop/Project-master/src/B5EventAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1433,7 +1503,9 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingMessenger.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryContainer.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UIcommand.hh
@@ -1475,6 +1547,7 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserEventInformation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VVolumeMaterialScanner.hh
@@ -1561,10 +1634,11 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tools/wroot/tree
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tools/wroot/wbuf
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
  ../include/B5DetectorConstruction.hh
  ../include/B5HadCalorimeterHit.hh
- /home/isak/Desktop/B5/src/B5HadCalorimeterHit.cc
+ /home/isak/Desktop/Project-master/src/B5HadCalorimeterHit.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -1618,6 +1692,9 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Normal3D.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Plane3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Point3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Polyhedron.hh
@@ -1663,13 +1740,14 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/geomwdefs.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/globals.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/graphics_reps_defs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/pwdefs.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
  ../include/B5Constants.hh
  ../include/B5HadCalorimeterHit.hh
  ../include/B5HadCalorimeterSD.hh
- /home/isak/Desktop/B5/src/B5HadCalorimeterSD.cc
+ /home/isak/Desktop/Project-master/src/B5HadCalorimeterSD.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1776,6 +1854,8 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackStatus.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VExceptionHandler.hh
@@ -1788,6 +1868,8 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSensitiveDetector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Globals.hh
@@ -1800,9 +1882,10 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o
  ../include/B5HodoscopeHit.hh
- /home/isak/Desktop/B5/src/B5HodoscopeHit.cc
+ /home/isak/Desktop/Project-master/src/B5HodoscopeHit.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1885,7 +1968,7 @@ CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o
 CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o
  ../include/B5HodoscopeHit.hh
  ../include/B5HodoscopeSD.hh
- /home/isak/Desktop/B5/src/B5HodoscopeSD.cc
+ /home/isak/Desktop/Project-master/src/B5HodoscopeSD.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -2018,7 +2101,7 @@ CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
 CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o
  ../include/B5MagneticField.hh
- /home/isak/Desktop/B5/src/B5MagneticField.cc
+ /home/isak/Desktop/Project-master/src/B5MagneticField.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Utility/defs.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Vector/ThreeVector.h
@@ -2050,7 +2133,7 @@ CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o
  ../include/B5PrimaryGeneratorAction.hh
- /home/isak/Desktop/B5/src/B5PrimaryGeneratorAction.cc
+ /home/isak/Desktop/Project-master/src/B5PrimaryGeneratorAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Random/DualRand.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Random/JamesRandom.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Random/MTwistEngine.h
@@ -2159,7 +2242,7 @@ CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o
  ../include/B5EventAction.hh
  ../include/B5RunAction.hh
- /home/isak/Desktop/B5/src/B5RunAction.cc
+ /home/isak/Desktop/Project-master/src/B5RunAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Utility/defs.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Vector/ThreeVector.h

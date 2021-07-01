@@ -29,7 +29,7 @@
 
 #ifndef B5HadCalorimeterHit_h
 #define B5HadCalorimeterHit_h 1
-
+#include "G4ParticleDefinition.hh"
 #include "G4VHit.hh"
 #include "G4THitsCollection.hh"
 #include "G4Allocator.hh"
@@ -83,12 +83,16 @@ class B5HadCalorimeterHit : public G4VHit
     void SetRot(G4RotationMatrix rmat) { fRot = rmat; }
     G4RotationMatrix GetRot() const { return fRot; }
     
+    void SetPDG(G4int p) { fpdg = p; }
+    G4int GetPDG() const { return fpdg; }
+    
   private:
     G4int fColumnID;
     G4int fRowID;
     G4double fEdep;
     G4ThreeVector fPos;
     G4RotationMatrix fRot;
+    G4int fpdg;
 };
 
 using B5HadCalorimeterHitsCollection = G4THitsCollection<B5HadCalorimeterHit>;

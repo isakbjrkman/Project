@@ -26,7 +26,7 @@
 //
 /// \file B5HadCalorimeterHit.cc
 /// \brief Implementation of the B5HadCalorimeterHit class
-
+#include "G4ParticleDefinition.hh"
 #include "B5HadCalorimeterHit.hh"
 #include "B5DetectorConstruction.hh"
 
@@ -50,14 +50,14 @@ G4ThreadLocal G4Allocator<B5HadCalorimeterHit>* B5HadCalorimeterHitAllocator;
 
 B5HadCalorimeterHit::B5HadCalorimeterHit()
 : G4VHit(), 
-  fColumnID(-1), fRowID(-1), fEdep(0.), fPos(0)
+  fColumnID(-1), fRowID(-1), fEdep(0.), fPos(0), fpdg(0.)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5HadCalorimeterHit::B5HadCalorimeterHit(G4int columnID,G4int rowID)
 : G4VHit(), 
-  fColumnID(columnID), fRowID(rowID), fEdep(0.), fPos(0)
+  fColumnID(columnID), fRowID(rowID), fEdep(0.), fPos(0), fpdg(0.)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -73,7 +73,8 @@ B5HadCalorimeterHit::B5HadCalorimeterHit(const B5HadCalorimeterHit &right)
   fRowID(right.fRowID),
   fEdep(right.fEdep),
   fPos(right.fPos),
-  fRot(right.fRot)
+  fRot(right.fRot),
+  fpdg(right.fpdg)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -86,6 +87,7 @@ const B5HadCalorimeterHit& B5HadCalorimeterHit::operator=(
   fEdep = right.fEdep;
   fPos = right.fPos;
   fRot = right.fRot;
+  fpdg = right.fpdg;
   return *this;
 }
 
@@ -137,6 +139,10 @@ const std::map<G4String,G4AttDef>* B5HadCalorimeterHit::GetAttDefs() const
     (*store)["Pos"] 
       = G4AttDef("Pos", "Position", "Physics","G4BestUnit",
                  "G4ThreeVector");
+                 
+    (*store)["PDG"] 
+      = G4AttDef("PDG", "ParticlePDG", "Physics","G4BestUnit",
+                 "G4int");             
   }
   return store;
 }
@@ -158,6 +164,8 @@ std::vector<G4AttValue>* B5HadCalorimeterHit::CreateAttValues() const
     ->push_back(G4AttValue("Energy",G4BestUnit(fEdep,"Energy"),""));
   values
     ->push_back(G4AttValue("Pos",G4BestUnit(fPos,"Length"),""));
+  values
+    ->push_back(G4AttValue("PDG",G4BestUnit(fpdg,"PDG"),""));  
   
   return values;
 }
@@ -167,7 +175,7 @@ std::vector<G4AttValue>* B5HadCalorimeterHit::CreateAttValues() const
 void B5HadCalorimeterHit::Print()
 {
   G4cout << "  Cell[" << fRowID << ", " << fColumnID << "] "
-    << fEdep/MeV << " (MeV) " << fPos << G4endl;
+    << fEdep/MeV << " (MeV) " << fPos << fpdg << G4endl;
 }  
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

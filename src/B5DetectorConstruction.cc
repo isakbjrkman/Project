@@ -79,12 +79,9 @@ B5DetectorConstruction::B5DetectorConstruction()
   fWirePlane1Logical(nullptr), fWirePlane2Logical(nullptr),
   fCellLogical(nullptr), fHadCalScintiLogical(nullptr),
   fMagneticLogical(nullptr),
-  fVisAttributes(),
-  fArmAngle(30.*deg), fArmRotation(nullptr), fSecondArmPhys(nullptr)
+  fVisAttributes()
 
 {
-  fArmRotation = new G4RotationMatrix();
-  fArmRotation->rotateY(fArmAngle);
   
   // define commands for this class
   DefineCommands();
@@ -94,7 +91,6 @@ B5DetectorConstruction::B5DetectorConstruction()
 
 B5DetectorConstruction::~B5DetectorConstruction()
 {
-  delete fArmRotation;
   delete fMessenger;
   
   for (auto visAttributes: fVisAttributes) {
@@ -108,12 +104,15 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
 {
   // Construct materials
   ConstructMaterials();
-  G4NistManager* nist = G4NistManager::Instance();
+  auto nist = G4NistManager::Instance();
+
+  // Air 
+  auto air = nist->FindOrBuildMaterial("G4_AIR");
   
   // Envelope parameters
   //
   G4double env_sizeXY = 10*cm, env_sizeZ = 10*cm;
-  auto air = G4Material::GetMaterial("G4_AIR");
+  
   
   // Option to switch on/off checking of volumes overlaps
   //
@@ -162,12 +161,10 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
  
-  
-  
   //     
   // Shape 1
   //  
-  G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE");
+  G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE"); //SILICON_DIOXIDE
   G4ThreeVector pos1 = G4ThreeVector(-13.255*mm, 13.255*mm, 0*mm);
         
   // Conical section shape       
@@ -191,8 +188,6 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
-
-
 
   //     
   // Shape 2
@@ -410,60 +405,10 @@ void B5DetectorConstruction::ConstructSDandField()
 
 void B5DetectorConstruction::ConstructMaterials()
 {
-  auto nistManager = G4NistManager::Instance();
-
-  // Air 
-  nistManager->FindOrBuildMaterial("G4_AIR");
-  
-  // Argon gas
-  nistManager->FindOrBuildMaterial("G4_Ar");
-  // With a density different from the one defined in NIST
-  // G4double density = 1.782e-03*g/cm3; 
-  // nistManager->BuildMaterialWithNewDensity("B5_Ar","G4_Ar",density);
-  // !! cases segmentation fault
-
-  // Scintillator
-  // (PolyVinylToluene, C_9H_10)
-  nistManager->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
-  
-  // CsI
-  nistManager->FindOrBuildMaterial("G4_CESIUM_IODIDE");
-  
-  // Lead
-  nistManager->FindOrBuildMaterial("G4_Pb");
-  
-  // Vacuum "Galactic"
-  // nistManager->FindOrBuildMaterial("G4_Galactic");
-
-  // Vacuum "Air with low density"
-  // auto air = G4Material::GetMaterial("G4_AIR");
-  // G4double density = 1.0e-5*air->GetDensity();
-  // nistManager
-  //   ->BuildMaterialWithNewDensity("Air_lowDensity", "G4_AIR", density);
-
-  G4cout << G4endl << "The materials defined are : " << G4endl << G4endl;
-  G4cout << *(G4Material::GetMaterialTable()) << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B5DetectorConstruction::SetArmAngle(G4double val)
-{
-  if (!fSecondArmPhys) {
-      G4cerr << "Detector has not yet been constructed." << G4endl;
-      return;
-  }
-  
-  fArmAngle = val;
-  *fArmRotation = G4RotationMatrix();  // make it unit vector
-  fArmRotation->rotateY(fArmAngle);
-  auto x = -5.*m * std::sin(fArmAngle);
-  auto z = 5.*m * std::cos(fArmAngle);
-  fSecondArmPhys->SetTranslation(G4ThreeVector(x,0.,z));
-  
-  // tell G4RunManager that we change the geometry
-  G4RunManager::GetRunManager()->GeometryHasBeenModified();
-}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -473,8 +418,6 @@ void B5DetectorConstruction::DefineCommands()
   fMessenger = new G4GenericMessenger(this, 
                                       "/B5/detector/", 
                                       "Detector control");
-
-  // armAngle command
 
 }
 

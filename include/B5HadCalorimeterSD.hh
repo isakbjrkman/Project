@@ -26,7 +26,7 @@
 //
 /// \file B5HadCalorimeterSD.hh
 /// \brief Definition of the B5HadCalorimeterSD class
-
+#include "G4ParticleDefinition.hh"
 #ifndef B5HadCalorimeterSD_h
 #define B5HadCalorimeterSD_h 1
 

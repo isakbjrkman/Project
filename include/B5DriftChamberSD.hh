@@ -29,11 +29,11 @@
 
 #ifndef B5DriftChamberSD_h
 #define B5DriftChamberSD_h 1
-
+#include "G4ParticleDefinition.hh"
 #include "G4VSensitiveDetector.hh"
 
 #include "B5DriftChamberHit.hh"
-
+class G4Track;
 class G4Step;
 class G4HCofThisEvent;
 class G4TouchableHistory;

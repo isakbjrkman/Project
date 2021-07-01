@@ -26,11 +26,13 @@
 //
 /// \file B5HadCalorimeterSD.cc
 /// \brief Implementation of the B5HadCalorimeterSD class
-
+#include "G4ParticleDefinition.hh"
 #include "B5HadCalorimeterSD.hh"
 #include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
+#include "G4VTrajectory.hh"
+#include "G4Trajectory.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4TouchableHistory.hh"
 #include "G4Track.hh"
@@ -83,6 +85,7 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   auto columnNo = touchable->GetCopyNumber(3);
   auto hitID = kNofHadRows*columnNo+rowNo;
   auto hit = (*fHitsCollection)[hitID];
+  auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   
   // check if it is first touch
   if (hit->GetColumnID()<0) {
@@ -93,8 +96,10 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     transform.Invert();
     hit->SetRot(transform.NetRotation());
     hit->SetPos(transform.NetTranslation());
+    hit->SetPDG(encoding);
   }
   // add energy deposition
+  hit->SetPDG(encoding);
   hit->AddEdep(edep);
   
   return true;

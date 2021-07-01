@@ -29,7 +29,7 @@
 
 #ifndef B5DriftChamberHit_h
 #define B5DriftChamberHit_h 1
-
+#include "G4ParticleDefinition.hh"
 #include "G4Trajectory.hh"
 #include "G4VHit.hh"
 #include "G4THitsCollection.hh"

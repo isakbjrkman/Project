@@ -162,8 +162,10 @@ CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.0
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.icc
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NullModel.hh
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateQt.hh
+CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateX.hh
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLQt.hh
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredQt.hh
+CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredX.hh
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
 CMakeFiles/exampleB5.dir/exampleB5.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParameterisedNavigation.hh
@@ -697,7 +699,9 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingManager.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingMessenger.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryContainer.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TransportationManager.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TransportationManager.icc
@@ -738,6 +742,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserDetectorConstruction.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserEventInformation.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
@@ -767,6 +772,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: ../include/B5DriftChamberHit.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: ../src/B5DriftChamberHit.cc
@@ -805,23 +811,71 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Circle.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Color.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Colour.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DataVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DataVector.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DynamicParticle.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4DynamicParticle.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElectronOccupancy.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Element.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElementTable.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElementVector.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EnvironmentUtils.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exception.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ExceptionSeverity.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exp.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4GeomSplitter.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4GlobalConfig.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IonisParamElm.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IonisParamMat.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Isotope.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IsotopeVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Log.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LorentzVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Material.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesIndex.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesTable.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesTable.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertyVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialTable.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleMomentum.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsModelCatalog.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsOrderedFreeVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsVector.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsVectorType.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Point3D.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Profiler.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Profiler.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ReferenceCountedHandle.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Region.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Region.icc
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4RotationMatrix.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SandiaTable.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Step.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Step.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4StepPoint.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4StepPoint.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4StepStatus.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SteppingControl.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.icc
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SystemOfUnits.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4THitsCollection.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Threading.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ThreeVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TouchableHandle.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackStatus.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TypeKey.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
@@ -837,18 +891,29 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VMarker.icc
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VPhysicalVolume.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VPhysicalVolume.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VVisManager.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VisAttributes.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VisAttributes.icc
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Visible.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Visible.icc
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Globals.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Types.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Utility.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/geomdefs.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/geomwdefs.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/globals.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/graphics_reps_defs.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/pwdefs.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: ../include/B5DriftChamberHit.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: ../include/B5DriftChamberSD.hh
@@ -959,6 +1024,8 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.icc
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackStatus.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VExceptionHandler.hh
@@ -971,6 +1038,8 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSensitiveDetector.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
+CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Globals.hh
@@ -983,6 +1052,7 @@ CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 
 CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o: ../include/B5EmCalorimeterHit.hh
 CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o: ../src/B5EmCalorimeterHit.cc
@@ -1432,7 +1502,9 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/gea
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingManager.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackingMessenger.hh
+CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryContainer.hh
+CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UIcommand.hh
@@ -1474,6 +1546,7 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/gea
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserEventInformation.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VVolumeMaterialScanner.hh
@@ -1560,6 +1633,7 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/gea
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tools/wroot/tree
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tools/wroot/wbuf
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: ../include/B5DetectorConstruction.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: ../include/B5HadCalorimeterHit.hh
@@ -1617,6 +1691,9 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/gean
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Normal3D.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleDefinition.icc
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Plane3D.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Point3D.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Polyhedron.hh
@@ -1662,6 +1739,7 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/gean
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/geomwdefs.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/globals.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/graphics_reps_defs.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/pwdefs.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 
@@ -1775,6 +1853,8 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Track.icc
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackStatus.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrackVector.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Trajectory.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4TrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Transform3D.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VExceptionHandler.hh
@@ -1787,6 +1867,8 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSensitiveDetector.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectoryPoint.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VUserTrackInformation.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/PTL/Globals.hh
@@ -1799,6 +1881,7 @@ CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
+CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 
 CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o: ../include/B5HodoscopeHit.hh
 CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o: ../src/B5HodoscopeHit.cc

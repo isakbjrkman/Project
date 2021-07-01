@@ -26,7 +26,7 @@
 //
 /// \file B5DriftChamberSD.cc
 /// \brief Implementation of the B5DriftChamber class
-
+#include "G4ParticleDefinition.hh"
 #include "B5DriftChamberSD.hh"
 #include "B5DriftChamberHit.hh"
 
@@ -43,7 +43,7 @@
 
 B5DriftChamberSD::B5DriftChamberSD(G4String name)
 : G4VSensitiveDetector(name), 
-  fHitsCollection(nullptr), fHCID(-1), fTrack(nullptr)
+  fHitsCollection(nullptr), fHCID(-1)//, fTrack(nullptr)
 {
   collectionName.insert("driftChamberColl");
 }
@@ -73,6 +73,7 @@ G4bool B5DriftChamberSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   auto charge = step->GetTrack()->GetDefinition()->GetPDGCharge();
   if (charge==0.) return true;
   
+  auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   auto preStepPoint = step->GetPreStepPoint();
 
   auto touchable = step->GetPreStepPoint()->GetTouchable();
@@ -87,7 +88,7 @@ G4bool B5DriftChamberSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   hit->SetWorldPos(worldPos);
   hit->SetLocalPos(localPos);
   hit->SetTime(preStepPoint->GetGlobalTime());
-  hit->SetPDG(fTrack->GetDefinition()->GetPDGEncoding()); //added
+  hit->SetPDG(encoding); //added
   
   fHitsCollection->insert(hit);
   

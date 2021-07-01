@@ -28,7 +28,7 @@
 /// \brief Implementation of the B5DriftChamberHit class
 
 #include "B5DriftChamberHit.hh"
-
+#include "G4ParticleDefinition.hh"
 #include "G4VVisManager.hh"
 #include "G4VisAttributes.hh"
 #include "G4Circle.hh"
@@ -49,14 +49,14 @@ G4ThreadLocal G4Allocator<B5DriftChamberHit>* B5DriftChamberHitAllocator;
 
 B5DriftChamberHit::B5DriftChamberHit()
 : G4VHit(), 
-  fLayerID(-1), fTime(0.), fLocalPos(0), fWorldPos(0), fpdg(0)
+  fLayerID(-1), fTime(0.), fLocalPos(0), fWorldPos(0), fpdg(0.)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5DriftChamberHit::B5DriftChamberHit(G4int layerID)
 : G4VHit(), 
-  fLayerID(layerID), fTime(0.), fLocalPos(0), fWorldPos(0), fpdg(0)
+  fLayerID(layerID), fTime(0.), fLocalPos(0), fWorldPos(0), fpdg(0.)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
