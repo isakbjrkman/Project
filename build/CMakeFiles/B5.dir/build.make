@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/isak/Desktop/Project-master
+CMAKE_SOURCE_DIR = /home/isak/Desktop/Project-master/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/isak/Desktop/Project-master/build
+CMAKE_BINARY_DIR = /home/isak/Desktop/Project-master/Project/build
 
 # Utility rule file for B5.
 
@@ -71,6 +71,6 @@ CMakeFiles/B5.dir/clean:
 .PHONY : CMakeFiles/B5.dir/clean
 
 CMakeFiles/B5.dir/depend:
-	cd /home/isak/Desktop/Project-master/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/isak/Desktop/Project-master /home/isak/Desktop/Project-master /home/isak/Desktop/Project-master/build /home/isak/Desktop/Project-master/build /home/isak/Desktop/Project-master/build/CMakeFiles/B5.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/isak/Desktop/Project-master/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/isak/Desktop/Project-master/Project /home/isak/Desktop/Project-master/Project /home/isak/Desktop/Project-master/Project/build /home/isak/Desktop/Project-master/Project/build /home/isak/Desktop/Project-master/Project/build/CMakeFiles/B5.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/B5.dir/depend
 
