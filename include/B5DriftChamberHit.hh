@@ -83,6 +83,7 @@ class B5DriftChamberHit : public G4VHit
     void SetPDG(G4int p) { fpdg = p; }
     G4int GetPDG() const { return fpdg; }
     
+    
   private:
     G4int fLayerID;
     G4double fTime;

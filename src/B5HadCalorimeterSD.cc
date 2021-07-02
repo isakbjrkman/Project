@@ -31,6 +31,15 @@
 #include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
+#include "B5EventAction.hh"
+#include "G4Event.hh"
+#include "G4RunManager.hh"
+#include "G4EventManager.hh"
+#include "G4VHitsCollection.hh"
+#include "G4SystemOfUnits.hh"
+#include "g4analysis.hh"
+
+
 #include "G4VTrajectory.hh"
 #include "G4Trajectory.hh"
 #include "G4HCofThisEvent.hh"
@@ -77,6 +86,7 @@ void B5HadCalorimeterSD::Initialize(G4HCofThisEvent* hce)
 
 G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
 {
+
   auto edep = step->GetTotalEnergyDeposit();
   if (edep==0.) return true;
   
@@ -97,11 +107,19 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     hit->SetRot(transform.NetRotation());
     hit->SetPos(transform.NetTranslation());
     hit->SetPDG(encoding);
+    hit->SetX(transform.NetTranslation()(0));
+    hit->SetY(transform.NetTranslation()(1));
+    hit->SetZ(transform.NetTranslation()(2));
+    
   }
   // add energy deposition
   hit->SetPDG(encoding);
   hit->AddEdep(edep);
-  
+  auto depth = touchable->GetHistory()->GetDepth();
+  auto transform = touchable->GetHistory()->GetTransform(depth-2); // test. check which to include in if and which to leave out
+  hit->SetX(transform.NetTranslation()(0));
+  hit->SetY(transform.NetTranslation()(1));
+  hit->SetZ(transform.NetTranslation()(2));
   return true;
 }
 

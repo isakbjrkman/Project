@@ -86,6 +86,27 @@ class B5HadCalorimeterHit : public G4VHit
     void SetPDG(G4int p) { fpdg = p; }
     G4int GetPDG() const { return fpdg; }
     
+    void SetX(G4int x) { fx = x; }
+    G4int GetX() const { return fx; }
+    
+    void SetY(G4int y) { fy = y; }
+    G4int GetY() const { return fy; }
+    
+    void SetZ(G4int z) { fz = z; }
+    G4int GetZ() const { return fz; }
+    
+    void SetPX(G4double px) { fpx = px; }
+    G4int GetPX() const { return fpx; }
+    
+    void SetPY(G4double py) { fpy = py; }
+    G4int GetPY() const { return fpy; }
+    
+    void SetPZ(G4double pz) { fpz = pz; }
+    G4int GetPZ() const { return fpz; }
+    
+    void SetEvent(G4double e) { fEvent = e; }
+    G4int GetEvent() const { return fEvent; }
+    
   private:
     G4int fColumnID;
     G4int fRowID;
@@ -93,6 +114,13 @@ class B5HadCalorimeterHit : public G4VHit
     G4ThreeVector fPos;
     G4RotationMatrix fRot;
     G4int fpdg;
+    G4int fx;
+    G4int fy;
+    G4int fz;
+    G4double fpx;
+    G4double fpy;
+    G4double fpz;
+    G4int fEvent;
 };
 
 using B5HadCalorimeterHitsCollection = G4THitsCollection<B5HadCalorimeterHit>;

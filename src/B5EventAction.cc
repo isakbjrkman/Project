@@ -174,10 +174,10 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       // The EM and Had calorimeter hits are of different types
       if (iDet == 0) {
         auto hit = static_cast<B5EmCalorimeterHit*>(hc->GetHit(i));
-        edep = hit->GetEdep();
+        edep = hit->GetEdep(); //GetEdep
       } else {
         auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
-        edep = hit->GetEdep();
+        edep = hit->GetEdep(); //GetEdep
       }
       if ( edep > 0. ) {
         totalCalHit[iDet]++;
@@ -200,15 +200,78 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       analysisManager->FillNtupleDColumn(iDet + 4, hit->GetTime());
     }
   }
+
+   // HadCalorimeter hits
+  for (G4int iDet = 1; iDet < kDim; ++iDet) {
+    auto hc = GetHC(event, fCalHCID[iDet]);
+    if ( ! hc ) return;
+
+    for (unsigned int i = 0; i<1; ++i) {
+      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
+      // columns 6
+      analysisManager->FillNtupleDColumn(iDet + 5, hit->GetPDG());
+      G4cout << hit->GetPDG() << G4endl;
+    }
+  }
+  
+  for (G4int iDet = 1; iDet < kDim; ++iDet) {
+    auto hc = GetHC(event, fCalHCID[iDet]);
+    if ( ! hc ) return;
+
+    for (unsigned int i = 0; i<1; ++i) {
+      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
+      // columns 7,8,9
+      analysisManager->FillNtupleDColumn(iDet + 6, hit->GetX());
+      G4cout << hit->GetX() << G4endl;
+      analysisManager->FillNtupleDColumn(iDet + 7, hit->GetY());
+      G4cout << hit->GetY() << G4endl;
+      analysisManager->FillNtupleDColumn(iDet + 8, hit->GetZ());
+      G4cout << hit->GetZ() << G4endl;
+    }
+  }  
+  
+  
+  
+  
+  
+  
+  for (G4int iDet = 1; iDet < kDim; ++iDet) {
+    auto hc = GetHC(event, fCalHCID[iDet]);
+    if ( ! hc ) {
+    //hit->SetPX(0);
+    //hit->SetPY(0);
+    //hit->SetPZ(0)
+    
+    return;
+   } else {   
+    for (unsigned int i = 0; i<1; ++i) {
+      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
+      // columns 10,11,12
+      auto primary = event->GetPrimaryVertex(0)->GetPrimary(0);
+      hit->SetPX(primary->GetMomentum()(0));
+      hit->SetPY(primary->GetMomentum()(1));
+      hit->SetPZ(primary->GetMomentum()(2));
+      hit->SetEvent(event->GetEventID());
+      analysisManager->FillNtupleDColumn(iDet + 9, hit->GetPX());
+      G4cout << hit->GetPX() << G4endl;
+      analysisManager->FillNtupleDColumn(iDet + 10, hit->GetPY());
+      G4cout << hit->GetPY() << G4endl;
+      analysisManager->FillNtupleDColumn(iDet + 11, hit->GetPZ());
+      G4cout << hit->GetPZ() << G4endl;
+      analysisManager->FillNtupleDColumn(iDet + 12, hit->GetEvent());
+      G4cout << hit->GetEvent() << G4endl;
+    }
+   } 
+  }    
+  
   analysisManager->AddNtupleRow();
+
 
   //
   // Print diagnostics
   // 
-  
   auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
   if ( printModulo == 0 || event->GetEventID() % printModulo != 0) return;
-  
   auto primary = event->GetPrimaryVertex(0)->GetPrimary(0);
   G4cout 
     << G4endl
