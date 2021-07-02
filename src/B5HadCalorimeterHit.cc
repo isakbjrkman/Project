@@ -29,7 +29,6 @@
 #include "G4ParticleDefinition.hh"
 #include "B5HadCalorimeterHit.hh"
 #include "B5DetectorConstruction.hh"
-
 #include "G4VVisManager.hh"
 #include "G4VisAttributes.hh"
 #include "G4Box.hh"
