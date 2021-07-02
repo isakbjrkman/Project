@@ -26,6 +26,8 @@
 //
 /// \file B5EventAction.cc
 /// \brief Implementation of the B5EventAction class
+#include <iostream>
+#include <fstream>
 
 #include "B5EventAction.hh"
 #include "B5HodoscopeHit.hh"
@@ -131,14 +133,25 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
   }
 }     
 
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+G4int o = 0;
 
 void B5EventAction::EndOfEventAction(const G4Event* event)
 {
+if (o == 0) {
+std::ofstream myfile;
+  myfile.open("filename.txt", std::ofstream::app);
+  myfile << "Event_hitId_particlePDG_px_py_pz_x_y_z\n";
+  myfile.close();
+  o++;
+}
+
   //
   // Fill histograms & ntuple
   // 
-
+  std::ofstream myfile;
+  myfile.open("filename.txt", std::ofstream::app);
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
  
@@ -200,70 +213,79 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       analysisManager->FillNtupleDColumn(iDet + 4, hit->GetTime());
     }
   }
-
-   // HadCalorimeter hits
-  for (G4int iDet = 1; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fCalHCID[iDet]);
-    if ( ! hc ) return;
-
-    for (unsigned int i = 0; i<1; ++i) {
-      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
-      // columns 6
-      analysisManager->FillNtupleDColumn(iDet + 5, hit->GetPDG());
-      G4cout << hit->GetPDG() << G4endl;
-    }
-  }
-  
-  for (G4int iDet = 1; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fCalHCID[iDet]);
-    if ( ! hc ) return;
-
-    for (unsigned int i = 0; i<1; ++i) {
-      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
-      // columns 7,8,9
-      analysisManager->FillNtupleDColumn(iDet + 6, hit->GetX());
-      G4cout << hit->GetX() << G4endl;
-      analysisManager->FillNtupleDColumn(iDet + 7, hit->GetY());
-      G4cout << hit->GetY() << G4endl;
-      analysisManager->FillNtupleDColumn(iDet + 8, hit->GetZ());
-      G4cout << hit->GetZ() << G4endl;
-    }
-  }  
-  
-  
-  
-  
-  
-  
-  for (G4int iDet = 1; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fCalHCID[iDet]);
+    
+ 
+    auto hc = GetHC(event, fCalHCID[1]);
     if ( ! hc ) {
     //hit->SetPX(0);
     //hit->SetPY(0);
     //hit->SetPZ(0)
-    
     return;
    } else {   
-    for (unsigned int i = 0; i<1; ++i) {
-      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
+   
+      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(0));
       // columns 10,11,12
       auto primary = event->GetPrimaryVertex(0)->GetPrimary(0);
+      //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
       hit->SetPX(primary->GetMomentum()(0));
       hit->SetPY(primary->GetMomentum()(1));
       hit->SetPZ(primary->GetMomentum()(2));
       hit->SetEvent(event->GetEventID());
-      analysisManager->FillNtupleDColumn(iDet + 9, hit->GetPX());
+      //hit->SetHitId(hceID);
+      analysisManager->FillNtupleDColumn(1 + 9, hit->GetPX());
       G4cout << hit->GetPX() << G4endl;
-      analysisManager->FillNtupleDColumn(iDet + 10, hit->GetPY());
+      analysisManager->FillNtupleDColumn(1 + 10, hit->GetPY());
       G4cout << hit->GetPY() << G4endl;
-      analysisManager->FillNtupleDColumn(iDet + 11, hit->GetPZ());
+      analysisManager->FillNtupleDColumn(1 + 11, hit->GetPZ());
       G4cout << hit->GetPZ() << G4endl;
-      analysisManager->FillNtupleDColumn(iDet + 12, hit->GetEvent());
+      analysisManager->FillNtupleDColumn(1 + 12, hit->GetEvent());
       G4cout << hit->GetEvent() << G4endl;
+      //analysisManager->FillNtupleDColumn(iDet + 13, hit->GetHitId());
+      //G4cout << hit->GetHitId() << G4endl;
+      myfile << hit->GetEvent() << "_";
+      myfile << "HitID(to be added)_";
+      
+        // HadCalorimeter hits
+  for (G4int iDet = 1; iDet < kDim; ++iDet) {
+    auto hc2 = GetHC(event, fCalHCID[iDet]);
+    if ( ! hc2 ) return;
+
+    for (unsigned int i = 0; i<1; ++i) {
+      auto hit2 = static_cast<B5HadCalorimeterHit*>(hc2->GetHit(i));
+      // columns 6
+      analysisManager->FillNtupleDColumn(iDet + 5, hit2->GetPDG());
+      G4cout << hit2->GetPDG() << G4endl;
+      myfile << hit2->GetPDG() << "_";
     }
-   } 
-  }    
+  }      
+      myfile << hit->GetPX() << "_";
+      myfile << hit->GetPY() << "_";
+      myfile << hit->GetPZ() << "_";       
+  }
   
+    auto hc3 = GetHC(event, fCalHCID[1]);
+    if ( ! hc3 ) return;
+
+    for (unsigned int i = 0; i<1; ++i) {
+      auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(i));
+      // columns 7,8,9
+      analysisManager->FillNtupleDColumn(1 + 6, hit->GetX());
+      G4cout << hit->GetX() << G4endl;
+      analysisManager->FillNtupleDColumn(1 + 7, hit->GetY());
+      G4cout << hit->GetY() << G4endl;
+      analysisManager->FillNtupleDColumn(1 + 8, hit->GetZ());
+      G4cout << hit->GetZ() << G4endl;
+      myfile << hit->GetX() << "_";
+      myfile << hit->GetY() << "_";
+      myfile << hit->GetZ() << "\n";
+    }
+    
+   myfile.close();
+  
+
+  
+   
+
   analysisManager->AddNtupleRow();
 
 
@@ -281,22 +303,22 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   
   // Hodoscopes
   for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fHodHCID[iDet]);
-    if ( ! hc ) return;
-    G4cout << "Hodoscope " << iDet + 1 << " has " << hc->GetSize()  << " hits." << G4endl;
-    for (unsigned int i = 0; i<hc->GetSize(); ++i) {
-      hc->GetHit(i)->Print();
+    auto hc4 = GetHC(event, fHodHCID[iDet]);
+    if ( ! hc4 ) return;
+    G4cout << "Hodoscope " << iDet + 1 << " has " << hc4->GetSize()  << " hits." << G4endl;
+    for (unsigned int i = 0; i<hc4->GetSize(); ++i) {
+      hc4->GetHit(i)->Print();
     }
   }
 
   // Drift chambers
   for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fDriftHCID[iDet]);
-    if ( ! hc ) return;
-    G4cout << "Drift Chamber " << iDet + 1 << " has " <<  hc->GetSize()  << " hits." << G4endl;
+    auto hc5 = GetHC(event, fDriftHCID[iDet]);
+    if ( ! hc5 ) return;
+    G4cout << "Drift Chamber " << iDet + 1 << " has " <<  hc5->GetSize()  << " hits." << G4endl;
     for (auto layer = 0; layer < kNofChambers; ++layer) {
-      for (unsigned int i = 0; i < hc->GetSize(); i++) {
-        auto hit = static_cast<B5DriftChamberHit*>(hc->GetHit(i));
+      for (unsigned int i = 0; i < hc5->GetSize(); i++) {
+        auto hit = static_cast<B5DriftChamberHit*>(hc5->GetHit(i));
         if (hit->GetLayerID() == layer) hit->Print();
       }
     }

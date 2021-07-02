@@ -90,9 +90,10 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
     analysisManager->CreateNtupleDColumn("PY");      // column Id = 11
     analysisManager->CreateNtupleDColumn("PZ");      // column Id = 12
     analysisManager->CreateNtupleDColumn("Event");    // column Id = 13
-    analysisManager                                   // column Id = 14
-      ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 
+    analysisManager->CreateNtupleDColumn("HitId");    // column Id = 14
     analysisManager                                   // column Id = 15
+      ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 
+    analysisManager                                   // column Id = 16
       ->CreateNtupleDColumn("HCEnergyVector", fEventAction->GetHadCalEdep());
     analysisManager->FinishNtuple();
   }
