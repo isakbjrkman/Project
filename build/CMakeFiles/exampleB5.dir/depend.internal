@@ -452,7 +452,6 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  ../include/B5HadCalorimeterSD.hh
  ../include/B5HodoscopeHit.hh
  ../include/B5HodoscopeSD.hh
- ../include/B5MagneticField.hh
  /home/isak/Desktop/Project-master/Project/src/B5DetectorConstruction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
@@ -541,7 +540,6 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Box.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Box.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4CSGSolid.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ChargeState.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ClassificationOfNewTrack.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4CollectionNameVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Color.hh
@@ -556,15 +554,12 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElementTable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ElementVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EnvironmentUtils.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EquationOfMotion.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EquationOfMotion.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Event.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EventManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exception.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ExceptionSeverity.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exp.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4FastVector.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Field.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4FieldManager.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4FieldManager.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ForceCondition.hh
@@ -590,9 +585,6 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LorentzVector.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Mag_EqRhs.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Mag_UsualEqRhs.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MagneticField.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Material.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesIndex.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesTable.hh
@@ -2327,38 +2319,6 @@ CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
-CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o
- ../include/B5MagneticField.hh
- /home/isak/Desktop/Project-master/Project/src/B5MagneticField.cc
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Utility/defs.h
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Vector/ThreeVector.h
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Vector/ThreeVector.icc
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4AnyMethod.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4AnyType.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ApplicationState.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4EnvironmentUtils.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Exception.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ExceptionSeverity.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Field.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4GenericMessenger.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4GlobalConfig.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MagneticField.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.icc
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SystemOfUnits.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ThreeVector.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Types.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UIcommand.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UIdirectory.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UImessenger.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UIparameter.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4UItokenNum.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VExceptionHandler.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ios.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/globals.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/templates.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o
  ../include/B5PrimaryGeneratorAction.hh
  /home/isak/Desktop/Project-master/Project/src/B5PrimaryGeneratorAction.cc

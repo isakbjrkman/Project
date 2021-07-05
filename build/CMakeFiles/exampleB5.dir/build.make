@@ -226,22 +226,9 @@ CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5HodoscopeSD.cc -o CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.s
 
-CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o: CMakeFiles/exampleB5.dir/flags.make
-CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o: ../src/B5MagneticField.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5MagneticField.cc
-
-CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5MagneticField.cc > CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.i
-
-CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5MagneticField.cc -o CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.s
-
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o: CMakeFiles/exampleB5.dir/flags.make
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o: ../src/B5PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5PrimaryGeneratorAction.cc
 
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.i: cmake_force
@@ -254,7 +241,7 @@ CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.s: cmake_force
 
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o: CMakeFiles/exampleB5.dir/flags.make
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o: ../src/B5RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5RunAction.cc
 
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.i: cmake_force
@@ -280,7 +267,6 @@ exampleB5_OBJECTS = \
 "CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o" \
-"CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
 
@@ -300,7 +286,6 @@ exampleB5: CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o
-exampleB5: CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/build.make
@@ -351,7 +336,7 @@ exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4global.
 exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4clhep.so
 exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4ptl.so.0.0.2
 exampleB5: CMakeFiles/exampleB5.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable exampleB5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable exampleB5"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/exampleB5.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

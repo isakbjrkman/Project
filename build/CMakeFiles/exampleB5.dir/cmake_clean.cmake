@@ -12,7 +12,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o"
-  "CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
   "exampleB5"

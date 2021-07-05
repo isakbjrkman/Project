@@ -533,33 +533,6 @@ src/B5HodoscopeSD.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.s
 .PHONY : src/B5HodoscopeSD.cc.s
 
-src/B5MagneticField.o: src/B5MagneticField.cc.o
-
-.PHONY : src/B5MagneticField.o
-
-# target to build an object file
-src/B5MagneticField.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.o
-.PHONY : src/B5MagneticField.cc.o
-
-src/B5MagneticField.i: src/B5MagneticField.cc.i
-
-.PHONY : src/B5MagneticField.i
-
-# target to preprocess a source file
-src/B5MagneticField.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.i
-.PHONY : src/B5MagneticField.cc.i
-
-src/B5MagneticField.s: src/B5MagneticField.cc.s
-
-.PHONY : src/B5MagneticField.s
-
-# target to generate assembly for a file
-src/B5MagneticField.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5MagneticField.cc.s
-.PHONY : src/B5MagneticField.cc.s
-
 src/B5PrimaryGeneratorAction.o: src/B5PrimaryGeneratorAction.cc.o
 
 .PHONY : src/B5PrimaryGeneratorAction.o
@@ -667,9 +640,6 @@ help:
 	@echo "... src/B5HodoscopeSD.o"
 	@echo "... src/B5HodoscopeSD.i"
 	@echo "... src/B5HodoscopeSD.s"
-	@echo "... src/B5MagneticField.o"
-	@echo "... src/B5MagneticField.i"
-	@echo "... src/B5MagneticField.s"
 	@echo "... src/B5PrimaryGeneratorAction.o"
 	@echo "... src/B5PrimaryGeneratorAction.i"
 	@echo "... src/B5PrimaryGeneratorAction.s"
