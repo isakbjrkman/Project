@@ -80,20 +80,18 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
     analysisManager->CreateNtupleIColumn("Dc2Hits");  // column Id = 1
     analysisManager->CreateNtupleDColumn("ECEnergy"); // column Id = 2
     analysisManager->CreateNtupleDColumn("HCEnergy"); // column Id = 3
-    analysisManager->CreateNtupleDColumn("Time1");    // column Id = 4
-    analysisManager->CreateNtupleDColumn("Time2");    // column Id = 5
-    analysisManager->CreateNtupleDColumn("PDG");      // column Id = 6
-    analysisManager->CreateNtupleDColumn("X");      // column Id = 7
-    analysisManager->CreateNtupleDColumn("Y");      // column Id = 8
-    analysisManager->CreateNtupleDColumn("Z");      // column Id = 9
-    analysisManager->CreateNtupleDColumn("PX");      // column Id = 10
-    analysisManager->CreateNtupleDColumn("PY");      // column Id = 11
-    analysisManager->CreateNtupleDColumn("PZ");      // column Id = 12
-    analysisManager->CreateNtupleDColumn("Event");    // column Id = 13
-    analysisManager->CreateNtupleDColumn("HitId");    // column Id = 14
-    analysisManager                                   // column Id = 15
+    analysisManager->CreateNtupleDColumn("PDG");      // column Id = 4
+    analysisManager->CreateNtupleDColumn("X");      // column Id = 5
+    analysisManager->CreateNtupleDColumn("Y");      // column Id = 6
+    analysisManager->CreateNtupleDColumn("Z");      // column Id = 7
+    analysisManager->CreateNtupleDColumn("PX");      // column Id = 8
+    analysisManager->CreateNtupleDColumn("PY");      // column Id = 9
+    analysisManager->CreateNtupleDColumn("PZ");      // column Id = 10
+    analysisManager->CreateNtupleDColumn("Event");    // column Id = 11
+    analysisManager->CreateNtupleDColumn("HitId");    // column Id = 12
+    analysisManager                                   // column Id = 13
       ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 
-    analysisManager                                   // column Id = 16
+    analysisManager                                   // column Id = 14
       ->CreateNtupleDColumn("HCEnergyVector", fEventAction->GetHadCalEdep());
     analysisManager->FinishNtuple();
   }

@@ -64,10 +64,6 @@ class B5DetectorConstruction : public G4VUserDetectorConstruction
 
     G4GenericMessenger* fMessenger;
     
-    static G4ThreadLocal G4FieldManager* fFieldMgr;
-    
-    G4LogicalVolume* fHodoscope1Logical;
-    G4LogicalVolume* fHodoscope2Logical;
     G4LogicalVolume* fWirePlane1Logical;
     G4LogicalVolume* fWirePlane2Logical;
     G4LogicalVolume* fCellLogical;

@@ -28,8 +28,7 @@
 /// \brief Implementation of the B5DetectorConstruction class
 
 #include "B5DetectorConstruction.hh"
-#include "B5CellParameterisation.hh"
-#include "B5HodoscopeSD.hh"
+//#include "B5HodoscopeSD.hh"
 #include "B5DriftChamberSD.hh"
 #include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
@@ -67,9 +66,9 @@
 B5DetectorConstruction::B5DetectorConstruction()
 : G4VUserDetectorConstruction(), 
   fMessenger(nullptr),
-  fHodoscope1Logical(nullptr), fHodoscope2Logical(nullptr),
+  //fHodoscope1Logical(nullptr), fHodoscope2Logical(nullptr),
   fWirePlane1Logical(nullptr), fWirePlane2Logical(nullptr),
-  fCellLogical(nullptr), fHadCalScintiLogical(nullptr),
+  fHadCalScintiLogical(nullptr),
   fVisAttributes()
 
 {
@@ -348,8 +347,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking                 
                                                           
                                   
-  
-  
+ 
   // return the world physical volume ----------------------------------------
   
   return worldPhysical;
@@ -363,14 +361,14 @@ void B5DetectorConstruction::ConstructSDandField()
   auto sdManager = G4SDManager::GetSDMpointer();
   G4String SDname;
   
-  auto hodoscope1 = new B5HodoscopeSD(SDname="/hodoscope1");
+  /*auto hodoscope1 = new B5HodoscopeSD(SDname="/hodoscope1");
   sdManager->AddNewDetector(hodoscope1);
   fWirePlane1Logical->SetSensitiveDetector(hodoscope1);
 
   auto hodoscope2 = new B5HodoscopeSD(SDname="/hodoscope2");
   sdManager->AddNewDetector(hodoscope2);
   fWirePlane1Logical->SetSensitiveDetector(hodoscope2);
-  
+ */ 
   auto chamber1 = new B5DriftChamberSD(SDname="/chamber1");
   sdManager->AddNewDetector(chamber1);
   fWirePlane1Logical->SetSensitiveDetector(chamber1);

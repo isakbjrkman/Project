@@ -49,6 +49,15 @@ int main(int argc,char** argv)
   if ( argc == 1 ) {
     ui = new G4UIExecutive(argc, argv);
   }
+  
+  
+std::ofstream myfile;
+  myfile.open("filename.txt");
+  myfile << "Event_hitId_particlePDG_px_py_pz_x_y_z\n";
+  myfile.close();
+  
+
+
 
   // Construct the default run manager
   //

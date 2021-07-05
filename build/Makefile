@@ -236,33 +236,6 @@ src/B5ActionInitialization.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.s
 .PHONY : src/B5ActionInitialization.cc.s
 
-src/B5CellParameterisation.o: src/B5CellParameterisation.cc.o
-
-.PHONY : src/B5CellParameterisation.o
-
-# target to build an object file
-src/B5CellParameterisation.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5CellParameterisation.cc.o
-.PHONY : src/B5CellParameterisation.cc.o
-
-src/B5CellParameterisation.i: src/B5CellParameterisation.cc.i
-
-.PHONY : src/B5CellParameterisation.i
-
-# target to preprocess a source file
-src/B5CellParameterisation.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5CellParameterisation.cc.i
-.PHONY : src/B5CellParameterisation.cc.i
-
-src/B5CellParameterisation.s: src/B5CellParameterisation.cc.s
-
-.PHONY : src/B5CellParameterisation.s
-
-# target to generate assembly for a file
-src/B5CellParameterisation.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5CellParameterisation.cc.s
-.PHONY : src/B5CellParameterisation.cc.s
-
 src/B5DetectorConstruction.o: src/B5DetectorConstruction.cc.o
 
 .PHONY : src/B5DetectorConstruction.o
@@ -479,60 +452,6 @@ src/B5HadCalorimeterSD.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.s
 .PHONY : src/B5HadCalorimeterSD.cc.s
 
-src/B5HodoscopeHit.o: src/B5HodoscopeHit.cc.o
-
-.PHONY : src/B5HodoscopeHit.o
-
-# target to build an object file
-src/B5HodoscopeHit.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.o
-.PHONY : src/B5HodoscopeHit.cc.o
-
-src/B5HodoscopeHit.i: src/B5HodoscopeHit.cc.i
-
-.PHONY : src/B5HodoscopeHit.i
-
-# target to preprocess a source file
-src/B5HodoscopeHit.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.i
-.PHONY : src/B5HodoscopeHit.cc.i
-
-src/B5HodoscopeHit.s: src/B5HodoscopeHit.cc.s
-
-.PHONY : src/B5HodoscopeHit.s
-
-# target to generate assembly for a file
-src/B5HodoscopeHit.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeHit.cc.s
-.PHONY : src/B5HodoscopeHit.cc.s
-
-src/B5HodoscopeSD.o: src/B5HodoscopeSD.cc.o
-
-.PHONY : src/B5HodoscopeSD.o
-
-# target to build an object file
-src/B5HodoscopeSD.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.o
-.PHONY : src/B5HodoscopeSD.cc.o
-
-src/B5HodoscopeSD.i: src/B5HodoscopeSD.cc.i
-
-.PHONY : src/B5HodoscopeSD.i
-
-# target to preprocess a source file
-src/B5HodoscopeSD.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.i
-.PHONY : src/B5HodoscopeSD.cc.i
-
-src/B5HodoscopeSD.s: src/B5HodoscopeSD.cc.s
-
-.PHONY : src/B5HodoscopeSD.s
-
-# target to generate assembly for a file
-src/B5HodoscopeSD.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HodoscopeSD.cc.s
-.PHONY : src/B5HodoscopeSD.cc.s
-
 src/B5PrimaryGeneratorAction.o: src/B5PrimaryGeneratorAction.cc.o
 
 .PHONY : src/B5PrimaryGeneratorAction.o
@@ -607,9 +526,6 @@ help:
 	@echo "... src/B5ActionInitialization.o"
 	@echo "... src/B5ActionInitialization.i"
 	@echo "... src/B5ActionInitialization.s"
-	@echo "... src/B5CellParameterisation.o"
-	@echo "... src/B5CellParameterisation.i"
-	@echo "... src/B5CellParameterisation.s"
 	@echo "... src/B5DetectorConstruction.o"
 	@echo "... src/B5DetectorConstruction.i"
 	@echo "... src/B5DetectorConstruction.s"
@@ -634,12 +550,6 @@ help:
 	@echo "... src/B5HadCalorimeterSD.o"
 	@echo "... src/B5HadCalorimeterSD.i"
 	@echo "... src/B5HadCalorimeterSD.s"
-	@echo "... src/B5HodoscopeHit.o"
-	@echo "... src/B5HodoscopeHit.i"
-	@echo "... src/B5HodoscopeHit.s"
-	@echo "... src/B5HodoscopeSD.o"
-	@echo "... src/B5HodoscopeSD.i"
-	@echo "... src/B5HodoscopeSD.s"
 	@echo "... src/B5PrimaryGeneratorAction.o"
 	@echo "... src/B5PrimaryGeneratorAction.i"
 	@echo "... src/B5PrimaryGeneratorAction.s"

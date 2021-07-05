@@ -30,7 +30,7 @@
 #include <fstream>
 
 #include "B5EventAction.hh"
-#include "B5HodoscopeHit.hh"
+//#include "B5HodoscopeHit.hh"
 #include "B5DriftChamberHit.hh"
 #include "B5EmCalorimeterHit.hh"
 #include "B5HadCalorimeterHit.hh"
@@ -80,7 +80,7 @@ G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
 
 B5EventAction::B5EventAction()
 : G4UserEventAction(), 
-  fHodHCID  {{ -1, -1 }},
+  //fHodHCID  {{ -1, -1 }},
   fDriftHCID{{ -1, -1 }},
   fCalHCID  {{ -1, -1 }},
   fDriftHistoID{{ {{ -1, -1 }}, {{ -1, -1 }} }},
@@ -105,13 +105,11 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
   // Find hit collections and histogram Ids by names (just once)
   // and save them in the data members of this class
 
-  if (fHodHCID[0] == -1) {
+
     auto sdManager = G4SDManager::GetSDMpointer();
     auto analysisManager = G4AnalysisManager::Instance();
 
-    // hits collections names
-    array<G4String, kDim> hHCName 
-      = {{ "hodoscope1/hodoscopeColl", "hodoscope2/hodoscopeColl" }};
+    // hits collections names    
     array<G4String, kDim> dHCName 
       = {{ "chamber1/driftChamberColl", "chamber2/driftChamberColl" }};
     array<G4String, kDim> cHCName 
@@ -123,29 +121,21 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
 
     for (G4int iDet = 0; iDet < kDim; ++iDet) {
       // hit collections IDs
-      fHodHCID[iDet]   = sdManager->GetCollectionID(hHCName[iDet]);
       fDriftHCID[iDet] = sdManager->GetCollectionID(dHCName[iDet]);
       fCalHCID[iDet]   = sdManager->GetCollectionID(cHCName[iDet]);
       // histograms IDs
       fDriftHistoID[kH1][iDet] = analysisManager->GetH1Id(histoName[kH1][iDet]);
       fDriftHistoID[kH2][iDet] = analysisManager->GetH2Id(histoName[kH2][iDet]);
     }
-  }
+  
 }     
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-G4int o = 0;
+
 
 void B5EventAction::EndOfEventAction(const G4Event* event)
 {
-if (o == 0) {
-std::ofstream myfile;
-  myfile.open("filename.txt", std::ofstream::app);
-  myfile << "Event_hitId_particlePDG_px_py_pz_x_y_z\n";
-  myfile.close();
-  o++;
-}
 
   //
   // Fill histograms & ntuple
@@ -202,18 +192,6 @@ std::ofstream myfile;
     analysisManager->FillNtupleDColumn(iDet + 2, totalCalEdep[iDet]);
   }
 
-  // Hodoscopes hits
-  for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fHodHCID[iDet]);
-    if ( ! hc ) return;
-
-    for (unsigned int i = 0; i<hc->GetSize(); ++i) {
-      auto hit = static_cast<B5HodoscopeHit*>(hc->GetHit(i));
-      // columns 4, 5
-      analysisManager->FillNtupleDColumn(iDet + 4, hit->GetTime());
-    }
-  }
-    
  
     auto hc = GetHC(event, fCalHCID[1]);
     if ( ! hc ) {
@@ -253,7 +231,7 @@ std::ofstream myfile;
     for (unsigned int i = 0; i<1; ++i) {
       auto hit2 = static_cast<B5HadCalorimeterHit*>(hc2->GetHit(i));
       // columns 6
-      analysisManager->FillNtupleDColumn(iDet + 5, hit2->GetPDG());
+      analysisManager->FillNtupleDColumn(iDet + 3, hit2->GetPDG());
       G4cout << hit2->GetPDG() << G4endl;
       myfile << hit2->GetPDG() << "_";
     }
@@ -269,11 +247,11 @@ std::ofstream myfile;
     for (unsigned int i = 0; i<1; ++i) {
       auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(i));
       // columns 7,8,9
-      analysisManager->FillNtupleDColumn(1 + 6, hit->GetX());
+      analysisManager->FillNtupleDColumn(1 + 4, hit->GetX());
       G4cout << hit->GetX() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 7, hit->GetY());
+      analysisManager->FillNtupleDColumn(1 + 5, hit->GetY());
       G4cout << hit->GetY() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 8, hit->GetZ());
+      analysisManager->FillNtupleDColumn(1 + 7, hit->GetZ());
       G4cout << hit->GetZ() << G4endl;
       myfile << hit->GetX() << "_";
       myfile << hit->GetY() << "_";
@@ -300,16 +278,7 @@ std::ofstream myfile;
     << ">>> Event " << event->GetEventID() << " >>> Simulation truth : "
     << primary->GetG4code()->GetParticleName()
     << " " << primary->GetMomentum() << G4endl;
-  
-  // Hodoscopes
-  for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc4 = GetHC(event, fHodHCID[iDet]);
-    if ( ! hc4 ) return;
-    G4cout << "Hodoscope " << iDet + 1 << " has " << hc4->GetSize()  << " hits." << G4endl;
-    for (unsigned int i = 0; i<hc4->GetSize(); ++i) {
-      hc4->GetHit(i)->Print();
-    }
-  }
+
 
   // Drift chambers
   for (G4int iDet = 0; iDet < kDim; ++iDet) {

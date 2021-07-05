@@ -60,7 +60,7 @@ public:
     
 private:
     // hit collections Ids
-    std::array<G4int, kDim> fHodHCID;
+    //std::array<G4int, kDim> fHodHCID;  //leave uncommented?
     std::array<G4int, kDim> fDriftHCID;
     std::array<G4int, kDim> fCalHCID;
     // histograms Ids
