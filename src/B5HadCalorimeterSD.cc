@@ -107,9 +107,13 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     hit->SetRot(transform.NetRotation());
     hit->SetPos(transform.NetTranslation());
     hit->SetPDG(encoding);
-    hit->SetX(transform.NetTranslation()(0));
-    hit->SetY(transform.NetTranslation()(1));
-    hit->SetZ(transform.NetTranslation()(2));
+    
+    hit->SetX(step->GetTrack()->GetPosition()(0));                       //////////////////
+    hit->SetY(step->GetTrack()->GetPosition()(1));
+    hit->SetZ(step->GetTrack()->GetPosition()(2));
+    hit->SetPX(step->GetTrack()->GetMomentum()(0));                       //////////////////
+    hit->SetPY(step->GetTrack()->GetMomentum()(1));
+    hit->SetPZ(step->GetTrack()->GetMomentum()(2));
     
   }
   // add energy deposition
@@ -117,9 +121,6 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   hit->AddEdep(edep);
   auto depth = touchable->GetHistory()->GetDepth();
   auto transform = touchable->GetHistory()->GetTransform(depth-2); // test. check which to include in if and which to leave out
-  hit->SetX(transform.NetTranslation()(0));
-  hit->SetY(transform.NetTranslation()(1));
-  hit->SetZ(transform.NetTranslation()(2));
   return true;
 }
 

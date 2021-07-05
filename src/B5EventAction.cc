@@ -30,8 +30,7 @@
 #include <fstream>
 
 #include "B5EventAction.hh"
-//#include "B5HodoscopeHit.hh"
-#include "B5DriftChamberHit.hh"
+//#include "B5DriftChamberHit.hh"
 #include "B5EmCalorimeterHit.hh"
 #include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
@@ -81,7 +80,7 @@ G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
 B5EventAction::B5EventAction()
 : G4UserEventAction(), 
   //fHodHCID  {{ -1, -1 }},
-  fDriftHCID{{ -1, -1 }},
+  //fDriftHCID{{ -1, -1 }},
   fCalHCID  {{ -1, -1 }},
   fDriftHistoID{{ {{ -1, -1 }}, {{ -1, -1 }} }},
   fCalEdep{{ vector<G4double>(kNofEmCells, 0.), vector<G4double>(kNofHadCells, 0.) }}
@@ -110,8 +109,6 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
     auto analysisManager = G4AnalysisManager::Instance();
 
     // hits collections names    
-    array<G4String, kDim> dHCName 
-      = {{ "chamber1/driftChamberColl", "chamber2/driftChamberColl" }};
     array<G4String, kDim> cHCName 
       = {{ "EMcalorimeter/EMcalorimeterColl", "HadCalorimeter/HadCalorimeterColl" }};
 
@@ -121,7 +118,6 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
 
     for (G4int iDet = 0; iDet < kDim; ++iDet) {
       // hit collections IDs
-      fDriftHCID[iDet] = sdManager->GetCollectionID(dHCName[iDet]);
       fCalHCID[iDet]   = sdManager->GetCollectionID(cHCName[iDet]);
       // histograms IDs
       fDriftHistoID[kH1][iDet] = analysisManager->GetH1Id(histoName[kH1][iDet]);
@@ -145,9 +141,9 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
  
-  // Drift chambers hits
+  // Calorimeter hits
   for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fDriftHCID[iDet]);
+    auto hc = GetHC(event, fCalHCID[iDet]);
     if ( ! hc ) return;
 
     auto nhit = hc->GetSize();
@@ -156,8 +152,8 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
     analysisManager->FillNtupleIColumn(iDet, nhit);
   
     for (unsigned long i = 0; i < nhit; ++i) {
-      auto hit = static_cast<B5DriftChamberHit*>(hc->GetHit(i));
-      auto localPos = hit->GetLocalPos();
+      auto hit = static_cast<B5EmCalorimeterHit*>(hc->GetHit(i));
+      auto localPos = hit->GetPos();
       analysisManager->FillH2(fDriftHistoID[kH2][iDet], localPos.x(), localPos.y());
     }
   }
@@ -203,11 +199,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
    
       auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(0));
       // columns 10,11,12
-      auto primary = event->GetPrimaryVertex(0)->GetPrimary(0);
       //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
-      hit->SetPX(primary->GetMomentum()(0));
-      hit->SetPY(primary->GetMomentum()(1));
-      hit->SetPZ(primary->GetMomentum()(2));
       hit->SetEvent(event->GetEventID());
       //hit->SetHitId(hceID);
       analysisManager->FillNtupleDColumn(1 + 9, hit->GetPX());
@@ -247,11 +239,14 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
     for (unsigned int i = 0; i<1; ++i) {
       auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(i));
       // columns 7,8,9
+      //auto primary = event->GetPrimaryVertex(0)->GetPrimary(0);
+      //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
+  
       analysisManager->FillNtupleDColumn(1 + 4, hit->GetX());
       G4cout << hit->GetX() << G4endl;
       analysisManager->FillNtupleDColumn(1 + 5, hit->GetY());
       G4cout << hit->GetY() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 7, hit->GetZ());
+      analysisManager->FillNtupleDColumn(1 + 6, hit->GetZ());
       G4cout << hit->GetZ() << G4endl;
       myfile << hit->GetX() << "_";
       myfile << hit->GetY() << "_";
@@ -279,19 +274,6 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
     << primary->GetG4code()->GetParticleName()
     << " " << primary->GetMomentum() << G4endl;
 
-
-  // Drift chambers
-  for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc5 = GetHC(event, fDriftHCID[iDet]);
-    if ( ! hc5 ) return;
-    G4cout << "Drift Chamber " << iDet + 1 << " has " <<  hc5->GetSize()  << " hits." << G4endl;
-    for (auto layer = 0; layer < kNofChambers; ++layer) {
-      for (unsigned int i = 0; i < hc5->GetSize(); i++) {
-        auto hit = static_cast<B5DriftChamberHit*>(hc5->GetHit(i));
-        if (hit->GetLayerID() == layer) hit->Print();
-      }
-    }
-  }
 
   // Calorimeters
   array<G4String, kDim> calName = {{ "EM", "Hadron" }};

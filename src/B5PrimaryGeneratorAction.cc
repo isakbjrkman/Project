@@ -61,8 +61,9 @@ B5PrimaryGeneratorAction::B5PrimaryGeneratorAction()
   fElectron = particleTable->FindParticle("e-");
   
   // default particle kinematics
-  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-20.*cm));
-  fParticleGun->SetParticleDefinition(fElectron);
+  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-13.*cm));
+  fParticleGun->SetParticleDefinition(fMuon);
+
   
   // define commands for this class
   DefineCommands();
@@ -106,14 +107,17 @@ void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     particle = fParticleGun->GetParticleDefinition();
   }
   
-  auto pp = fMomentum + (G4UniformRand()-0.5)*fSigmaMomentum;
-  auto mass = particle->GetPDGMass();
-  auto ekin = std::sqrt(pp*pp+mass*mass)-mass;
-  fParticleGun->SetParticleEnergy(ekin);
+  //auto pp = fMomentum + (G4UniformRand()-0.5)*fSigmaMomentum;
+  //auto mass = particle->GetPDGMass();
+  //auto ekin = std::sqrt(pp*pp+mass*mass)-mass;
+  fParticleGun->SetParticleEnergy(1.*GeV);
   
-  auto angle = (G4UniformRand()-0.5)*fSigmaAngle;
+  //auto angle = (G4UniformRand()-0.5)*fSigmaAngle;
+  //fParticleGun->SetParticleMomentumDirection(
+    //              G4ThreeVector(std::sin(angle),0.,std::cos(angle)));
   fParticleGun->SetParticleMomentumDirection(
-                  G4ThreeVector(std::sin(angle),0.,std::cos(angle)));
+                   G4ThreeVector(0,0.1,1));
+  
   
   fParticleGun->GeneratePrimaryVertex(event);
 }

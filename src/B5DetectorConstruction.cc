@@ -29,7 +29,7 @@
 
 #include "B5DetectorConstruction.hh"
 //#include "B5HodoscopeSD.hh"
-#include "B5DriftChamberSD.hh"
+//#include "B5DriftChamberSD.hh"
 #include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
 
@@ -360,22 +360,6 @@ void B5DetectorConstruction::ConstructSDandField()
   // sensitive detectors -----------------------------------------------------
   auto sdManager = G4SDManager::GetSDMpointer();
   G4String SDname;
-  
-  /*auto hodoscope1 = new B5HodoscopeSD(SDname="/hodoscope1");
-  sdManager->AddNewDetector(hodoscope1);
-  fWirePlane1Logical->SetSensitiveDetector(hodoscope1);
-
-  auto hodoscope2 = new B5HodoscopeSD(SDname="/hodoscope2");
-  sdManager->AddNewDetector(hodoscope2);
-  fWirePlane1Logical->SetSensitiveDetector(hodoscope2);
- */ 
-  auto chamber1 = new B5DriftChamberSD(SDname="/chamber1");
-  sdManager->AddNewDetector(chamber1);
-  fWirePlane1Logical->SetSensitiveDetector(chamber1);
-
-  auto chamber2 = new B5DriftChamberSD(SDname="/chamber2");
-  sdManager->AddNewDetector(chamber2);
-  fWirePlane1Logical->SetSensitiveDetector(chamber2);
   
   auto emCalorimeter = new B5EmCalorimeterSD(SDname="/EMcalorimeter");
   sdManager->AddNewDetector(emCalorimeter);
