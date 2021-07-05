@@ -28,16 +28,13 @@
 /// \brief Implementation of the B5DetectorConstruction class
 
 #include "B5DetectorConstruction.hh"
-#include "B5MagneticField.hh"
 #include "B5CellParameterisation.hh"
 #include "B5HodoscopeSD.hh"
 #include "B5DriftChamberSD.hh"
 #include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
 
-#include "G4FieldManager.hh"
 #include "G4TransportationManager.hh"
-#include "G4Mag_UsualEqRhs.hh"
 
 #include "G4Material.hh"
 #include "G4Element.hh"
@@ -67,18 +64,12 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4ThreadLocal B5MagneticField* B5DetectorConstruction::fMagneticField = 0;
-G4ThreadLocal G4FieldManager* B5DetectorConstruction::fFieldMgr = 0;
-    
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 B5DetectorConstruction::B5DetectorConstruction()
 : G4VUserDetectorConstruction(), 
   fMessenger(nullptr),
   fHodoscope1Logical(nullptr), fHodoscope2Logical(nullptr),
   fWirePlane1Logical(nullptr), fWirePlane2Logical(nullptr),
   fCellLogical(nullptr), fHadCalScintiLogical(nullptr),
-  fMagneticLogical(nullptr),
   fVisAttributes()
 
 {
@@ -162,12 +153,11 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking
  
   //     
-  // Shape 1
+  // Quartz radiator 1
   //  
   G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE"); //SILICON_DIOXIDE
   G4ThreeVector pos1 = G4ThreeVector(-13.255*mm, 13.255*mm, 0*mm);
-        
-  // Conical section shape       
+             
 
   G4Box* solidShape1 =    
     new G4Box("Shape1", 
@@ -190,11 +180,9 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking
 
   //     
-  // Shape 2
+  // Quartz radiator 2
   //
-  G4ThreeVector pos2 = G4ThreeVector(-13.255*mm, -13.255*mm, 0*mm);
-
-  // Trapezoid shape       
+  G4ThreeVector pos2 = G4ThreeVector(-13.255*mm, -13.255*mm, 0*mm);  
   
   G4Box* solidShape2 =    
     new G4Box("Shape2",                      //its name
@@ -219,7 +207,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     
   G4ThreeVector pos3 = G4ThreeVector(13.255*mm, 13.255*mm, 0*mm);
         
-  // Conical section shape       
+  // Quartz radiator 3      
 
   G4Box* solidShape3 =    
     new G4Box("Shape3", 
@@ -243,7 +231,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   
    G4ThreeVector pos4 = G4ThreeVector(13.255*mm, -13.255*mm, 0*mm);
         
-  // Conical section shape       
+  // Quartz radiator 4       
 
   G4Box* solidShape4 =    
     new G4Box("Shape4", 
@@ -264,6 +252,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking
                   
      G4ThreeVector pos5 = G4ThreeVector(0*mm, 0*mm, 11*mm);
+      
         
   // Quartz window (monolithic)      
 
@@ -286,42 +275,13 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
+                
                                   
-                                       
+ //Photocathode                    
   
-    G4Material* shape6_mat = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
-  G4ThreeVector pos7 = G4ThreeVector(-13.255*mm, 13.255*mm, 12.015*mm);
+  G4Material* shape6_mat = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
         
- 
-   
-  //Photocathode
-  G4Material* shape11_mat = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
-  G4ThreeVector pos11 = G4ThreeVector(0.0*mm, 0.0*mm, 21.03*mm);
-           
-  G4Box* solidShape11 =    
-    new G4Box("Shape11", 
-    0.5*59.0*mm, 0.5*59.0*mm, 0.5*18.0*mm);
-                      
-  G4LogicalVolume* logicShape11 =                         
-    new G4LogicalVolume(solidShape11,         //its solid
-                        shape11_mat,          //its material
-                        "Shape11");           //its name
-                        
-  logicShape11->SetVisAttributes(greyVis);                        
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos11,                    //at position
-                    logicShape11,             //its logical volume
-                    "Shape11",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking                 
-                                                          
-                    
-                    
-  
-  // first arm
+ // first arm
   
   auto firstArmSolid 
     = new G4Box("firstArmBox",1*27.5*mm, 1*27.5*mm, 1*0.01*mm);
@@ -360,6 +320,36 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     false,0,checkOverlaps);
                     
  
+ 
+ 
+   
+  //MCP-PMT (ceramic)
+  G4Material* shape7_mat = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
+  G4ThreeVector pos7 = G4ThreeVector(0.0*mm, 0.0*mm, 21.03*mm);
+           
+  G4Box* solidShape7 =    
+    new G4Box("Shape7", 
+    0.5*59.0*mm, 0.5*59.0*mm, 0.5*18.0*mm);
+                      
+  G4LogicalVolume* logicShape7 =                         
+    new G4LogicalVolume(solidShape7,         //its solid
+                        shape7_mat,          //its material
+                        "Shape7");           //its name
+                        
+  logicShape7->SetVisAttributes(greyVis);                        
+               
+  new G4PVPlacement(0,                       //no rotation
+                    pos7,                    //at position
+                    logicShape7,             //its logical volume
+                    "Shape7",                //its name
+                    logicEnv,                //its mother  volume
+                    false,                   //no boolean operation
+                    0,                       //copy number
+                    checkOverlaps);          //overlaps checking                 
+                                                          
+                                  
+  
+  
   // return the world physical volume ----------------------------------------
   
   return worldPhysical;
@@ -410,15 +400,12 @@ void B5DetectorConstruction::ConstructMaterials()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void B5DetectorConstruction::DefineCommands()
 {
   // Define /B5/detector command directory using generic messenger class
   fMessenger = new G4GenericMessenger(this, 
                                       "/B5/detector/", 
                                       "Detector control");
-
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
