@@ -263,60 +263,6 @@ src/B5DetectorConstruction.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s
 .PHONY : src/B5DetectorConstruction.cc.s
 
-src/B5DriftChamberHit.o: src/B5DriftChamberHit.cc.o
-
-.PHONY : src/B5DriftChamberHit.o
-
-# target to build an object file
-src/B5DriftChamberHit.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o
-.PHONY : src/B5DriftChamberHit.cc.o
-
-src/B5DriftChamberHit.i: src/B5DriftChamberHit.cc.i
-
-.PHONY : src/B5DriftChamberHit.i
-
-# target to preprocess a source file
-src/B5DriftChamberHit.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.i
-.PHONY : src/B5DriftChamberHit.cc.i
-
-src/B5DriftChamberHit.s: src/B5DriftChamberHit.cc.s
-
-.PHONY : src/B5DriftChamberHit.s
-
-# target to generate assembly for a file
-src/B5DriftChamberHit.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.s
-.PHONY : src/B5DriftChamberHit.cc.s
-
-src/B5DriftChamberSD.o: src/B5DriftChamberSD.cc.o
-
-.PHONY : src/B5DriftChamberSD.o
-
-# target to build an object file
-src/B5DriftChamberSD.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o
-.PHONY : src/B5DriftChamberSD.cc.o
-
-src/B5DriftChamberSD.i: src/B5DriftChamberSD.cc.i
-
-.PHONY : src/B5DriftChamberSD.i
-
-# target to preprocess a source file
-src/B5DriftChamberSD.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.i
-.PHONY : src/B5DriftChamberSD.cc.i
-
-src/B5DriftChamberSD.s: src/B5DriftChamberSD.cc.s
-
-.PHONY : src/B5DriftChamberSD.s
-
-# target to generate assembly for a file
-src/B5DriftChamberSD.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.s
-.PHONY : src/B5DriftChamberSD.cc.s
-
 src/B5EmCalorimeterHit.o: src/B5EmCalorimeterHit.cc.o
 
 .PHONY : src/B5EmCalorimeterHit.o
@@ -529,12 +475,6 @@ help:
 	@echo "... src/B5DetectorConstruction.o"
 	@echo "... src/B5DetectorConstruction.i"
 	@echo "... src/B5DetectorConstruction.s"
-	@echo "... src/B5DriftChamberHit.o"
-	@echo "... src/B5DriftChamberHit.i"
-	@echo "... src/B5DriftChamberHit.s"
-	@echo "... src/B5DriftChamberSD.o"
-	@echo "... src/B5DriftChamberSD.i"
-	@echo "... src/B5DriftChamberSD.s"
 	@echo "... src/B5EmCalorimeterHit.o"
 	@echo "... src/B5EmCalorimeterHit.i"
 	@echo "... src/B5EmCalorimeterHit.s"

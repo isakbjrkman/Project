@@ -7,8 +7,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/isak/Desktop/Project-master/Project/exampleB5.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/exampleB5.cc.o"
   "/home/isak/Desktop/Project-master/Project/src/B5ActionInitialization.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o"
   "/home/isak/Desktop/Project-master/Project/src/B5DetectorConstruction.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o"
-  "/home/isak/Desktop/Project-master/Project/src/B5DriftChamberHit.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o"
-  "/home/isak/Desktop/Project-master/Project/src/B5DriftChamberSD.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o"
   "/home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterHit.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o"
   "/home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterSD.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o"
   "/home/isak/Desktop/Project-master/Project/src/B5EventAction.cc" "/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o"

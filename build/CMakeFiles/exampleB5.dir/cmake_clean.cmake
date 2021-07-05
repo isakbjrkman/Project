@@ -2,8 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/exampleB5.dir/exampleB5.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o"
-  "CMakeFiles/exampleB5.dir/src/B5DriftChamberHit.cc.o"
-  "CMakeFiles/exampleB5.dir/src/B5DriftChamberSD.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o"
   "CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o"
