@@ -62,7 +62,7 @@ B5PrimaryGeneratorAction::~B5PrimaryGeneratorAction()
 void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
 {
   auto particleTable = G4ParticleTable::GetParticleTable();
-  fParticleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,-12.*cm));
+  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-12.*cm));
   fParticleGun->SetParticleDefinition(particleTable->FindParticle("mu+"));
   fParticleGun->SetParticleEnergy(1.*GeV);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));

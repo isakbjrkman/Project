@@ -26,6 +26,7 @@
 //
 /// \file B5EventAction.cc
 /// \brief Implementation of the B5EventAction class
+/// \brief Implementation of the B5EventAction class
 #include <iostream>
 #include <fstream>
 
@@ -100,29 +101,15 @@ B5EventAction::~B5EventAction()
 
 void B5EventAction::BeginOfEventAction(const G4Event*)
 {
-  // Find hit collections and histogram Ids by names (just once)
-  // and save them in the data members of this class
-
-
     auto sdManager = G4SDManager::GetSDMpointer();
-    auto analysisManager = G4AnalysisManager::Instance();
-
     // hits collections names    
     array<G4String, kDim> cHCName 
       = {{ "EMcalorimeter/EMcalorimeterColl", "HadCalorimeter/HadCalorimeterColl" }};
 
-    // histograms names
-    array<array<G4String, kDim>, kDim> histoName 
-      = {{ {{ "Chamber1", "Chamber2" }}, {{ "Chamber1 XY", "Chamber2 XY" }} }};
-
     for (G4int iDet = 0; iDet < kDim; ++iDet) {
       // hit collections IDs
       fCalHCID[iDet]   = sdManager->GetCollectionID(cHCName[iDet]);
-      // histograms IDs
-      fDriftHistoID[kH1][iDet] = analysisManager->GetH1Id(histoName[kH1][iDet]);
-      fDriftHistoID[kH2][iDet] = analysisManager->GetH2Id(histoName[kH2][iDet]);
     }
-  
 }     
 
 
@@ -139,23 +126,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   myfile.open("filename.txt", std::ofstream::app);
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
- 
-  // Calorimeter hits
-  for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fCalHCID[iDet]);
-    if ( ! hc ) return;
 
-    auto nhit = hc->GetSize();
-    analysisManager->FillH1(fDriftHistoID[kH1][iDet], nhit );
-    // columns 0, 1
-    analysisManager->FillNtupleIColumn(iDet, nhit);
-  
-    for (unsigned long i = 0; i < nhit; ++i) {
-      auto hit = static_cast<B5EmCalorimeterHit*>(hc->GetHit(i));
-      auto localPos = hit->GetPos();
-      analysisManager->FillH2(fDriftHistoID[kH2][iDet], localPos.x(), localPos.y());
-    }
-  }
       
   // Em/Had Calorimeters hits
   array<G4int, kDim> totalCalHit = {{ 0, 0 }}; 
@@ -183,8 +154,8 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       }
       fCalEdep[iDet][i] = edep;
     }
-    // columns 2, 3
-    analysisManager->FillNtupleDColumn(iDet + 2, totalCalEdep[iDet]);
+    // columns 0, 1
+    analysisManager->FillNtupleDColumn(iDet + 0, totalCalEdep[iDet]);
   }
 
  
@@ -194,21 +165,18 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
    } else {   
    
       auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(0));
-      // columns 10,11,12
+      // columns 6->10
       //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
       hit->SetEvent(event->GetEventID());
       //hit->SetHitId(hceID);
-      analysisManager->FillNtupleDColumn(1 + 9, hit->GetPX());
+      analysisManager->FillNtupleDColumn(1 + 5, hit->GetPX());
       G4cout << hit->GetPX() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 10, hit->GetPY());
+      analysisManager->FillNtupleDColumn(1 + 6, hit->GetPY());
       G4cout << hit->GetPY() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 11, hit->GetPZ());
+      analysisManager->FillNtupleDColumn(1 + 7, hit->GetPZ());
       G4cout << hit->GetPZ() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 12, hit->GetEvent());
-      G4cout << hit->GetEvent() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 13, hit->GetHitID());
+      analysisManager->FillNtupleDColumn(1 + 8, hit->GetHitID());
       G4cout << hit->GetHitID() << G4endl;
-      myfile << hit->GetEvent() << "_";
       myfile << hit->GetHitID() << "_";
         // HadCalorimeter hits
   for (G4int iDet = 1; iDet < kDim; ++iDet) {
@@ -217,8 +185,8 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 
     for (unsigned int i = 0; i<1; ++i) {
       auto hit2 = static_cast<B5HadCalorimeterHit*>(hc2->GetHit(i));
-      // columns 6
-      analysisManager->FillNtupleDColumn(iDet + 3, hit2->GetPDG());
+      // columns 2
+      analysisManager->FillNtupleDColumn(iDet + 1, hit2->GetPDG());
       G4cout << hit2->GetPDG() << G4endl;
       myfile << hit2->GetPDG() << "_";
     }
@@ -233,15 +201,13 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 
     for (unsigned int i = 0; i<1; ++i) {
       auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(i));
-      // columns 7,8,9
-      //auto primary = event->GetPrimaryVertex(0)->GetPrimary(0);
-      //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
-  
-      analysisManager->FillNtupleDColumn(1 + 4, hit->GetX());
+      // columns 3,4,5
+   
+      analysisManager->FillNtupleDColumn(1 + 2, hit->GetX());
       G4cout << hit->GetX() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 5, hit->GetY());
+      analysisManager->FillNtupleDColumn(1 + 3, hit->GetY());
       G4cout << hit->GetY() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 6, hit->GetZ());
+      analysisManager->FillNtupleDColumn(1 + 4, hit->GetZ());
       G4cout << hit->GetZ() << G4endl;
       myfile << hit->GetX() << "_";
       myfile << hit->GetY() << "_";
@@ -275,5 +241,6 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
            << " Total Edep is " << totalCalEdep[iDet]/MeV << " (MeV)" << G4endl;
   }
 }
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

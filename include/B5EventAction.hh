@@ -24,12 +24,8 @@
 // ********************************************************************
 //
 //
-/// \file B5EventAction.hh
-/// \brief Definition of the B5EventAction class
-
 #ifndef B5EventAction_h
 #define B5EventAction_h 1
-
 
 #include "G4UserEventAction.hh"
 #include "globals.hh"
@@ -67,5 +63,4 @@ private:
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 #endif

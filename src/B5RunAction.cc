@@ -27,6 +27,7 @@
 /// \file B5RunAction.cc
 /// \brief Implementation of the B5RunAction class
 
+
 #include "B5RunAction.hh"
 #include "B5EventAction.hh"
 
@@ -58,26 +59,10 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
      // The default file type (root) can be redefined by the user.
 
   // Book histograms, ntuple
-  
-  // Creating 1D histograms
-  analysisManager
-    ->CreateH1("Chamber1","Drift Chamber 1 # Hits", 50, 0., 50); // h1 Id = 0
-  analysisManager
-    ->CreateH1("Chamber2","Drift Chamber 2 # Hits", 50, 0., 50); // h1 Id = 1
-  
-  // Creating 2D histograms
-  analysisManager                                                
-    ->CreateH2("Chamber1 XY","Drift Chamber 1 X vs Y",           // h2 Id = 0
-               50, -1000., 1000, 50, -300., 300.); 
-  analysisManager                                                
-    ->CreateH2("Chamber2 XY","Drift Chamber 2 X vs Y",           // h2 Id = 1
-               50, -1500., 1500, 50, -300., 300.);
 
   // Creating ntuple
   if ( fEventAction ) {
     analysisManager->CreateNtuple("B5", "Hits");
-    analysisManager->CreateNtupleIColumn("Dc1Hits");  // column Id = 0
-    analysisManager->CreateNtupleIColumn("Dc2Hits");  // column Id = 1
     analysisManager->CreateNtupleDColumn("ECEnergy"); // column Id = 2
     analysisManager->CreateNtupleDColumn("HCEnergy"); // column Id = 3
     analysisManager->CreateNtupleDColumn("PDG");      // column Id = 4
@@ -87,7 +72,6 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
     analysisManager->CreateNtupleDColumn("PX");      // column Id = 8
     analysisManager->CreateNtupleDColumn("PY");      // column Id = 9
     analysisManager->CreateNtupleDColumn("PZ");      // column Id = 10
-    analysisManager->CreateNtupleDColumn("Event");    // column Id = 11
     analysisManager->CreateNtupleDColumn("HitId");    // column Id = 12
     analysisManager                                   // column Id = 13
       ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 

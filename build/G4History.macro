@@ -57,4 +57,3 @@
 /gui/addButton gun "proton" "/gun/particle proton"
 /run/beamOn 100
 /vis/scene/notifyHandlers scene-0
-/run/beamOn 100

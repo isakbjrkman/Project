@@ -160,92 +160,23 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   G4LogicalVolume* logicShape1 =                         
     new G4LogicalVolume(solidShape1,         //its solid
                         shape1_mat,          //its material
-                        "Shape1");           //its name
-               
-  logicShape1->SetVisAttributes(blueVis);    
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos1,                    //at position
-                    logicShape1,             //its logical volume
-                    "Shape1",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-
-  //     
-  // Quartz radiator 2
-  //
-  G4ThreeVector pos2 = G4ThreeVector(-13.255*mm, -13.255*mm, 0*mm);  
+                        "Shape1");           //its name                  
+  G4int p = 0;
+  for (auto i=0;i<2;i++) {
+     G4double x1 = -13.255*mm+i*2*13.255*mm;
+     for (auto j=0;j<2; j++){
+     p++;
+     G4double y1 = -13.255*mm+j*2*13.255*mm;
+     new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),logicShape1,
+                        "Shape1",logicEnv,
+                        false,p,checkOverlaps);
+  	}
+  }
   
-  G4Box* solidShape2 =    
-    new G4Box("Shape2",                      //its name
-              0.5*26.5*mm, 0.5*26.5*mm, 0.5*20.0*mm); //its size
-                
-  G4LogicalVolume* logicShape2 =                         
-    new G4LogicalVolume(solidShape2,         //its solid
-                        shape1_mat,          //its material
-                        "Shape2");           //its name
-                        
-  logicShape2->SetVisAttributes(blueVis);                      
+  logicShape1->SetVisAttributes(blueVis);  
                
-  new G4PVPlacement(0,                       //no rotation
-                    pos2,                    //at position
-                    logicShape2,             //its logical volume
-                    "Shape2",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                    
-                    
-  G4ThreeVector pos3 = G4ThreeVector(13.255*mm, 13.255*mm, 0*mm);
-        
-  // Quartz radiator 3      
-
-  G4Box* solidShape3 =    
-    new G4Box("Shape3", 
-    0.5*26.5*mm, 0.5*26.5*mm, 0.5*20.0*mm);
-                      
-  G4LogicalVolume* logicShape3 =                         
-    new G4LogicalVolume(solidShape3,         //its solid
-                        shape1_mat,          //its material
-                        "Shape3");           //its name
-      
-   logicShape3->SetVisAttributes(blueVis);            
-  new G4PVPlacement(0,                       //no rotation
-                    pos3,                    //at position
-                    logicShape3,             //its logical volume
-                    "Shape3",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                  
-  
-   G4ThreeVector pos4 = G4ThreeVector(13.255*mm, -13.255*mm, 0*mm);
-        
-  // Quartz radiator 4       
-
-  G4Box* solidShape4 =    
-    new G4Box("Shape4", 
-    0.5*26.5*mm, 0.5*26.5*mm, 0.5*20.0*mm);
-                      
-  G4LogicalVolume* logicShape4 =                         
-    new G4LogicalVolume(solidShape4,         //its solid
-                        shape1_mat,          //its material
-                        "Shape4");           //its name
-   logicShape4->SetVisAttributes(blueVis);            
-  new G4PVPlacement(0,                       //no rotation
-                    pos4,                    //at position
-                    logicShape4,             //its logical volume
-                    "Shape4",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                  
-     G4ThreeVector pos5 = G4ThreeVector(0*mm, 0*mm, 11*mm);
+ 
+  G4ThreeVector pos5 = G4ThreeVector(0*mm, 0*mm, 11*mm);
       
         
   // Quartz window (monolithic)      
@@ -348,6 +279,10 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   return worldPhysical;
 }
 
+
+//SetMaterialProperty("surfRd", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
+//  TVirtualMC::GetMC()->SetMaterialProperty("surfRd", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void B5DetectorConstruction::ConstructSDandField()
@@ -369,18 +304,13 @@ void B5DetectorConstruction::ConstructSDandField()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void B5DetectorConstruction::ConstructMaterials()
-{
-}
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
 void B5DetectorConstruction::DefineCommands()
 {
-  // Define /B5/detector command directory using generic messenger class
-  fMessenger = new G4GenericMessenger(this, 
-                                      "/B5/detector/", 
-                                      "Detector control");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

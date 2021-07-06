@@ -86,26 +86,26 @@ class B5HadCalorimeterHit : public G4VHit
     void SetPDG(G4int p) { fpdg = p; }
     G4int GetPDG() const { return fpdg; }
     
-    void SetX(G4int x) { fx = x; }
-    G4int GetX() const { return fx; }
+    void SetX(G4double x) { fx = x; }
+    G4double GetX() const { return fx; }
     
-    void SetY(G4int y) { fy = y; }
-    G4int GetY() const { return fy; }
+    void SetY(G4double y) { fy = y; }
+    G4double GetY() const { return fy; }
     
-    void SetZ(G4int z) { fz = z; }
-    G4int GetZ() const { return fz; }
+    void SetZ(G4double z) { fz = z; }
+    G4double GetZ() const { return fz; }
     
     void SetPX(G4double px) { fpx = px; }
-    G4int GetPX() const { return fpx; }
+    G4double GetPX() const { return fpx; }
     
     void SetPY(G4double py) { fpy = py; }
-    G4int GetPY() const { return fpy; }
+    G4double GetPY() const { return fpy; }
     
     void SetPZ(G4double pz) { fpz = pz; }
-    G4int GetPZ() const { return fpz; }
+    G4double GetPZ() const { return fpz; }
     
     void SetEvent(G4double e) { fEvent = e; }
-    G4int GetEvent() const { return fEvent; }
+    G4double GetEvent() const { return fEvent; }
     
     void SetHitID(G4int id) { fHitId = id; }
     G4int GetHitID() const { return fHitId; }
@@ -117,9 +117,9 @@ class B5HadCalorimeterHit : public G4VHit
     G4ThreeVector fPos;
     G4RotationMatrix fRot;
     G4int fpdg;
-    G4int fx;
-    G4int fy;
-    G4int fz;
+    G4double fx;
+    G4double fy;
+    G4double fz;
     G4double fpx;
     G4double fpy;
     G4double fpz;
