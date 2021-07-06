@@ -65,13 +65,9 @@ class B5DetectorConstruction : public G4VUserDetectorConstruction
     G4GenericMessenger* fMessenger;
     
     G4LogicalVolume* fWirePlane1Logical;
-    G4LogicalVolume* fWirePlane2Logical;
     G4LogicalVolume* fHadCalScintiLogical;
     
     std::vector<G4VisAttributes*> fVisAttributes;
-    
-    G4RotationMatrix* fArmRotation;
-    G4VPhysicalVolume* fSecondArmPhys;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

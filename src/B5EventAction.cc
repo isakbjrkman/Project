@@ -210,11 +210,10 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       G4cout << hit->GetPZ() << G4endl;
       analysisManager->FillNtupleDColumn(1 + 12, hit->GetEvent());
       G4cout << hit->GetEvent() << G4endl;
-      //analysisManager->FillNtupleDColumn(iDet + 13, hit->GetHitId());
-      //G4cout << hit->GetHitId() << G4endl;
+      analysisManager->FillNtupleDColumn(1 + 13, hit->GetHitID());
+      G4cout << hit->GetHitID() << G4endl;
       myfile << hit->GetEvent() << "_";
-      myfile << "HitID(to be added)_";
-      
+      myfile << hit->GetHitID() << "_";
         // HadCalorimeter hits
   for (G4int iDet = 1; iDet < kDim; ++iDet) {
     auto hc2 = GetHC(event, fCalHCID[iDet]);
@@ -256,8 +255,6 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
    myfile.close();
   
 
-  
-   
 
   analysisManager->AddNtupleRow();
 

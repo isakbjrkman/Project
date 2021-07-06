@@ -66,8 +66,7 @@
 B5DetectorConstruction::B5DetectorConstruction()
 : G4VUserDetectorConstruction(), 
   fMessenger(nullptr),
-  //fHodoscope1Logical(nullptr), fHodoscope2Logical(nullptr),
-  fWirePlane1Logical(nullptr), fWirePlane2Logical(nullptr),
+  fWirePlane1Logical(nullptr),
   fHadCalScintiLogical(nullptr),
   fVisAttributes()
 
@@ -291,7 +290,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     false,0,checkOverlaps);
   
   // hodoscopes in first arm
-  
+  G4int o = 0;
   auto chamber1Solid
     = new G4Box("chamber1Box",0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
   auto chamber1Logical
@@ -300,10 +299,11 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   for (auto i=0;i<2;i++) {
       G4double x1 = -13.255*mm+i*2*13.255*mm;
       for (auto j=0;j<2; j++){
+      o++;
       G4double y1 = -13.255*mm+j*2*13.255*mm;
       new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),chamber1Logical,
                         "chamber1Physical",firstArmLogical,
-                        false,i+j+1,checkOverlaps);
+                        false,o,checkOverlaps);
   	}
   }
     chamber1Logical->SetVisAttributes(yellowVis);  

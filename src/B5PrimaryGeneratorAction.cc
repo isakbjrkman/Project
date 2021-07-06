@@ -61,7 +61,7 @@ B5PrimaryGeneratorAction::B5PrimaryGeneratorAction()
   fElectron = particleTable->FindParticle("e-");
   
   // default particle kinematics
-  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-13.*cm));
+  fParticleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,-12.*cm));
   fParticleGun->SetParticleDefinition(fMuon);
 
   
@@ -116,7 +116,7 @@ void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
   //fParticleGun->SetParticleMomentumDirection(
     //              G4ThreeVector(std::sin(angle),0.,std::cos(angle)));
   fParticleGun->SetParticleMomentumDirection(
-                   G4ThreeVector(0,0.1,1));
+                   G4ThreeVector(0,0,1));
   
   
   fParticleGun->GeneratePrimaryVertex(event);

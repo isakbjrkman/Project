@@ -107,8 +107,8 @@ class B5HadCalorimeterHit : public G4VHit
     void SetEvent(G4double e) { fEvent = e; }
     G4int GetEvent() const { return fEvent; }
     
-    void SetHitId(G4double id) { fHitId = id; }
-    G4int GetHitId() const { return fHitId; }
+    void SetHitID(G4int id) { fHitId = id; }
+    G4int GetHitID() const { return fHitId; }
     
   private:
     G4int fColumnID;

@@ -91,22 +91,23 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   if (edep==0.) return true;
   
   auto touchable = step->GetPreStepPoint()->GetTouchable(); 
-  auto rowNo = touchable->GetCopyNumber(2);
-  auto columnNo = touchable->GetCopyNumber(3);
+  auto rowNo = touchable->GetCopyNumber(2);   //2
+  auto columnNo = touchable->GetCopyNumber(3);  //3
   auto hitID = kNofHadRows*columnNo+rowNo;
   auto hit = (*fHitsCollection)[hitID];
   auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   
   // check if it is first touch
-  if (hit->GetColumnID()<0) {
-    hit->SetColumnID(columnNo);
-    hit->SetRowID(rowNo);
+  if (hit->GetColumnID() < 0) {
+    
     auto depth = touchable->GetHistory()->GetDepth();
     auto transform = touchable->GetHistory()->GetTransform(depth-2);
     transform.Invert();
     hit->SetRot(transform.NetRotation());
     hit->SetPos(transform.NetTranslation());
     hit->SetPDG(encoding);
+    
+    hit->SetHitID(touchable->GetVolume(1)->GetCopyNo());
     
     hit->SetX(step->GetTrack()->GetPosition()(0));                       //////////////////
     hit->SetY(step->GetTrack()->GetPosition()(1));
@@ -119,8 +120,7 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   // add energy deposition
   hit->SetPDG(encoding);
   hit->AddEdep(edep);
-  auto depth = touchable->GetHistory()->GetDepth();
-  auto transform = touchable->GetHistory()->GetTransform(depth-2); // test. check which to include in if and which to leave out
+  
   return true;
 }
 
