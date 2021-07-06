@@ -79,8 +79,7 @@ G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
 
 B5EventAction::B5EventAction()
 : G4UserEventAction(), 
-  //fHodHCID  {{ -1, -1 }},
-  //fDriftHCID{{ -1, -1 }},
+
   fCalHCID  {{ -1, -1 }},
   fDriftHistoID{{ {{ -1, -1 }}, {{ -1, -1 }} }},
   fCalEdep{{ vector<G4double>(kNofEmCells, 0.), vector<G4double>(kNofHadCells, 0.) }}
@@ -191,9 +190,6 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
  
     auto hc = GetHC(event, fCalHCID[1]);
     if ( ! hc ) {
-    //hit->SetPX(0);
-    //hit->SetPY(0);
-    //hit->SetPZ(0)
     return;
    } else {   
    

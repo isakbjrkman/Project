@@ -28,11 +28,8 @@
 /// \brief Implementation of the B5DetectorConstruction class
 
 #include "B5DetectorConstruction.hh"
-//#include "B5HodoscopeSD.hh"
-//#include "B5DriftChamberSD.hh"
 #include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
-
 #include "G4TransportationManager.hh"
 
 #include "G4Material.hh"
@@ -101,7 +98,6 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   // Envelope parameters
   //
   G4double env_sizeXY = 10*cm, env_sizeZ = 10*cm;
-  
   
   // Option to switch on/off checking of volumes overlaps
   //
@@ -345,8 +341,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking                 
-                                                          
-                                  
+                                                                                           
  
   // return the world physical volume ----------------------------------------
   
@@ -368,8 +363,6 @@ void B5DetectorConstruction::ConstructSDandField()
   auto hadCalorimeter = new B5HadCalorimeterSD(SDname="/HadCalorimeter");
   sdManager->AddNewDetector(hadCalorimeter);
   fWirePlane1Logical->SetSensitiveDetector(hadCalorimeter);
-
-  // magnetic field ----------------------------------------------------------
 
 }    
 

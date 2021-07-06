@@ -59,9 +59,6 @@ public:
     std::vector<G4double>& GetHadCalEdep() { return fCalEdep[kHad]; }
     
 private:
-    // hit collections Ids
-    //std::array<G4int, kDim> fHodHCID;  //leave uncommented?
-    //std::array<G4int, kDim> fDriftHCID;
     std::array<G4int, kDim> fCalHCID;
     // histograms Ids
     std::array<std::array<G4int, kDim>, kDim> fDriftHistoID;
