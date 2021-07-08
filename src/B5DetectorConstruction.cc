@@ -33,6 +33,7 @@
 #include <vector>
 #include <cmath>
 
+#include "G4OpticalPhoton.hh"
 #include "G4LogicalSkinSurface.hh"
 #include "G4OpticalSurface.hh"
 #include "G4MaterialPropertiesTable.hh"
@@ -40,6 +41,9 @@
 #include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
 #include "G4TransportationManager.hh"
+#include "G4LogicalVolume.hh"
+#include "G4LogicalVolumeStore.hh"
+
 
 #include "G4Material.hh"
 #include "G4Element.hh"
@@ -55,6 +59,9 @@
 #include "G4PVParameterised.hh"
 #include "G4PVReplica.hh"
 #include "G4UserLimits.hh"
+
+#include "G4LogicalBorderSurface.hh"
+#include "G4ThreeVector.hh"
 
 #include "G4SDManager.hh"
 #include "G4VSensitiveDetector.hh"
@@ -155,10 +162,10 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
  
- double mPhotonEnergyD[354];
- double mEfficMet[354];
- double mReflMet[354];
- double mAbs[354];
+ G4double mPhotonEnergyD[354];
+ G4double mEfficMet[354];
+ G4double mReflMet[354];
+ G4double mAbs[354];
  int nBins = sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
  
  std::ifstream myfile("quartz.txt");
@@ -180,8 +187,8 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
 std::istringstream ss(line);
 
 ss >> energy >> abs >> ref >> eff;
- mPhotonEnergyD[num] = energy;
- mAbs[num] = abs;
+ mPhotonEnergyD[num] = energy*eV;
+ mAbs[num] = abs*cm;
  mReflMet[num] = ref;
  mEfficMet[num] = eff;  
  std::cout << mPhotonEnergyD[num] << " " << mAbs[num] << " " << mReflMet[num] << " " << mEfficMet[num] << "\n";
@@ -194,7 +201,6 @@ ss >> energy >> abs >> ref >> eff;
   std::cout << mPhotonEnergyD[u] << " " << mAbs[u] << " " << mReflMet[u] << " " << mEfficMet[u] << "\n";
   }
 
-
   //     
   // Quartz radiator 1
   //  
@@ -203,6 +209,17 @@ ss >> energy >> abs >> ref >> eff;
   G4Material* SiO2 = new G4Material("Silicon_dioxide", 2.533*g/cm3, 2);
   SiO2->AddElement(elO, 2);
   SiO2->AddElement(elSi, 1);
+  
+  
+  G4MaterialPropertiesTable *MPT = new G4MaterialPropertiesTable();
+  MPT->AddProperty("RINDEX", mPhotonEnergyD, mReflMet, nBins);
+  MPT->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins);
+  MPT->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins);
+  SiO2->SetMaterialPropertiesTable(MPT);
+
+    
+  //SetMaterialProperty("SiO2", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
+  //SetMaterialProperty("SiO2", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));
   
   //SiO2->SetMaterialProperty("surfRd", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
   //SiO2->SetMaterialProperty("surfRd", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));

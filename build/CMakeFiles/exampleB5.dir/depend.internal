@@ -529,12 +529,15 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IsotopeVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LPhysicsFreeVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Log.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalBorderSurface.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalBorderSurface.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSkinSurface.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSkinSurface.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSurface.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSurface.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolumeStore.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LorentzVector.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Material.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4MaterialPropertiesIndex.hh
@@ -558,6 +561,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Normal3D.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.icc
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalPhoton.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalSurface.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
@@ -673,6 +677,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VGraphicsScene.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VHit.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VHitsCollection.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VNotifier.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VPVParameterisation.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VParticleChange.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VParticleChange.icc
@@ -685,6 +690,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSolid.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSolid.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VSteppingVerbose.hh
+ /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VStoreNotifier.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTouchable.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4VTrajectory.hh
