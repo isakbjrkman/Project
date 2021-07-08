@@ -72,7 +72,7 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
     analysisManager->CreateNtupleDColumn("PX");      // column Id = 8
     analysisManager->CreateNtupleDColumn("PY");      // column Id = 9
     analysisManager->CreateNtupleDColumn("PZ");      // column Id = 10
-    analysisManager->CreateNtupleDColumn("HitId");    // column Id = 12
+    analysisManager->CreateNtupleDColumn("DetectorID");    // column Id = 12
     analysisManager                                   // column Id = 13
       ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 
     analysisManager                                   // column Id = 14

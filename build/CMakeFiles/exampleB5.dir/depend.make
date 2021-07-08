@@ -528,6 +528,10 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4IsotopeVector.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LPhysicsFreeVector.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Log.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSkinSurface.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSkinSurface.icc
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSurface.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalSurface.icc
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LogicalVolume.icc
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4LorentzVector.hh
@@ -553,6 +557,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Normal3D.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.icc
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalSurface.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PDefManager.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PVParameterised.hh
@@ -568,6 +573,8 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleTable.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleTable.icc
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4ParticleTableIterator.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Physics2DVector.hh
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Physics2DVector.icc
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsFreeVector.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsModelCatalog.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4PhysicsOrderedFreeVector.hh
@@ -622,6 +629,7 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/g
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SteppingManager.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4String.icc
+CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SurfaceProperty.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4SystemOfUnits.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4THitsCollection.hh
 CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4Threading.hh

@@ -168,16 +168,15 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       // columns 6->10
       //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
       hit->SetEvent(event->GetEventID());
-      //hit->SetHitId(hceID);
       analysisManager->FillNtupleDColumn(1 + 5, hit->GetPX());
       G4cout << hit->GetPX() << G4endl;
       analysisManager->FillNtupleDColumn(1 + 6, hit->GetPY());
       G4cout << hit->GetPY() << G4endl;
       analysisManager->FillNtupleDColumn(1 + 7, hit->GetPZ());
       G4cout << hit->GetPZ() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 8, hit->GetHitID());
-      G4cout << hit->GetHitID() << G4endl;
-      myfile << hit->GetHitID() << "_";
+      analysisManager->FillNtupleDColumn(1 + 8, hit->GetDetectorID());
+      G4cout << hit->GetDetectorID() << G4endl;
+      myfile << hit->GetDetectorID() << "_";
         // HadCalorimeter hits
   for (G4int iDet = 1; iDet < kDim; ++iDet) {
     auto hc2 = GetHC(event, fCalHCID[iDet]);

@@ -93,8 +93,8 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   auto touchable = step->GetPreStepPoint()->GetTouchable(); 
   auto rowNo = touchable->GetCopyNumber(2);   //2
   auto columnNo = touchable->GetCopyNumber(3);  //3
-  auto hitID = kNofHadRows*columnNo+rowNo;
-  auto hit = (*fHitsCollection)[hitID];
+  auto DetectorID = kNofHadRows*columnNo+rowNo;
+  auto hit = (*fHitsCollection)[DetectorID];
   auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   
   // check if it is first touch
@@ -107,7 +107,7 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     hit->SetPos(transform.NetTranslation());
     hit->SetPDG(encoding);
     
-    hit->SetHitID(touchable->GetVolume(1)->GetCopyNo());
+    hit->SetDetectorID(touchable->GetVolume(1)->GetCopyNo());
     
     hit->SetX(step->GetTrack()->GetPosition()(0));                       //////////////////
     hit->SetY(step->GetTrack()->GetPosition()(1));

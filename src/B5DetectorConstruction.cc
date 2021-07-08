@@ -26,7 +26,16 @@
 //
 /// \file B5DetectorConstruction.cc
 /// \brief Implementation of the B5DetectorConstruction class
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <cmath>
 
+#include "G4LogicalSkinSurface.hh"
+#include "G4OpticalSurface.hh"
+#include "G4MaterialPropertiesTable.hh"
 #include "B5DetectorConstruction.hh"
 #include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
@@ -146,10 +155,60 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
  
+ double mPhotonEnergyD[354];
+ double mEfficMet[354];
+ double mReflMet[354];
+ double mAbs[354];
+ int nBins = sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
+ 
+ std::ifstream myfile("quartz.txt");
+ std::string line;
+ if (!myfile) {
+ std::cout << "File read failed" << std::endl;
+ }
+ std::getline(myfile, line);
+ 
+ int num = 0;
+ 
+
+ while(std::getline(myfile, line))  { 
+ 
+        double energy;
+        double abs;
+        double ref;
+        double eff;
+std::istringstream ss(line);
+
+ss >> energy >> abs >> ref >> eff;
+ mPhotonEnergyD[num] = energy;
+ mAbs[num] = abs;
+ mReflMet[num] = ref;
+ mEfficMet[num] = eff;  
+ std::cout << mPhotonEnergyD[num] << " " << mAbs[num] << " " << mReflMet[num] << " " << mEfficMet[num] << "\n";
+ ++num;
+      } 
+  //myfile.close(); 
+    
+  
+  for (auto u=0; u< 354; u++) {
+  std::cout << mPhotonEnergyD[u] << " " << mAbs[u] << " " << mReflMet[u] << " " << mEfficMet[u] << "\n";
+  }
+
+
   //     
   // Quartz radiator 1
   //  
-  G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE"); //SILICON_DIOXIDE
+  G4Element* elSi = new G4Element("Silicon", "Si", 14., 28.0855*g/mole);
+  G4Element* elO = new G4Element("Oxygen", "O", 8., 16.00*g/mole);
+  G4Material* SiO2 = new G4Material("Silicon_dioxide", 2.533*g/cm3, 2);
+  SiO2->AddElement(elO, 2);
+  SiO2->AddElement(elSi, 1);
+  
+  //SiO2->SetMaterialProperty("surfRd", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
+  //SiO2->SetMaterialProperty("surfRd", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));
+  
+  
+  //G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE"); //SILICON_DIOXIDE
   G4ThreeVector pos1 = G4ThreeVector(-13.255*mm, 13.255*mm, 0*mm);
              
 
@@ -159,7 +218,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                       
   G4LogicalVolume* logicShape1 =                         
     new G4LogicalVolume(solidShape1,         //its solid
-                        shape1_mat,          //its material
+                        SiO2,          //its material
                         "Shape1");           //its name                  
   G4int p = 0;
   for (auto i=0;i<2;i++) {
@@ -187,7 +246,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                       
   G4LogicalVolume* logicShape5 =                         
     new G4LogicalVolume(solidShape5,         //its solid
-                        shape1_mat,          //its material
+                        SiO2,          //its material
                         "Shape5");           //its name
                
   logicShape5->SetVisAttributes(purpleVis);           
