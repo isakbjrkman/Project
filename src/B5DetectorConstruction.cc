@@ -33,6 +33,7 @@
 #include <vector>
 #include <cmath>
 
+#include "G4Cerenkov.hh"
 #include "G4OpticalPhoton.hh"
 #include "G4LogicalSkinSurface.hh"
 #include "G4OpticalSurface.hh"
@@ -201,6 +202,12 @@ ss >> energy >> abs >> ref >> eff;
   std::cout << mPhotonEnergyD[u] << " " << mAbs[u] << " " << mReflMet[u] << " " << mEfficMet[u] << "\n";
   }
 
+
+ for (auto i = 0; i < nBins; i++) {
+    mReflMet[i]= 0.9;
+  }
+
+
   //     
   // Quartz radiator 1
   //  
@@ -212,18 +219,18 @@ ss >> energy >> abs >> ref >> eff;
   
   
   G4MaterialPropertiesTable *MPT = new G4MaterialPropertiesTable();
-  MPT->AddProperty("RINDEX", mPhotonEnergyD, mReflMet, nBins);
-  MPT->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins);
-  MPT->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins);
+  MPT->AddProperty("RINDEX", mPhotonEnergyD, mReflMet, nBins)->SetSpline(true);
+  MPT->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
+  MPT->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);
+  MPT->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);
   SiO2->SetMaterialPropertiesTable(MPT);
+ 
 
-    
-  //SetMaterialProperty("SiO2", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
-  //SetMaterialProperty("SiO2", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));
-  
-  //SiO2->SetMaterialProperty("surfRd", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
-  //SiO2->SetMaterialProperty("surfRd", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));
-  
+  G4Cerenkov* theCerenkovProcess = new G4Cerenkov("Cerenkov");
+  theCerenkovProcess->SetTrackSecondariesFirst(true);
+  G4int MaxNumPhotons = 500;
+  theCerenkovProcess->SetMaxNumPhotonsPerStep(MaxNumPhotons);  
+
   
   //G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE"); //SILICON_DIOXIDE
   G4ThreeVector pos1 = G4ThreeVector(-13.255*mm, 13.255*mm, 0*mm);
