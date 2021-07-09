@@ -177,6 +177,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       analysisManager->FillNtupleDColumn(1 + 8, hit->GetDetectorID());
       G4cout << hit->GetDetectorID() << G4endl;
       myfile << hit->GetDetectorID() << "_";
+      myfile << "Cerenkov" << hit->GetCerenkov() << "Cerenkov";
         // HadCalorimeter hits
   for (G4int iDet = 1; iDet < kDim; ++iDet) {
     auto hc2 = GetHC(event, fCalHCID[iDet]);

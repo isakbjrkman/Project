@@ -59,7 +59,9 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
      // The default file type (root) can be redefined by the user.
 
   // Book histograms, ntuple
-
+   
+   
+   
   // Creating ntuple
   if ( fEventAction ) {
     analysisManager->CreateNtuple("B5", "Hits");
@@ -84,6 +86,8 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
   analysisManager->SetNtupleFileName(0, "B4ntuple");
 }
 
+
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5RunAction::~B5RunAction()
@@ -93,10 +97,16 @@ B5RunAction::~B5RunAction()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B5RunAction::BeginOfRunAction(const G4Run* /*run*/)
+void B5RunAction::BeginOfRunAction(const G4Run* run)
 { 
   //inform the runManager to save random number seed
   //G4RunManager::GetRunManager()->SetRandomNumberStore(true);
+ /* const B5RunAction* localRun = static_cast<const B5RunAction*>(run); //added
+  fParticle = localRun->fParticle;
+  fEnergy   = localRun->fEnergy;
+  fCerenkovCounter += localRun->fCerenkovCounter;
+  G4Run::BeginOfRunAction(run) 					//added
+  */
   
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();

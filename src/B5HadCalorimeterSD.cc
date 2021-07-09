@@ -31,6 +31,17 @@
 #include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
+#include "G4ios.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4ParticleTypes.hh"
+#include "G4RunManager.hh"
+#include "G4Track.hh"
+#include "G4VProcess.hh"
+
+
+#include "G4Event.hh"
+#include "G4OpBoundaryProcess.hh"
+#include "G4OpticalPhoton.hh"
 #include "B5EventAction.hh"
 #include "G4Event.hh"
 #include "G4RunManager.hh"
@@ -53,7 +64,7 @@
 
 B5HadCalorimeterSD::B5HadCalorimeterSD(G4String name)
 : G4VSensitiveDetector(name), 
-  fHitsCollection(nullptr), fHCID(-1)
+  fHitsCollection(nullptr), fHCID(-1), fCerenkovCounter(0)
 {
   collectionName.insert("HadCalorimeterColl");
 }
@@ -96,16 +107,22 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   auto DetectorID = kNofHadRows*columnNo+rowNo;
   auto hit = (*fHitsCollection)[DetectorID];
   auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
+  auto track = step->GetTrack();
   
   // check if it is first touch
-  if (hit->GetColumnID() < 0) {
-    
+  if (hit->GetColumnID() < 0 ) {
+    if (track->GetDynamicParticle()->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
+    ++fCerenkovCounter;
+    hit->AddCerenkov(1);
+    std::cout << "Cerenkov photon detected" << std::endl;
+    }
     auto depth = touchable->GetHistory()->GetDepth();
     auto transform = touchable->GetHistory()->GetTransform(depth-2);
     transform.Invert();
     hit->SetRot(transform.NetRotation());
     hit->SetPos(transform.NetTranslation());
     hit->SetPDG(encoding);
+    
     
     hit->SetDetectorID(touchable->GetVolume(1)->GetCopyNo());
     
@@ -115,10 +132,8 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     hit->SetPX(step->GetTrack()->GetMomentum()(0));                       //////////////////
     hit->SetPY(step->GetTrack()->GetMomentum()(1));
     hit->SetPZ(step->GetTrack()->GetMomentum()(2));
-    
   }
   // add energy deposition
-  hit->SetPDG(encoding);
   hit->AddEdep(edep);
   
   return true;

@@ -52,6 +52,7 @@ class B5HadCalorimeterSD : public G4VSensitiveDetector
   private:
     B5HadCalorimeterHitsCollection* fHitsCollection;
     G4int fHCID;
+    G4int fCerenkovCounter;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

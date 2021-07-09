@@ -110,6 +110,10 @@ class B5HadCalorimeterHit : public G4VHit
     void SetDetectorID(G4int id) { fDetectorID = id; }
     G4int GetDetectorID() const { return fDetectorID; }
     
+    void SetCerenkov(G4int cer) { fCerenkov = cer; }
+    void AddCerenkov(G4int cer) { fCerenkov += cer; }
+    G4int GetCerenkov() const { return fCerenkov; }
+    
   private:
     G4int fColumnID;
     G4int fRowID;
@@ -125,6 +129,7 @@ class B5HadCalorimeterHit : public G4VHit
     G4double fpz;
     G4int fEvent;
     G4int fDetectorID;
+    G4int fCerenkov;
 };
 
 using B5HadCalorimeterHitsCollection = G4THitsCollection<B5HadCalorimeterHit>;

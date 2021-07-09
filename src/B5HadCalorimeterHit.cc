@@ -49,14 +49,14 @@ G4ThreadLocal G4Allocator<B5HadCalorimeterHit>* B5HadCalorimeterHitAllocator;
 
 B5HadCalorimeterHit::B5HadCalorimeterHit()
 : G4VHit(), 
-  fColumnID(-1), fRowID(-1), fEdep(0.), fPos(0), fpdg(0)
+  fColumnID(-1), fRowID(-1), fEdep(0.), fPos(0), fpdg(0), fCerenkov(0)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5HadCalorimeterHit::B5HadCalorimeterHit(G4int columnID,G4int rowID)
 : G4VHit(), 
-  fColumnID(columnID), fRowID(rowID), fEdep(0.), fPos(0), fpdg(0)
+  fColumnID(columnID), fRowID(rowID), fEdep(0.), fPos(0), fpdg(0), fCerenkov(0)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -73,7 +73,8 @@ B5HadCalorimeterHit::B5HadCalorimeterHit(const B5HadCalorimeterHit &right)
   fEdep(right.fEdep),
   fPos(right.fPos),
   fRot(right.fRot),
-  fpdg(right.fpdg)
+  fpdg(right.fpdg),
+  fCerenkov(right.fCerenkov)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -87,6 +88,7 @@ const B5HadCalorimeterHit& B5HadCalorimeterHit::operator=(
   fPos = right.fPos;
   fRot = right.fRot;
   fpdg = right.fpdg;
+  fCerenkov = right.fCerenkov;
   return *this;
 }
 
