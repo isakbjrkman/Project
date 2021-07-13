@@ -39,7 +39,6 @@
 #include "G4OpticalSurface.hh"
 #include "G4MaterialPropertiesTable.hh"
 #include "B5DetectorConstruction.hh"
-#include "B5EmCalorimeterSD.hh"
 #include "B5HadCalorimeterSD.hh"
 #include "G4TransportationManager.hh"
 #include "G4LogicalVolume.hh"
@@ -412,10 +411,6 @@ void B5DetectorConstruction::ConstructSDandField()
   // sensitive detectors -----------------------------------------------------
   auto sdManager = G4SDManager::GetSDMpointer();
   G4String SDname;
-  
-  auto emCalorimeter = new B5EmCalorimeterSD(SDname="/EMcalorimeter");
-  sdManager->AddNewDetector(emCalorimeter);
-  fWirePlane1Logical->SetSensitiveDetector(emCalorimeter);
   
   auto hadCalorimeter = new B5HadCalorimeterSD(SDname="/HadCalorimeter");
   sdManager->AddNewDetector(hadCalorimeter);

@@ -263,60 +263,6 @@ src/B5DetectorConstruction.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s
 .PHONY : src/B5DetectorConstruction.cc.s
 
-src/B5EmCalorimeterHit.o: src/B5EmCalorimeterHit.cc.o
-
-.PHONY : src/B5EmCalorimeterHit.o
-
-# target to build an object file
-src/B5EmCalorimeterHit.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o
-.PHONY : src/B5EmCalorimeterHit.cc.o
-
-src/B5EmCalorimeterHit.i: src/B5EmCalorimeterHit.cc.i
-
-.PHONY : src/B5EmCalorimeterHit.i
-
-# target to preprocess a source file
-src/B5EmCalorimeterHit.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.i
-.PHONY : src/B5EmCalorimeterHit.cc.i
-
-src/B5EmCalorimeterHit.s: src/B5EmCalorimeterHit.cc.s
-
-.PHONY : src/B5EmCalorimeterHit.s
-
-# target to generate assembly for a file
-src/B5EmCalorimeterHit.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.s
-.PHONY : src/B5EmCalorimeterHit.cc.s
-
-src/B5EmCalorimeterSD.o: src/B5EmCalorimeterSD.cc.o
-
-.PHONY : src/B5EmCalorimeterSD.o
-
-# target to build an object file
-src/B5EmCalorimeterSD.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o
-.PHONY : src/B5EmCalorimeterSD.cc.o
-
-src/B5EmCalorimeterSD.i: src/B5EmCalorimeterSD.cc.i
-
-.PHONY : src/B5EmCalorimeterSD.i
-
-# target to preprocess a source file
-src/B5EmCalorimeterSD.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.i
-.PHONY : src/B5EmCalorimeterSD.cc.i
-
-src/B5EmCalorimeterSD.s: src/B5EmCalorimeterSD.cc.s
-
-.PHONY : src/B5EmCalorimeterSD.s
-
-# target to generate assembly for a file
-src/B5EmCalorimeterSD.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.s
-.PHONY : src/B5EmCalorimeterSD.cc.s
-
 src/B5EventAction.o: src/B5EventAction.cc.o
 
 .PHONY : src/B5EventAction.o
@@ -529,12 +475,6 @@ help:
 	@echo "... src/B5DetectorConstruction.o"
 	@echo "... src/B5DetectorConstruction.i"
 	@echo "... src/B5DetectorConstruction.s"
-	@echo "... src/B5EmCalorimeterHit.o"
-	@echo "... src/B5EmCalorimeterHit.i"
-	@echo "... src/B5EmCalorimeterHit.s"
-	@echo "... src/B5EmCalorimeterSD.o"
-	@echo "... src/B5EmCalorimeterSD.i"
-	@echo "... src/B5EmCalorimeterSD.s"
 	@echo "... src/B5EventAction.o"
 	@echo "... src/B5EventAction.i"
 	@echo "... src/B5EventAction.s"

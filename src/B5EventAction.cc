@@ -34,7 +34,6 @@
 
 #include "B5EventAction.hh"
 
-#include "B5EmCalorimeterHit.hh"
 #include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
@@ -140,7 +139,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   array<G4int, kDim> totalCalHit = {{ 0, 0 }}; 
   array<G4double, kDim> totalCalEdep = {{ 0., 0. }}; 
 
-  for (G4int iDet = 0; iDet < kDim; ++iDet) {
+  for (G4int iDet = 1; iDet < kDim; ++iDet) {
     auto hc = GetHC(event, fCalHCID[iDet]);
     if ( ! hc ) return;
 
@@ -149,13 +148,10 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
     for (unsigned long i = 0; i < hc->GetSize(); ++i) {
       G4double edep = 0.;
       // The EM and Had calorimeter hits are of different types
-      if (iDet == 0) {
-        auto hit = static_cast<B5EmCalorimeterHit*>(hc->GetHit(i));
+     
+        auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));   //check i & det to be correct!
         edep = hit->GetEdep(); //GetEdep
-      } else {
-        auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));
-        edep = hit->GetEdep(); //GetEdep
-      }
+      
       if ( edep > 0. ) {
         totalCalHit[iDet]++;
         totalCalEdep[iDet] += edep;
@@ -163,7 +159,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       fCalEdep[iDet][i] = edep;
     }
     // columns 0, 1
-    analysisManager->FillNtupleDColumn(iDet + 0, totalCalEdep[iDet]);
+    analysisManager->FillNtupleDColumn(0, totalCalEdep[iDet]);	/*iDet + 0*/ 
   }
 
  
@@ -243,11 +239,10 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 
 
   // Calorimeters
-  array<G4String, kDim> calName = {{ "EM", "Hadron" }};
-  for (G4int iDet = 0; iDet < kDim; ++iDet) {
-    G4cout << calName[iDet] << " Calorimeter has " << totalCalHit[iDet] << " hits." 
-           << " Total Edep is " << totalCalEdep[iDet]/MeV << " (MeV)" << G4endl;
-  } 
+
+    G4cout << "Hadron Calorimeter has " << totalCalHit[1] << " hits." 			
+           << " Total Edep is " << totalCalEdep[1]/MeV << " (MeV)" << G4endl;
+  
 }
 
 

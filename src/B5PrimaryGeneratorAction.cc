@@ -31,7 +31,6 @@
 
 #include "B5EventAction.hh"
 
-#include "B5EmCalorimeterHit.hh"
 #include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
@@ -42,8 +41,6 @@
 #include "G4SDManager.hh"
 #include "G4ios.hh"
 #include "g4analysis.hh"
-
-
 
 #include "B5PrimaryGeneratorAction.hh"
 
