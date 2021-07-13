@@ -35,6 +35,13 @@
 #include "globals.hh"
 #include "G4UserStackingAction.hh"
 
+#include "G4VSensitiveDetector.hh"
+#include "B5HadCalorimeterHit.hh"
+
+class G4Step;
+class G4HCofThisEvent;
+class G4TouchableHistory;
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class B5StackingAction : public G4UserStackingAction
@@ -48,6 +55,7 @@ class B5StackingAction : public G4UserStackingAction
   void PrepareNewEvent() override;
 
  private:
+  B5HadCalorimeterHitsCollection* fHitsCollection;
   G4int fCerenkovCounter;
 };
 

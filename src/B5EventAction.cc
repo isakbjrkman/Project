@@ -180,8 +180,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       G4cout << hit->GetPZ() << G4endl;
       analysisManager->FillNtupleDColumn(1 + 8, hit->GetDetectorID());
       G4cout << hit->GetDetectorID() << G4endl;
-      myfile << hit->GetDetectorID() << "_";
-      myfile << "Cerenkov" << hit->GetCerenkov() << "Cerenkov";
+      myfile << hit->GetDetectorID() << "_";      
         // HadCalorimeter hits
   for (G4int iDet = 1; iDet < kDim; ++iDet) {
     auto hc2 = GetHC(event, fCalHCID[iDet]);
@@ -215,7 +214,9 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       G4cout << hit->GetZ() << G4endl;
       myfile << hit->GetX() << "_";
       myfile << hit->GetY() << "_";
-      myfile << hit->GetZ() << "\n";
+      myfile << hit->GetZ() << "_";
+      myfile << "Cerenkov";
+      myfile << hit->GetCerenkov() << "\n";
     }
     
    myfile.close();

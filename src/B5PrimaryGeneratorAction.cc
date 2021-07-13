@@ -83,10 +83,7 @@ void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
   fParticleGun->SetParticleEnergy(1.*GeV);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
   fParticleGun->GeneratePrimaryVertex(event);
- 
-  //auto angle = (G4UniformRand()-0.5)*fSigmaAngle;
-  //fParticleGun->SetParticleMomentumDirection(
-  //              G4ThreeVector(std::sin(angle),0.,std::cos(angle)));
+
   
 }
 

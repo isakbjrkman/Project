@@ -204,7 +204,7 @@ ss >> energy >> abs >> ref >> eff;
 
 
  for (auto i = 0; i < nBins; i++) {
-    mRefractiveIndex2[i] = 1.0;
+    mRefractiveIndex2[i] = 1.0;       //1.0
   }
 
 
@@ -330,49 +330,24 @@ ss >> energy >> abs >> ref >> eff;
   
   G4Material* GaAr = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
 
-        
- // first arm
-  
-  auto firstArmSolid 
-    = new G4Box("firstArmBox",1*27.5*mm, 1*27.5*mm, 1*0.01*mm);
-  auto firstArmLogical
-    = new G4LogicalVolume(firstArmSolid,air,"firstArmLogical");
-  new G4PVPlacement(0,G4ThreeVector(0.,0.,12.015*mm),firstArmLogical,
-                    "firstArmPhysical",logicEnv,
-                    false,0,checkOverlaps);
-  
-  // hodoscopes in first arm
   G4int o = 0;
   auto chamber1Solid
     = new G4Box("chamber1Box",0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
-  auto chamber1Logical
-    = new G4LogicalVolume(chamber1Solid,GaAr,"chamber1Logical");
+  fWirePlane1Logical									
+    = new G4LogicalVolume(chamber1Solid,GaAr,"fWirePlane1Logical");
 
   for (auto i=0;i<2;i++) {
       G4double x1 = -13.255*mm+i*2*13.255*mm;
       for (auto j=0;j<2; j++){
       o++;
       G4double y1 = -13.255*mm+j*2*13.255*mm;
-      new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),chamber1Logical,
-                        "chamber1Physical",firstArmLogical,
+      new G4PVPlacement(0,G4ThreeVector(x1,y1,12.015*mm),fWirePlane1Logical,
+                        "chamber1Physical",logicEnv,
                         false,o,checkOverlaps);
   	}
   }
-    chamber1Logical->SetVisAttributes(yellowVis);  
+   fWirePlane1Logical->SetVisAttributes(yellowVis);  
     
-
-  //"virtual" wire plane
-  auto wirePlane1Solid 
-    = new G4Box("wirePlane1Box", 0.5*26.5*mm, 0.5*26.5*mm, 0.25*0.01*mm);
-  fWirePlane1Logical
-    = new G4LogicalVolume(wirePlane1Solid,air,"wirePlane1Logical");
-  new G4PVPlacement(0,G4ThreeVector(0.,0.,0),fWirePlane1Logical,
-                    "wirePlane1Physical",chamber1Logical,
-                    false,0,checkOverlaps);
-                    
- 
- 
- 
    
   //MCP-PMT (ceramic)
   G4Material* shape7_mat = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
