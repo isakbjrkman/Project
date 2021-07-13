@@ -40,8 +40,8 @@ class B5ActionInitialization : public G4VUserActionInitialization
     B5ActionInitialization();
     virtual ~B5ActionInitialization();
 
-    virtual void BuildForMaster() const;
-    virtual void Build() const;
+    virtual void BuildForMaster() const override;
+    virtual void Build() const override;
 
 };
 

@@ -30,6 +30,9 @@
 
 #include "B5RunAction.hh"
 #include "B5EventAction.hh"
+#include "B5Run.hh"
+#include "G4ParticleDefinition.hh"
+#include "B5PrimaryGeneratorAction.hh"
 
 #include "G4Run.hh"
 #include "G4UnitsTable.hh"
@@ -40,14 +43,16 @@ using G4AnalysisManager = G4GenericAnalysisManager;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B5RunAction::B5RunAction(B5EventAction* eventAction)
+B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygeneratoraction?
  : G4UserRunAction(),
-   fEventAction(eventAction)
+   fRun(nullptr),
+   fPrimary(prim)
 { 
   // Create the generic analysis manager
   // The choice of analysis technology is done according to the file extension
-  auto analysisManager = G4AnalysisManager::Instance();
-  analysisManager->SetVerboseLevel(1);
+  
+ // auto analysisManager = G4AnalysisManager::Instance();
+ /* analysisManager->SetVerboseLevel(1);
 
   // Default settings
   analysisManager->SetNtupleMerging(true);
@@ -84,6 +89,7 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
 
   // Set ntuple output file
   analysisManager->SetNtupleFileName(0, "B4ntuple");
+*/
 }
 
 
@@ -92,9 +98,15 @@ B5RunAction::B5RunAction(B5EventAction* eventAction)
 
 B5RunAction::~B5RunAction()
 {
-  delete G4AnalysisManager::Instance();  
+  //delete G4AnalysisManager::Instance();  
 }
 
+
+G4Run* B5RunAction::GenerateRun()
+{
+  fRun = new B5Run();
+  return fRun;
+}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void B5RunAction::BeginOfRunAction(const G4Run* run)
@@ -107,14 +119,21 @@ void B5RunAction::BeginOfRunAction(const G4Run* run)
   fCerenkovCounter += localRun->fCerenkovCounter;
   G4Run::BeginOfRunAction(run) 					//added
   */
+  if(fPrimary)
+  {
+    G4ParticleDefinition* particle =
+      fPrimary->GetParticleGun()->GetParticleDefinition();
+    G4double energy = fPrimary->GetParticleGun()->GetParticleEnergy();
+    fRun->SetPrimary(particle, energy);
+  }
   
   // Get analysis manager
-  auto analysisManager = G4AnalysisManager::Instance();
+//  auto analysisManager = G4AnalysisManager::Instance();
 
   // Open an output file 
   // The default file name is set in B5RunAction::B5RunAction(),
   // it can be overwritten in a macro
-  analysisManager->OpenFile();
+//  analysisManager->OpenFile();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -123,9 +142,12 @@ void B5RunAction::EndOfRunAction(const G4Run* /*run*/)
 {
   // save histograms & ntuple
   //
-  auto analysisManager = G4AnalysisManager::Instance();
+/*  auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->Write();
   analysisManager->CloseFile();
+*/
+  if(isMaster)
+    fRun->EndOfRun();
 
 }
 

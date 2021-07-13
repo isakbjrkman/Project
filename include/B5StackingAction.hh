@@ -23,36 +23,32 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+
 //
-/// \file B5HadCalorimeterSD.hh
-/// \brief Definition of the B5HadCalorimeterSD class
-#include "G4ParticleDefinition.hh"
-#ifndef B5HadCalorimeterSD_h
-#define B5HadCalorimeterSD_h 1
+//
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "G4VSensitiveDetector.hh"
+#ifndef B5StackingAction_h
+#define B5StackingAction_h 1
 
-#include "B5HadCalorimeterHit.hh"
+#include "globals.hh"
+#include "G4UserStackingAction.hh"
 
-class G4Step;
-class G4HCofThisEvent;
-class G4TouchableHistory;
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-/// Hadron calorimeter sensitive detector
+class B5StackingAction : public G4UserStackingAction
+{
+ public:
+  B5StackingAction();
+  ~B5StackingAction();
 
-class B5HadCalorimeterSD : public G4VSensitiveDetector
-{    
-  public:
-    B5HadCalorimeterSD(G4String name);
-    virtual ~B5HadCalorimeterSD();
-    
-    virtual void Initialize(G4HCofThisEvent*HCE);
-    virtual G4bool ProcessHits(G4Step*aStep,G4TouchableHistory*ROhist);
-    
-  private:
-    B5HadCalorimeterHitsCollection* fHitsCollection;
-    G4int fHCID;
-    G4int fCerenkovCounter;
+  G4ClassificationOfNewTrack ClassifyNewTrack(const G4Track* aTrack) override;
+  void NewStage() override;
+  void PrepareNewEvent() override;
+
+ private:
+  G4int fCerenkovCounter;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

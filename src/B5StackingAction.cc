@@ -23,77 +23,67 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+/// \file OpNovice/src/OpNoviceStackingAction.cc
+/// \brief Implementation of the OpNoviceStackingAction class
 //
-/// \file B5EmCalorimeterSD.cc
-/// \brief Implementation of the B5EmCalorimeterSD class
+//
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "B5EmCalorimeterSD.hh"
-#include "B5EmCalorimeterHit.hh"
-#include "B5Constants.hh"
+#include "B5StackingAction.hh"
 
-#include "G4HCofThisEvent.hh"
-#include "G4TouchableHistory.hh"
-#include "G4Track.hh"
-#include "G4Step.hh"
-#include "G4SDManager.hh"
+#include "B5Run.hh"                
+
 #include "G4ios.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4ParticleTypes.hh"
+#include "G4RunManager.hh"
+#include "G4Track.hh"
+#include "G4VProcess.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B5EmCalorimeterSD::B5EmCalorimeterSD(G4String name)
-: G4VSensitiveDetector(name), 
-  fHitsCollection(nullptr), fHCID(-1)
-{
-  collectionName.insert("EMcalorimeterColl");
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-B5EmCalorimeterSD::~B5EmCalorimeterSD()
+B5StackingAction::B5StackingAction()
+  : G4UserStackingAction()
+  , fCerenkovCounter(0)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B5EmCalorimeterSD::Initialize(G4HCofThisEvent* hce)
+B5StackingAction::~B5StackingAction() {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+G4ClassificationOfNewTrack B5StackingAction::ClassifyNewTrack(
+  const G4Track* aTrack)
 {
-  fHitsCollection 
-    = new B5EmCalorimeterHitsCollection(SensitiveDetectorName,collectionName[0]);
-  if (fHCID<0) {
-    fHCID = G4SDManager::GetSDMpointer()->GetCollectionID(fHitsCollection); 
+  if(aTrack->GetDefinition() == G4OpticalPhoton::OpticalPhotonDefinition())
+  {  // particle is optical photon      
+	if(aTrack->GetCreatorProcess()->GetProcessName() == "Cerenkov")
+        ++fCerenkovCounter;   
   }
-  hce->AddHitsCollection(fHCID,fHitsCollection);
-  
-  // fill calorimeter hits with zero energy deposition
-  for (auto i=0;i<kNofEmCells;i++) {
-    fHitsCollection->insert(new B5EmCalorimeterHit(i));
-  }
+  return fUrgent;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool B5EmCalorimeterSD::ProcessHits(G4Step*step, G4TouchableHistory*)
+void B5StackingAction::NewStage()
 {
-  auto edep = step->GetTotalEnergyDeposit();
-  if (edep==0.) return true;
-  
-  auto touchable = step->GetPreStepPoint()->GetTouchable();
-  auto physical = touchable->GetVolume();
-  auto copyNo = physical->GetCopyNo();
-  
-  auto hit = (*fHitsCollection)[copyNo];
-  // check if it is first touch
-  if (!(hit->GetLogV())) {
-    // fill volume information
-    hit->SetLogV(physical->GetLogicalVolume());
-    G4AffineTransform transform = touchable->GetHistory()->GetTopTransform();
-    transform.Invert();
-    hit->SetRot(transform.NetRotation());
-    hit->SetPos(transform.NetTranslation());
-  }
-  // add energy deposition
-  hit->AddEdep(edep);
-  
-  return true;
+  // G4cout << "Number of Scintillation photons produced in this event : "
+  //       << fScintillationCounter << G4endl;
+  // G4cout << "Number of Cerenkov photons produced in this event : "
+  //       << fCerenkovCounter << G4endl;
+
+  B5Run* run = static_cast<B5Run*>(
+    G4RunManager::GetRunManager()->GetNonConstCurrentRun());
+  run->AddCerenkov((G4double) fCerenkovCounter);
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void B5StackingAction::PrepareNewEvent()
+{
+  fCerenkovCounter      = 0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

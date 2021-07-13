@@ -23,61 +23,86 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+/// \file OpNovice/src/OpNoviceRun.cc
+/// \brief Implementation of the OpNoviceRun class
 //
-/// \file B5PrimaryGeneratorAction.cc
-/// \brief Implementation of the B5PrimaryGeneratorAction class
+//
+//
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+#include <iostream>
+#include <fstream>
+#include "B5Run.hh"
 
-#include "B5PrimaryGeneratorAction.hh"
-
-#include "G4Event.hh"
-#include "G4ParticleGun.hh"
-#include "G4ParticleTable.hh"
 #include "G4ParticleDefinition.hh"
-#include "G4GenericMessenger.hh"
-#include "G4SystemOfUnits.hh"
-#include "Randomize.hh"
+#include "G4Run.hh"
+#include "G4UnitsTable.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B5PrimaryGeneratorAction::B5PrimaryGeneratorAction()
-: G4VUserPrimaryGeneratorAction()
- , fParticleGun(nullptr)
+B5Run::B5Run()
+  : G4Run()
 {
-  G4int nofParticles = 1;
-  fParticleGun  = new G4ParticleGun(nofParticles);
+  fParticle             = nullptr;
+  fEnergy               = -1.;
+  fCerenkovCounter      = 0.;
+  fCerenkov2            = 0.;
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+B5Run::~B5Run() {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void B5Run::SetPrimary(G4ParticleDefinition* particle, G4double energy)
+{
+  fParticle = particle;
+  fEnergy   = energy;
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void B5Run::Merge(const G4Run* run)
+{
+  const B5Run* localRun = static_cast<const B5Run*>(run);
+
+  fParticle = localRun->fParticle;
+  fEnergy   = localRun->fEnergy;
+
+  fCerenkovCounter += localRun->fCerenkovCounter;
+  fCerenkov2 += localRun->fCerenkov2;
   
-  // define commands for this class
-  DefineCommands();
+  G4Run::Merge(run);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-B5PrimaryGeneratorAction::~B5PrimaryGeneratorAction()
+void B5Run::EndOfRun()
 {
-  delete fParticleGun;
-  delete fMessenger;
+  if(numberOfEvent == 0)
+    return;
+  G4double TotNbofEvents = G4double(numberOfEvent);
+
+  fCerenkovCounter /= TotNbofEvents;
+  fCerenkov2 /= TotNbofEvents;
+  G4double rmsCerenkov = fCerenkov2 - fCerenkovCounter * fCerenkovCounter;
+  if(rmsCerenkov > 0.)
+    rmsCerenkov = std::sqrt(rmsCerenkov);
+  else
+    rmsCerenkov = 0.;
+
+
+  G4int prec = G4cout.precision(3);
+  G4cout << "\n ======================== run summary ======================\n";
+
+  G4cout << "Primary particle was: " << fParticle->GetParticleName()
+         << " with energy " << G4BestUnit(fEnergy, "Energy") << "." << G4endl;
+  G4cout << "Number of events: " << numberOfEvent << G4endl;
+
+  G4cout << "Average number of Cerenkov photons created per event: "
+         << fCerenkovCounter << " +- " << rmsCerenkov << G4endl;
+
+
+  G4cout << G4endl;
+  G4cout.precision(prec);
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
-{
-  auto particleTable = G4ParticleTable::GetParticleTable();
-  fParticleGun->SetParticlePosition(G4ThreeVector(1.*cm,1.*cm,-12.*cm));
-  fParticleGun->SetParticleDefinition(particleTable->FindParticle("mu+"));
-  fParticleGun->SetParticleEnergy(1.*GeV);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
-  fParticleGun->GeneratePrimaryVertex(event);
- 
-  //auto angle = (G4UniformRand()-0.5)*fSigmaAngle;
-  //fParticleGun->SetParticleMomentumDirection(
-  //              G4ThreeVector(std::sin(angle),0.,std::cos(angle)));
-  
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void B5PrimaryGeneratorAction::DefineCommands()
-{}     
-
-//..oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

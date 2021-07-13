@@ -31,6 +31,7 @@
 #include "B5PrimaryGeneratorAction.hh"
 #include "B5RunAction.hh"
 #include "B5EventAction.hh"
+#include "B5StackingAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -47,20 +48,22 @@ B5ActionInitialization::~B5ActionInitialization()
 
 void B5ActionInitialization::BuildForMaster() const
 {
-  B5EventAction* eventAction = new B5EventAction;
-  SetUserAction(new B5RunAction(eventAction));
+  //B5EventAction* eventAction = new B5EventAction;
+  SetUserAction(new B5RunAction());
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void B5ActionInitialization::Build() const
 {
-  SetUserAction(new B5PrimaryGeneratorAction);
+  B5PrimaryGeneratorAction* primary =
+    new B5PrimaryGeneratorAction();
+  SetUserAction(primary);
+  SetUserAction(new B5RunAction(primary));
 
-  auto eventAction = new B5EventAction;
+  B5EventAction* eventAction = new B5EventAction();
   SetUserAction(eventAction);
-
-  SetUserAction(new B5RunAction(eventAction));
+  SetUserAction(new B5StackingAction());
 }  
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

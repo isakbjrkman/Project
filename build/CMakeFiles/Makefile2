@@ -80,7 +80,7 @@ CMakeFiles/B5.dir/all: CMakeFiles/exampleB5.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/B5.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/B5.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles 0
 .PHONY : CMakeFiles/B5.dir/rule
@@ -102,12 +102,12 @@ CMakeFiles/B5.dir/clean:
 CMakeFiles/exampleB5.dir/all:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/depend
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target exampleB5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target exampleB5"
 .PHONY : CMakeFiles/exampleB5.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/exampleB5.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/exampleB5.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles 0
 .PHONY : CMakeFiles/exampleB5.dir/rule

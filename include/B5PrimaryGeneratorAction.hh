@@ -32,8 +32,8 @@
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "globals.hh"
+#include "G4ParticleGun.hh"
 
-class G4ParticleGun;
 class G4GenericMessenger;
 class G4Event;
 class G4ParticleDefinition;
@@ -51,6 +51,7 @@ class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     
     virtual void GeneratePrimaries(G4Event*);
     
+    G4ParticleGun* GetParticleGun() { return fParticleGun; }
     
   private:
     void DefineCommands();

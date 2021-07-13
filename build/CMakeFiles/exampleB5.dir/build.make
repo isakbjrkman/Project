@@ -96,35 +96,9 @@ CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5DetectorConstruction.cc -o CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s
 
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o: CMakeFiles/exampleB5.dir/flags.make
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o: ../src/B5EmCalorimeterHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterHit.cc
-
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterHit.cc > CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.i
-
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterHit.cc -o CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.s
-
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o: CMakeFiles/exampleB5.dir/flags.make
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o: ../src/B5EmCalorimeterSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterSD.cc
-
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterSD.cc > CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.i
-
-CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5EmCalorimeterSD.cc -o CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.s
-
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: CMakeFiles/exampleB5.dir/flags.make
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o: ../src/B5EventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5EventAction.cc
 
 CMakeFiles/exampleB5.dir/src/B5EventAction.cc.i: cmake_force
@@ -135,35 +109,9 @@ CMakeFiles/exampleB5.dir/src/B5EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5EventAction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5EventAction.cc -o CMakeFiles/exampleB5.dir/src/B5EventAction.cc.s
 
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: CMakeFiles/exampleB5.dir/flags.make
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o: ../src/B5HadCalorimeterHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5HadCalorimeterHit.cc
-
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5HadCalorimeterHit.cc > CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.i
-
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5HadCalorimeterHit.cc -o CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.s
-
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: CMakeFiles/exampleB5.dir/flags.make
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o: ../src/B5HadCalorimeterSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5HadCalorimeterSD.cc
-
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5HadCalorimeterSD.cc > CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.i
-
-CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5HadCalorimeterSD.cc -o CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.s
-
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o: CMakeFiles/exampleB5.dir/flags.make
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o: ../src/B5PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5PrimaryGeneratorAction.cc
 
 CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.i: cmake_force
@@ -174,9 +122,22 @@ CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5PrimaryGeneratorAction.cc -o CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.s
 
+CMakeFiles/exampleB5.dir/src/B5Run.cc.o: CMakeFiles/exampleB5.dir/flags.make
+CMakeFiles/exampleB5.dir/src/B5Run.cc.o: ../src/B5Run.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/exampleB5.dir/src/B5Run.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5Run.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5Run.cc
+
+CMakeFiles/exampleB5.dir/src/B5Run.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5Run.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5Run.cc > CMakeFiles/exampleB5.dir/src/B5Run.cc.i
+
+CMakeFiles/exampleB5.dir/src/B5Run.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5Run.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5Run.cc -o CMakeFiles/exampleB5.dir/src/B5Run.cc.s
+
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o: CMakeFiles/exampleB5.dir/flags.make
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o: ../src/B5RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5RunAction.cc
 
 CMakeFiles/exampleB5.dir/src/B5RunAction.cc.i: cmake_force
@@ -187,18 +148,29 @@ CMakeFiles/exampleB5.dir/src/B5RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5RunAction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5RunAction.cc -o CMakeFiles/exampleB5.dir/src/B5RunAction.cc.s
 
+CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o: CMakeFiles/exampleB5.dir/flags.make
+CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o: ../src/B5StackingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/B5StackingAction.cc
+
+CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/B5StackingAction.cc > CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.i
+
+CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/B5StackingAction.cc -o CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.s
+
 # Object files for target exampleB5
 exampleB5_OBJECTS = \
 "CMakeFiles/exampleB5.dir/exampleB5.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o" \
-"CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o" \
-"CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o" \
-"CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o" \
-"CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o" \
 "CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o" \
-"CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o"
+"CMakeFiles/exampleB5.dir/src/B5Run.cc.o" \
+"CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o" \
+"CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o"
 
 # External object files for target exampleB5
 exampleB5_EXTERNAL_OBJECTS =
@@ -206,13 +178,11 @@ exampleB5_EXTERNAL_OBJECTS =
 exampleB5: CMakeFiles/exampleB5.dir/exampleB5.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
-exampleB5: CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o
-exampleB5: CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o
-exampleB5: CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
-exampleB5: CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o
+exampleB5: CMakeFiles/exampleB5.dir/src/B5Run.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o
+exampleB5: CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o
 exampleB5: CMakeFiles/exampleB5.dir/build.make
 exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4Tree.so
 exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4FR.so
@@ -261,7 +231,7 @@ exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4global.
 exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4clhep.so
 exampleB5: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4ptl.so.0.0.2
 exampleB5: CMakeFiles/exampleB5.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable exampleB5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable exampleB5"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/exampleB5.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

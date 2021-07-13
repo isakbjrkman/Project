@@ -34,6 +34,8 @@
 #include "globals.hh"
 
 class B5EventAction;
+class B5Run;
+class B5PrimaryGeneratorAction;
 
 class G4Run;
 
@@ -42,14 +44,16 @@ class G4Run;
 class B5RunAction : public G4UserRunAction
 {
   public:
-    B5RunAction(B5EventAction* eventAction);
+    B5RunAction(B5PrimaryGeneratorAction* = nullptr);
     virtual ~B5RunAction();
 
-    virtual void BeginOfRunAction(const G4Run*);
-    virtual void   EndOfRunAction(const G4Run*);
+    G4Run* GenerateRun() override;
+    virtual void BeginOfRunAction(const G4Run*) override;
+    virtual void   EndOfRunAction(const G4Run*) override;
 
   private:
-    B5EventAction* fEventAction;
+    B5Run* fRun;
+    B5PrimaryGeneratorAction* fPrimary; 		
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

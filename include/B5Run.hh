@@ -23,35 +23,49 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+/// \file OpNovice/include/OpNoviceRun.hh
+/// \brief Definition of the OpNoviceRun class
 //
-/// \file B5EmCalorimeterSD.hh
-/// \brief Definition of the B5EmCalorimeterSD class
+//
+//
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef B5EmCalorimeterSD_h
-#define B5EmCalorimeterSD_h 1
+#ifndef B5Run_h
+#define B5Run_h 1
 
-#include "G4VSensitiveDetector.hh"
+#include "G4Run.hh"
 
-#include "B5EmCalorimeterHit.hh"
+class G4ParticleDefinition;
+class B5Run;
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+class G4Run;
 
-class G4Step;
-class G4HCofThisEvent;
-class G4TouchableHistory;
+class B5Run : public G4Run
+{
+ public:
+  B5Run();
+  ~B5Run();
 
-/// EM calorimeter sensitive detector
+  void SetPrimary(G4ParticleDefinition* particle, G4double energy);
 
-class B5EmCalorimeterSD : public G4VSensitiveDetector
-{   
-  public:
-    B5EmCalorimeterSD(G4String name);
-    virtual ~B5EmCalorimeterSD();
-    
-    virtual void Initialize(G4HCofThisEvent*HCE);
-    virtual G4bool ProcessHits(G4Step*aStep,G4TouchableHistory*ROhist);
-    
-  private:
-    B5EmCalorimeterHitsCollection* fHitsCollection;
-    G4int fHCID;
+  void AddCerenkov(G4double n)
+  {
+    fCerenkovCounter += n;
+    fCerenkov2 += n * n;
+  };
+
+
+  void Merge(const G4Run*) override;
+  void EndOfRun();
+
+ private:
+  G4double fCerenkovCounter;
+  G4double fCerenkov2;
+  
+
+  G4ParticleDefinition* fParticle;
+  G4double fEnergy;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

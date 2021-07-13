@@ -39,8 +39,8 @@
 #include "G4OpticalSurface.hh"
 #include "G4MaterialPropertiesTable.hh"
 #include "B5DetectorConstruction.hh"
-#include "B5EmCalorimeterSD.hh"
-#include "B5HadCalorimeterSD.hh"
+//#include "B5EmCalorimeterSD.hh"
+//#include "B5HadCalorimeterSD.hh"
 #include "G4TransportationManager.hh"
 #include "G4LogicalVolume.hh"
 #include "G4LogicalVolumeStore.hh"
@@ -60,6 +60,7 @@
 #include "G4PVParameterised.hh"
 #include "G4PVReplica.hh"
 #include "G4UserLimits.hh"
+
 
 #include "G4LogicalBorderSurface.hh"
 #include "G4ThreeVector.hh"
@@ -154,7 +155,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
                         air,             //its material
                         "Envelope");         //its name
                
-  new G4PVPlacement(0,                       //no rotation
+  G4VPhysicalVolume* logicEnvPhys = new G4PVPlacement(0,                       //no rotation
                     G4ThreeVector(),         //at (0,0,0)
                     logicEnv,                //its logical volume
                     "Envelope",              //its name
@@ -167,6 +168,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
  G4double mEfficMet[354];
  G4double mReflMet[354];
  G4double mAbs[354];
+ G4double mRefractiveIndex2[354];
  int nBins = sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
  
  std::ifstream myfile("quartz.txt");
@@ -195,7 +197,6 @@ ss >> energy >> abs >> ref >> eff;
  std::cout << mPhotonEnergyD[num] << " " << mAbs[num] << " " << mReflMet[num] << " " << mEfficMet[num] << "\n";
  ++num;
       } 
-  //myfile.close(); 
     
   
   for (auto u=0; u< 354; u++) {
@@ -204,7 +205,7 @@ ss >> energy >> abs >> ref >> eff;
 
 
  for (auto i = 0; i < nBins; i++) {
-    mReflMet[i]= 0.9;
+    mRefractiveIndex2[i] = 1.0;
   }
 
 
@@ -222,17 +223,23 @@ ss >> energy >> abs >> ref >> eff;
   MPT->AddProperty("RINDEX", mPhotonEnergyD, mReflMet, nBins)->SetSpline(true);
   MPT->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
   MPT->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);
-  MPT->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);
+  
+  
+  G4cout << "Quartz G4MaterialPropertiesTable:" << G4endl;
+  MPT->DumpTable();  
   SiO2->SetMaterialPropertiesTable(MPT);
+
+  //Air properties
+  
+  G4MaterialPropertiesTable* MPT2 = new G4MaterialPropertiesTable();
+  MPT2->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndex2, nBins);
+
+  G4cout << "Air G4MaterialPropertiesTable:" << G4endl;
+  MPT2->DumpTable();
+
+  air->SetMaterialPropertiesTable(MPT2);
  
 
-  G4Cerenkov* theCerenkovProcess = new G4Cerenkov("Cerenkov");
-  theCerenkovProcess->SetTrackSecondariesFirst(true);
-  G4int MaxNumPhotons = 500;
-  theCerenkovProcess->SetMaxNumPhotonsPerStep(MaxNumPhotons);  
-
-  
-  //G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_SILICON_DIOXIDE"); //SILICON_DIOXIDE
   G4ThreeVector pos1 = G4ThreeVector(-13.255*mm, 13.255*mm, 0*mm);
              
 
@@ -244,20 +251,38 @@ ss >> energy >> abs >> ref >> eff;
     new G4LogicalVolume(solidShape1,         //its solid
                         SiO2,          //its material
                         "Shape1");           //its name                  
-  G4int p = 0;
+
+ G4VPhysicalVolume* logicPhys1;   //interpreted as last or all 4 volumes? 
+   G4int p = 0;
   for (auto i=0;i<2;i++) {
      G4double x1 = -13.255*mm+i*2*13.255*mm;
      for (auto j=0;j<2; j++){
      p++;
      G4double y1 = -13.255*mm+j*2*13.255*mm;
-     new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),logicShape1,
+    logicPhys1 =  new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),logicShape1,
                         "Shape1",logicEnv,
                         false,p,checkOverlaps);
   	}
   }
   
-  logicShape1->SetVisAttributes(blueVis);  
-               
+  
+  G4OpticalSurface* opQuartzSurface = new G4OpticalSurface("QuartzSurface");
+  opQuartzSurface->SetType(dielectric_LUTDAVIS);
+  opQuartzSurface->SetFinish(Rough_LUT);
+  opQuartzSurface->SetModel(DAVIS);
+  
+  
+   G4LogicalBorderSurface* quartzSurface = new G4LogicalBorderSurface(
+    "QuartzSurface", logicPhys1, logicEnvPhys, opQuartzSurface);
+
+  G4OpticalSurface* opticalSurface = dynamic_cast<G4OpticalSurface*>(
+    quartzSurface->GetSurface(logicPhys1, logicEnvPhys)
+      ->GetSurfaceProperty());
+  if(opticalSurface)
+    opticalSurface->DumpInfo();
+   
+  
+  logicShape1->SetVisAttributes(blueVis);              
  
   G4ThreeVector pos5 = G4ThreeVector(0*mm, 0*mm, 11*mm);
       
@@ -275,7 +300,8 @@ ss >> energy >> abs >> ref >> eff;
                
   logicShape5->SetVisAttributes(purpleVis);           
                
-  new G4PVPlacement(0,                       //no rotation
+  
+  G4VPhysicalVolume* logicPhys2 = new G4PVPlacement(0,                       //no rotation
                     pos5,                    //at position
                     logicShape5,             //its logical volume
                     "Shape5",                //its name
@@ -284,10 +310,27 @@ ss >> energy >> abs >> ref >> eff;
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
                 
-                                  
+                
+  G4OpticalSurface* opQuartzSurface2 = new G4OpticalSurface("QuartzSurface2");
+  opQuartzSurface2->SetType(dielectric_LUTDAVIS);
+  opQuartzSurface2->SetFinish(Rough_LUT);
+  opQuartzSurface2->SetModel(DAVIS);
+  
+  
+   G4LogicalBorderSurface* quartzSurface2 = new G4LogicalBorderSurface(
+    "QuartzSurface2", logicPhys2, logicEnvPhys, opQuartzSurface2);
+
+  G4OpticalSurface* opticalSurface2 = dynamic_cast<G4OpticalSurface*>(
+    quartzSurface2->GetSurface(logicPhys2, logicEnvPhys)
+      ->GetSurfaceProperty());
+  if(opticalSurface2)
+    opticalSurface2->DumpInfo();         
+          
+                                       
  //Photocathode                    
   
-  G4Material* shape6_mat = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
+  G4Material* GaAr = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
+
         
  // first arm
   
@@ -304,7 +347,7 @@ ss >> energy >> abs >> ref >> eff;
   auto chamber1Solid
     = new G4Box("chamber1Box",0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
   auto chamber1Logical
-    = new G4LogicalVolume(chamber1Solid,shape6_mat,"chamber1Logical");
+    = new G4LogicalVolume(chamber1Solid,GaAr,"chamber1Logical");
 
   for (auto i=0;i<2;i++) {
       G4double x1 = -13.255*mm+i*2*13.255*mm;
@@ -362,12 +405,8 @@ ss >> energy >> abs >> ref >> eff;
   return worldPhysical;
 }
 
-
-//SetMaterialProperty("surfRd", "EFFICIENCY", nBins, &(mPhotonEnergyD[0]), &(mEfficMet[0]));
-//  TVirtualMC::GetMC()->SetMaterialProperty("surfRd", "REFLECTIVITY", nBins, &(mPhotonEnergyD[0]), &(mReflMet[0]));
-
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
+/*
 void B5DetectorConstruction::ConstructSDandField()
 {
   // sensitive detectors -----------------------------------------------------
@@ -383,7 +422,7 @@ void B5DetectorConstruction::ConstructSDandField()
   fWirePlane1Logical->SetSensitiveDetector(hadCalorimeter);
 
 }    
-
+*/
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void B5DetectorConstruction::ConstructMaterials()
