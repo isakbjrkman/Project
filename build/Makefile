@@ -263,6 +263,60 @@ src/B5DetectorConstruction.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s
 .PHONY : src/B5DetectorConstruction.cc.s
 
+src/B5EmCalorimeterHit.o: src/B5EmCalorimeterHit.cc.o
+
+.PHONY : src/B5EmCalorimeterHit.o
+
+# target to build an object file
+src/B5EmCalorimeterHit.cc.o:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.o
+.PHONY : src/B5EmCalorimeterHit.cc.o
+
+src/B5EmCalorimeterHit.i: src/B5EmCalorimeterHit.cc.i
+
+.PHONY : src/B5EmCalorimeterHit.i
+
+# target to preprocess a source file
+src/B5EmCalorimeterHit.cc.i:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.i
+.PHONY : src/B5EmCalorimeterHit.cc.i
+
+src/B5EmCalorimeterHit.s: src/B5EmCalorimeterHit.cc.s
+
+.PHONY : src/B5EmCalorimeterHit.s
+
+# target to generate assembly for a file
+src/B5EmCalorimeterHit.cc.s:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterHit.cc.s
+.PHONY : src/B5EmCalorimeterHit.cc.s
+
+src/B5EmCalorimeterSD.o: src/B5EmCalorimeterSD.cc.o
+
+.PHONY : src/B5EmCalorimeterSD.o
+
+# target to build an object file
+src/B5EmCalorimeterSD.cc.o:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.o
+.PHONY : src/B5EmCalorimeterSD.cc.o
+
+src/B5EmCalorimeterSD.i: src/B5EmCalorimeterSD.cc.i
+
+.PHONY : src/B5EmCalorimeterSD.i
+
+# target to preprocess a source file
+src/B5EmCalorimeterSD.cc.i:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.i
+.PHONY : src/B5EmCalorimeterSD.cc.i
+
+src/B5EmCalorimeterSD.s: src/B5EmCalorimeterSD.cc.s
+
+.PHONY : src/B5EmCalorimeterSD.s
+
+# target to generate assembly for a file
+src/B5EmCalorimeterSD.cc.s:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EmCalorimeterSD.cc.s
+.PHONY : src/B5EmCalorimeterSD.cc.s
+
 src/B5EventAction.o: src/B5EventAction.cc.o
 
 .PHONY : src/B5EventAction.o
@@ -289,6 +343,60 @@ src/B5EventAction.s: src/B5EventAction.cc.s
 src/B5EventAction.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EventAction.cc.s
 .PHONY : src/B5EventAction.cc.s
+
+src/B5HadCalorimeterHit.o: src/B5HadCalorimeterHit.cc.o
+
+.PHONY : src/B5HadCalorimeterHit.o
+
+# target to build an object file
+src/B5HadCalorimeterHit.cc.o:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
+.PHONY : src/B5HadCalorimeterHit.cc.o
+
+src/B5HadCalorimeterHit.i: src/B5HadCalorimeterHit.cc.i
+
+.PHONY : src/B5HadCalorimeterHit.i
+
+# target to preprocess a source file
+src/B5HadCalorimeterHit.cc.i:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.i
+.PHONY : src/B5HadCalorimeterHit.cc.i
+
+src/B5HadCalorimeterHit.s: src/B5HadCalorimeterHit.cc.s
+
+.PHONY : src/B5HadCalorimeterHit.s
+
+# target to generate assembly for a file
+src/B5HadCalorimeterHit.cc.s:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.s
+.PHONY : src/B5HadCalorimeterHit.cc.s
+
+src/B5HadCalorimeterSD.o: src/B5HadCalorimeterSD.cc.o
+
+.PHONY : src/B5HadCalorimeterSD.o
+
+# target to build an object file
+src/B5HadCalorimeterSD.cc.o:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
+.PHONY : src/B5HadCalorimeterSD.cc.o
+
+src/B5HadCalorimeterSD.i: src/B5HadCalorimeterSD.cc.i
+
+.PHONY : src/B5HadCalorimeterSD.i
+
+# target to preprocess a source file
+src/B5HadCalorimeterSD.cc.i:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.i
+.PHONY : src/B5HadCalorimeterSD.cc.i
+
+src/B5HadCalorimeterSD.s: src/B5HadCalorimeterSD.cc.s
+
+.PHONY : src/B5HadCalorimeterSD.s
+
+# target to generate assembly for a file
+src/B5HadCalorimeterSD.cc.s:
+	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.s
+.PHONY : src/B5HadCalorimeterSD.cc.s
 
 src/B5PrimaryGeneratorAction.o: src/B5PrimaryGeneratorAction.cc.o
 
@@ -421,9 +529,21 @@ help:
 	@echo "... src/B5DetectorConstruction.o"
 	@echo "... src/B5DetectorConstruction.i"
 	@echo "... src/B5DetectorConstruction.s"
+	@echo "... src/B5EmCalorimeterHit.o"
+	@echo "... src/B5EmCalorimeterHit.i"
+	@echo "... src/B5EmCalorimeterHit.s"
+	@echo "... src/B5EmCalorimeterSD.o"
+	@echo "... src/B5EmCalorimeterSD.i"
+	@echo "... src/B5EmCalorimeterSD.s"
 	@echo "... src/B5EventAction.o"
 	@echo "... src/B5EventAction.i"
 	@echo "... src/B5EventAction.s"
+	@echo "... src/B5HadCalorimeterHit.o"
+	@echo "... src/B5HadCalorimeterHit.i"
+	@echo "... src/B5HadCalorimeterHit.s"
+	@echo "... src/B5HadCalorimeterSD.o"
+	@echo "... src/B5HadCalorimeterSD.i"
+	@echo "... src/B5HadCalorimeterSD.s"
 	@echo "... src/B5PrimaryGeneratorAction.o"
 	@echo "... src/B5PrimaryGeneratorAction.i"
 	@echo "... src/B5PrimaryGeneratorAction.s"

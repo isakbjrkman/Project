@@ -34,8 +34,8 @@
 
 #include "B5EventAction.hh"
 
-//#include "B5EmCalorimeterHit.hh"
-//#include "B5HadCalorimeterHit.hh"
+#include "B5EmCalorimeterHit.hh"
+#include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
 #include "G4Event.hh"
@@ -56,7 +56,7 @@ namespace {
 
 // Utility function which finds a hit collection with the given Id
 // and print warnings if not found 
-/*
+
 
 G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
   auto hce = event->GetHCofThisEvent();
@@ -77,15 +77,15 @@ G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
   }
   return hc;  
 }
-*/
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5EventAction::B5EventAction()
-: G4UserEventAction() 
-{}
-/*
+: G4UserEventAction(), 
+
+
   fCalHCID  {{ -1, -1 }},
   fDriftHistoID{{ {{ -1, -1 }}, {{ -1, -1 }} }},
   fCalEdep{{ vector<G4double>(kNofEmCells, 0.), vector<G4double>(kNofHadCells, 0.) }}
@@ -96,7 +96,7 @@ B5EventAction::B5EventAction()
   // set printing per each event
   G4RunManager::GetRunManager()->SetPrintProgress(1);
 }
- */ 
+ 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B5EventAction::~B5EventAction()
@@ -106,7 +106,7 @@ B5EventAction::~B5EventAction()
 
 void B5EventAction::BeginOfEventAction(const G4Event*)
 {
-/*    auto sdManager = G4SDManager::GetSDMpointer();
+    auto sdManager = G4SDManager::GetSDMpointer();
     // hits collections names    
     array<G4String, kDim> cHCName 
       = {{ "EMcalorimeter/EMcalorimeterColl", "HadCalorimeter/HadCalorimeterColl" }};
@@ -115,7 +115,7 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
       // hit collections IDs
       fCalHCID[iDet]   = sdManager->GetCollectionID(cHCName[iDet]);
     }
-*/
+
 }     
 
 
@@ -130,7 +130,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   //
   // Fill histograms & ntuple
   // 
-/*  std::ofstream myfile;
+  std::ofstream myfile;
   myfile.open("filename.txt", std::ofstream::app);
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
@@ -247,7 +247,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   for (G4int iDet = 0; iDet < kDim; ++iDet) {
     G4cout << calName[iDet] << " Calorimeter has " << totalCalHit[iDet] << " hits." 
            << " Total Edep is " << totalCalEdep[iDet]/MeV << " (MeV)" << G4endl;
-  } */
+  } 
 }
 
 

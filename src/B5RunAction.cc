@@ -51,8 +51,8 @@ B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygenerato
   // Create the generic analysis manager
   // The choice of analysis technology is done according to the file extension
   
- // auto analysisManager = G4AnalysisManager::Instance();
- /* analysisManager->SetVerboseLevel(1);
+  auto analysisManager = G4AnalysisManager::Instance();
+  analysisManager->SetVerboseLevel(1);
 
   // Default settings
   analysisManager->SetNtupleMerging(true);
@@ -68,7 +68,7 @@ B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygenerato
    
    
   // Creating ntuple
-  if ( fEventAction ) {
+  if ( fPrimary ) {
     analysisManager->CreateNtuple("B5", "Hits");
     analysisManager->CreateNtupleDColumn("ECEnergy"); // column Id = 2
     analysisManager->CreateNtupleDColumn("HCEnergy"); // column Id = 3
@@ -80,16 +80,12 @@ B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygenerato
     analysisManager->CreateNtupleDColumn("PY");      // column Id = 9
     analysisManager->CreateNtupleDColumn("PZ");      // column Id = 10
     analysisManager->CreateNtupleDColumn("DetectorID");    // column Id = 12
-    analysisManager                                   // column Id = 13
-      ->CreateNtupleDColumn("ECEnergyVector", fEventAction->GetEmCalEdep()); 
-    analysisManager                                   // column Id = 14
-      ->CreateNtupleDColumn("HCEnergyVector", fEventAction->GetHadCalEdep());
     analysisManager->FinishNtuple();
   }
 
   // Set ntuple output file
   analysisManager->SetNtupleFileName(0, "B4ntuple");
-*/
+
 }
 
 
@@ -98,7 +94,7 @@ B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygenerato
 
 B5RunAction::~B5RunAction()
 {
-  //delete G4AnalysisManager::Instance();  
+  delete G4AnalysisManager::Instance();  
 }
 
 
@@ -109,16 +105,11 @@ G4Run* B5RunAction::GenerateRun()
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B5RunAction::BeginOfRunAction(const G4Run* run)
+void B5RunAction::BeginOfRunAction(const G4Run* /*run*/)
 { 
   //inform the runManager to save random number seed
   //G4RunManager::GetRunManager()->SetRandomNumberStore(true);
- /* const B5RunAction* localRun = static_cast<const B5RunAction*>(run); //added
-  fParticle = localRun->fParticle;
-  fEnergy   = localRun->fEnergy;
-  fCerenkovCounter += localRun->fCerenkovCounter;
-  G4Run::BeginOfRunAction(run) 					//added
-  */
+
   if(fPrimary)
   {
     G4ParticleDefinition* particle =
@@ -128,12 +119,12 @@ void B5RunAction::BeginOfRunAction(const G4Run* run)
   }
   
   // Get analysis manager
-//  auto analysisManager = G4AnalysisManager::Instance();
+  auto analysisManager = G4AnalysisManager::Instance();
 
   // Open an output file 
   // The default file name is set in B5RunAction::B5RunAction(),
   // it can be overwritten in a macro
-//  analysisManager->OpenFile();
+  analysisManager->OpenFile();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -142,10 +133,10 @@ void B5RunAction::EndOfRunAction(const G4Run* /*run*/)
 {
   // save histograms & ntuple
   //
-/*  auto analysisManager = G4AnalysisManager::Instance();
+ auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->Write();
   analysisManager->CloseFile();
-*/
+
   if(isMaster)
     fRun->EndOfRun();
 

@@ -24,57 +24,35 @@
 // ********************************************************************
 //
 //
-/// \file B5PrimaryGeneratorAction.hh
-/// \brief Definition of the B5PrimaryGeneratorAction class
+/// \file B5HadCalorimeterSD.hh
+/// \brief Definition of the B5HadCalorimeterSD class
+#include "G4ParticleDefinition.hh"
+#ifndef B5HadCalorimeterSD_h
+#define B5HadCalorimeterSD_h 1
 
-#ifndef B5PrimaryGeneratorAction_h
-#define B5PrimaryGeneratorAction_h 1
+#include "G4VSensitiveDetector.hh"
 
-#include "G4UserEventAction.hh"
-#include "G4VUserPrimaryGeneratorAction.hh"
-#include "globals.hh"
-#include "G4ParticleGun.hh"
+#include "B5HadCalorimeterHit.hh"
 
-#include <vector>
-#include <array>
+class G4Step;
+class G4HCofThisEvent;
+class G4TouchableHistory;
 
-// named constants
+/// Hadron calorimeter sensitive detector
 
-class G4GenericMessenger;
-class G4Event;
-class G4ParticleDefinition;
-
-/// Primary generator
-///
-
-
-
-class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
-{
+class B5HadCalorimeterSD : public G4VSensitiveDetector
+{    
   public:
-    B5PrimaryGeneratorAction();
-    virtual ~B5PrimaryGeneratorAction();
+    B5HadCalorimeterSD(G4String name);
+    virtual ~B5HadCalorimeterSD();
     
-    virtual void GeneratePrimaries(G4Event*);
-    
-    G4ParticleGun* GetParticleGun() { return fParticleGun; }
-    
-     std::vector<G4double>& GetEmCalEdep() { return fCalEdep[0]; }
-    std::vector<G4double>& GetHadCalEdep() { return fCalEdep[1]; }
+    virtual void Initialize(G4HCofThisEvent*HCE);
+    virtual G4bool ProcessHits(G4Step*aStep,G4TouchableHistory*ROhist);
     
   private:
-    void DefineCommands();
-
-    G4ParticleGun* fParticleGun;
-    G4GenericMessenger* fMessenger;
-    
-    
-    std::array<G4int, 2> fCalHCID;						//delete if not filled x3, found in eventaction class
-    // histograms Ids
-    std::array<std::array<G4int, 2>, 2> fDriftHistoID;
-    // energy deposit in calorimeters cells
-    std::array<std::vector<G4double>, 2> fCalEdep;
-
+    B5HadCalorimeterHitsCollection* fHitsCollection;
+    G4int fHCID;
+    G4int fCerenkovCounter;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

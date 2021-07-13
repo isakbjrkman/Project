@@ -24,78 +24,76 @@
 // ********************************************************************
 //
 //
-/// \file B5PrimaryGeneratorAction.cc
-/// \brief Implementation of the B5PrimaryGeneratorAction class
+/// \file B5EmCalorimeterSD.cc
+/// \brief Implementation of the B5EmCalorimeterSD class
 
-#include "B5Run.hh"
-
-#include "B5EventAction.hh"
-
+#include "B5EmCalorimeterSD.hh"
 #include "B5EmCalorimeterHit.hh"
-#include "B5HadCalorimeterHit.hh"
 #include "B5Constants.hh"
 
-#include "G4RunManager.hh"
-#include "G4EventManager.hh"
 #include "G4HCofThisEvent.hh"
-#include "G4VHitsCollection.hh"
+#include "G4TouchableHistory.hh"
+#include "G4Track.hh"
+#include "G4Step.hh"
 #include "G4SDManager.hh"
 #include "G4ios.hh"
-#include "g4analysis.hh"
-
-
-
-#include "B5PrimaryGeneratorAction.hh"
-
-#include "G4Event.hh"
-#include "G4ParticleGun.hh"
-#include "G4ParticleTable.hh"
-#include "G4ParticleDefinition.hh"
-#include "G4GenericMessenger.hh"
-#include "G4SystemOfUnits.hh"
-#include "Randomize.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B5PrimaryGeneratorAction::B5PrimaryGeneratorAction()
-: G4VUserPrimaryGeneratorAction()
- , fParticleGun(nullptr)
+B5EmCalorimeterSD::B5EmCalorimeterSD(G4String name)
+: G4VSensitiveDetector(name), 
+  fHitsCollection(nullptr), fHCID(-1)
 {
-  G4int nofParticles = 1;
-  fParticleGun  = new G4ParticleGun(nofParticles);
+  collectionName.insert("EMcalorimeterColl");
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+B5EmCalorimeterSD::~B5EmCalorimeterSD()
+{}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void B5EmCalorimeterSD::Initialize(G4HCofThisEvent* hce)
+{
+  fHitsCollection 
+    = new B5EmCalorimeterHitsCollection(SensitiveDetectorName,collectionName[0]);
+  if (fHCID<0) {
+    fHCID = G4SDManager::GetSDMpointer()->GetCollectionID(fHitsCollection); 
+  }
+  hce->AddHitsCollection(fHCID,fHitsCollection);
   
-  // define commands for this class
-  DefineCommands();
+  // fill calorimeter hits with zero energy deposition
+  for (auto i=0;i<kNofEmCells;i++) {
+    fHitsCollection->insert(new B5EmCalorimeterHit(i));
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B5PrimaryGeneratorAction::~B5PrimaryGeneratorAction()
+G4bool B5EmCalorimeterSD::ProcessHits(G4Step*step, G4TouchableHistory*)
 {
-  delete fParticleGun;
-  delete fMessenger;
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
-{
-  auto particleTable = G4ParticleTable::GetParticleTable();
-  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-12.*cm));
-  fParticleGun->SetParticleDefinition(particleTable->FindParticle("mu+"));
-  fParticleGun->SetParticleEnergy(1.*GeV);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
-  fParticleGun->GeneratePrimaryVertex(event);
- 
-  //auto angle = (G4UniformRand()-0.5)*fSigmaAngle;
-  //fParticleGun->SetParticleMomentumDirection(
-  //              G4ThreeVector(std::sin(angle),0.,std::cos(angle)));
+  auto edep = step->GetTotalEnergyDeposit();
+  if (edep==0.) return true;
   
+  auto touchable = step->GetPreStepPoint()->GetTouchable();
+  auto physical = touchable->GetVolume();
+  auto copyNo = physical->GetCopyNo();
+  
+  auto hit = (*fHitsCollection)[copyNo];
+  // check if it is first touch
+  if (!(hit->GetLogV())) {
+    // fill volume information
+    hit->SetLogV(physical->GetLogicalVolume());
+    G4AffineTransform transform = touchable->GetHistory()->GetTopTransform();
+    transform.Invert();
+    hit->SetRot(transform.NetRotation());
+    hit->SetPos(transform.NetTranslation());
+  }
+  // add energy deposition
+  hit->AddEdep(edep);
+  
+  return true;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void B5PrimaryGeneratorAction::DefineCommands()
-{}     
-
-//..oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

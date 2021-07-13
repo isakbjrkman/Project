@@ -39,8 +39,8 @@
 #include "G4OpticalSurface.hh"
 #include "G4MaterialPropertiesTable.hh"
 #include "B5DetectorConstruction.hh"
-//#include "B5EmCalorimeterSD.hh"
-//#include "B5HadCalorimeterSD.hh"
+#include "B5EmCalorimeterSD.hh"
+#include "B5HadCalorimeterSD.hh"
 #include "G4TransportationManager.hh"
 #include "G4LogicalVolume.hh"
 #include "G4LogicalVolumeStore.hh"
@@ -406,7 +406,7 @@ ss >> energy >> abs >> ref >> eff;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-/*
+
 void B5DetectorConstruction::ConstructSDandField()
 {
   // sensitive detectors -----------------------------------------------------
@@ -422,7 +422,7 @@ void B5DetectorConstruction::ConstructSDandField()
   fWirePlane1Logical->SetSensitiveDetector(hadCalorimeter);
 
 }    
-*/
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void B5DetectorConstruction::ConstructMaterials()
