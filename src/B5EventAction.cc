@@ -85,9 +85,8 @@ B5EventAction::B5EventAction()
 : G4UserEventAction(), 
 
 
-  fCalHCID  {{ -1, -1 }},
-  fDriftHistoID{{ {{ -1, -1 }}, {{ -1, -1 }} }},
-  fCalEdep{{ vector<G4double>(kNofEmCells, 0.), vector<G4double>(kNofHadCells, 0.) }}
+  fCalHCID  {{ -1 }},
+  fCalEdep{{ vector<G4double>(kNofHadCells, 0.) }}
       // std::array<T, N> is an aggregate that contains a C array. 
     // To initialize it, we need outer braces for the class itself 
       // and inner braces for the C array
@@ -107,13 +106,13 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
 {
     auto sdManager = G4SDManager::GetSDMpointer();
     // hits collections names    
-    array<G4String, kDim> cHCName 
-      = {{ "EMcalorimeter/EMcalorimeterColl", "HadCalorimeter/HadCalorimeterColl" }};
+    array<G4String, 1> cHCName 
+      = {{ "HadCalorimeter/HadCalorimeterColl" }};
 
-    for (G4int iDet = 0; iDet < kDim; ++iDet) {
+ 
       // hit collections IDs
-      fCalHCID[iDet]   = sdManager->GetCollectionID(cHCName[iDet]);
-    }
+      fCalHCID[0]   = sdManager->GetCollectionID(cHCName[0]);
+   
 
 }     
 
@@ -124,10 +123,7 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
 void B5EventAction::EndOfEventAction(const G4Event* event)
 {
 
- // B5Run* run = static_cast<B5Run*>(
-   // G4RunManager::GetRunManager()->GetNonConstCurrentRun());
-  //
-  // Fill histograms & ntuple
+  // Fill ntuple
   // 
   std::ofstream myfile;
   myfile.open("filename.txt", std::ofstream::app);
@@ -135,35 +131,31 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
   auto analysisManager = G4AnalysisManager::Instance();
 
       
-  // Em/Had Calorimeters hits
-  array<G4int, kDim> totalCalHit = {{ 0, 0 }}; 
-  array<G4double, kDim> totalCalEdep = {{ 0., 0. }}; 
+  // Had Calorimeters hits
+  array<G4int, 1> totalCalHit = {{ 0 }}; 
+  array<G4double, 1> totalCalEdep = {{ 0. }}; 
 
-  for (G4int iDet = 1; iDet < kDim; ++iDet) {
-    auto hc = GetHC(event, fCalHCID[iDet]);
+  
+    auto hc = GetHC(event, fCalHCID[0]);
     if ( ! hc ) return;
 
-    totalCalHit[iDet] = 0;
-    totalCalEdep[iDet] = 0.;
+    totalCalHit[0] = 0;
+    totalCalEdep[0] = 0.;
     for (unsigned long i = 0; i < hc->GetSize(); ++i) {
       G4double edep = 0.;
-      // The EM and Had calorimeter hits are of different types
      
         auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(i));   //check i & det to be correct!
         edep = hit->GetEdep(); //GetEdep
       
       if ( edep > 0. ) {
-        totalCalHit[iDet]++;
-        totalCalEdep[iDet] += edep;
+        totalCalHit[0]++;
+        totalCalEdep[0] += edep;
       }
-      fCalEdep[iDet][i] = edep;
+      fCalEdep[0][i] = edep;
     }
     // columns 0, 1
-    analysisManager->FillNtupleDColumn(0, totalCalEdep[iDet]);	/*iDet + 0*/ 
-  }
-
- 
-    auto hc = GetHC(event, fCalHCID[1]);
+    analysisManager->FillNtupleDColumn(0, totalCalEdep[0]);	/*iDet + 0*/ 
+  
     if ( ! hc ) {
     return;
    } else {   
@@ -172,57 +164,54 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       // columns 6->10
       //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
       hit->SetEvent(event->GetEventID());
-      analysisManager->FillNtupleDColumn(1 + 5, hit->GetPX());
+      analysisManager->FillNtupleDColumn(5, hit->GetPX());
       G4cout << hit->GetPX() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 6, hit->GetPY());
+      analysisManager->FillNtupleDColumn(6, hit->GetPY());
       G4cout << hit->GetPY() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 7, hit->GetPZ());
+      analysisManager->FillNtupleDColumn(7, hit->GetPZ());
       G4cout << hit->GetPZ() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 8, hit->GetDetectorID());
+      analysisManager->FillNtupleDColumn(8, hit->GetDetectorID());
       G4cout << hit->GetDetectorID() << G4endl;
       myfile << hit->GetDetectorID() << "_";      
         // HadCalorimeter hits
-  for (G4int iDet = 1; iDet < kDim; ++iDet) {
-    auto hc2 = GetHC(event, fCalHCID[iDet]);
+
+    auto hc2 = GetHC(event, fCalHCID[0]);
     if ( ! hc2 ) return;
 
-    for (unsigned int i = 0; i<1; ++i) {
-      auto hit2 = static_cast<B5HadCalorimeterHit*>(hc2->GetHit(i));
+    
+      auto hit2 = static_cast<B5HadCalorimeterHit*>(hc2->GetHit(0));
       // columns 2
-      analysisManager->FillNtupleDColumn(iDet + 1, hit2->GetPDG());
+      analysisManager->FillNtupleDColumn(1, hit2->GetPDG());
       G4cout << hit2->GetPDG() << G4endl;
       myfile << hit2->GetPDG() << "_";
-    }
-  }      
+    
+        
       myfile << hit->GetPX() << "_";
       myfile << hit->GetPY() << "_";
       myfile << hit->GetPZ() << "_";       
   }
   
-    auto hc3 = GetHC(event, fCalHCID[1]);
+    auto hc3 = GetHC(event, fCalHCID[0]);
     if ( ! hc3 ) return;
 
-    for (unsigned int i = 0; i<1; ++i) {
-      auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(i));
+
+      auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(0));
       // columns 3,4,5
    
-      analysisManager->FillNtupleDColumn(1 + 2, hit->GetX());
+      analysisManager->FillNtupleDColumn(2, hit->GetX());
       G4cout << hit->GetX() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 3, hit->GetY());
+      analysisManager->FillNtupleDColumn(3, hit->GetY());
       G4cout << hit->GetY() << G4endl;
-      analysisManager->FillNtupleDColumn(1 + 4, hit->GetZ());
+      analysisManager->FillNtupleDColumn(4, hit->GetZ());
       G4cout << hit->GetZ() << G4endl;
       myfile << hit->GetX() << "_";
       myfile << hit->GetY() << "_";
       myfile << hit->GetZ() << "_";
       myfile << "Cerenkov";
       myfile << hit->GetCerenkov() << "\n";
-    }
     
-   myfile.close();
-  
-
-
+    
+  myfile.close();
   analysisManager->AddNtupleRow();
 
 
@@ -241,8 +230,8 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 
   // Calorimeters
 
-    G4cout << "Hadron Calorimeter has " << totalCalHit[1] << " hits." 			
-           << " Total Edep is " << totalCalEdep[1]/MeV << " (MeV)" << G4endl;
+    G4cout << "Hadron Calorimeter has " << totalCalHit[0] << " hits." 			
+           << " Total Edep is " << totalCalEdep[0]/MeV << " (MeV)" << G4endl;
   
 }
 

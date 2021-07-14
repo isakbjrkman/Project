@@ -57,12 +57,12 @@ int main(int argc,char** argv)
     ui = new G4UIExecutive(argc, argv);
   }
   
-  /*
+  
 std::ofstream myfile;
   myfile.open("filename.txt");
   myfile << "DetectorId_particlePDG_px_py_pz_x_y_z\n";
   myfile.close();
-  */
+  
 
 
 

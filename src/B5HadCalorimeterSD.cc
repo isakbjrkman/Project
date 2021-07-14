@@ -112,8 +112,16 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   // check if it is first touch
   //if (hit->GetColumnID() < 0 ) {
     if (track->GetDynamicParticle()->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
-    ++fCerenkovCounter;
     hit->AddCerenkov(1);
+    std::cout << "Cerenkov photon detected" << std::endl;
+    std::cout << encoding << std::endl;
+    std::cout << touchable->GetVolume(0)->GetCopyNo() << std::endl;
+    std::cout << step->GetTrack()->GetPosition()(0) << std::endl;
+    std::cout << step->GetTrack()->GetPosition()(1) << std::endl;
+    std::cout << step->GetTrack()->GetPosition()(2) << std::endl;		//funkar
+    std::cout << step->GetTrack()->GetMomentum()(0) << std::endl;
+    std::cout << step->GetTrack()->GetMomentum()(1) << std::endl;
+    std::cout << step->GetTrack()->GetMomentum()(2) << std::endl;
     std::cout << "Cerenkov photon detected" << std::endl;
     }
 

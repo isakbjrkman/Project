@@ -146,9 +146,16 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   
  G4double mPhotonEnergyD[354];
  G4double mEfficMet[354];
- G4double mReflMet[354];
+ G4double mRindexMet[354];
  G4double mAbs[354];
- G4double mRefractiveIndex2[354];
+ G4double mRefractiveIndexAir[354];
+ G4double mAbsAir[354];
+ G4double mReflMCP[354];
+ G4double mEffMCP[354];
+ G4double mAbsMCP[354];
+ G4double mRefractiveIndexCathode[354];
+ G4double mAbsCathode[354];
+ G4double mReflMet[354];
  int nBins = sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
  
  std::ifstream myfile("quartz.txt");
@@ -172,20 +179,28 @@ std::istringstream ss(line);
 ss >> energy >> abs >> ref >> eff;
  mPhotonEnergyD[num] = energy*eV;
  mAbs[num] = abs*cm;
- mReflMet[num] = ref;
+ mRindexMet[num] = ref;
  mEfficMet[num] = eff;  
- std::cout << mPhotonEnergyD[num] << " " << mAbs[num] << " " << mReflMet[num] << " " << mEfficMet[num] << "\n";
+ std::cout << mPhotonEnergyD[num] << " " << mAbs[num] << " " << mRindexMet[num] << " " << mEfficMet[num] << "\n";
  ++num;
       } 
     
   
   for (auto u=0; u< 354; u++) {
-  std::cout << mPhotonEnergyD[u] << " " << mAbs[u] << " " << mReflMet[u] << " " << mEfficMet[u] << "\n";
+  std::cout << mPhotonEnergyD[u] << " " << mAbs[u] << " " << mRindexMet[u] << " " << mEfficMet[u] << "\n";
   }
 
 
  for (auto i = 0; i < nBins; i++) {
-    mRefractiveIndex2[i] = 1.0;       //1.0
+    mRefractiveIndexAir[i] = 1.0;       
+    mAbsAir[i] = 0.3;
+    mReflMCP[i] = 0.9;
+    mEffMCP[i] = 0.;
+    mAbsMCP[i] = 1.;
+    mRefractiveIndexCathode[i] = 1.;
+    mAbsCathode[i] = 1.;
+    mReflMet[i] = 0.9;
+    //mEfficMet[i] = 0.;
   }
 
 
@@ -200,9 +215,10 @@ ss >> energy >> abs >> ref >> eff;
   
   
   G4MaterialPropertiesTable *MPT = new G4MaterialPropertiesTable();
-  MPT->AddProperty("RINDEX", mPhotonEnergyD, mReflMet, nBins)->SetSpline(true);
+  MPT->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins)->SetSpline(true);      
   MPT->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
   MPT->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);
+  MPT->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);
   
   
   G4cout << "Quartz G4MaterialPropertiesTable:" << G4endl;
@@ -212,8 +228,9 @@ ss >> energy >> abs >> ref >> eff;
   //Air properties
   
   G4MaterialPropertiesTable* MPT2 = new G4MaterialPropertiesTable();
-  MPT2->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndex2, nBins);
-
+  MPT2->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexAir, nBins);
+  MPT2->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsAir, nBins);
+  
   G4cout << "Air G4MaterialPropertiesTable:" << G4endl;
   MPT2->DumpTable();
 
@@ -250,7 +267,7 @@ ss >> energy >> abs >> ref >> eff;
   opQuartzSurface->SetType(dielectric_LUTDAVIS);
   opQuartzSurface->SetFinish(Rough_LUT);
   opQuartzSurface->SetModel(DAVIS);
-  
+  													//needed??
   
    G4LogicalBorderSurface* quartzSurface = new G4LogicalBorderSurface(
     "QuartzSurface", logicPhys1, worldPhysical, opQuartzSurface);
@@ -294,7 +311,7 @@ ss >> energy >> abs >> ref >> eff;
   G4OpticalSurface* opQuartzSurface2 = new G4OpticalSurface("QuartzSurface2");
   opQuartzSurface2->SetType(dielectric_LUTDAVIS);
   opQuartzSurface2->SetFinish(Rough_LUT);
-  opQuartzSurface2->SetModel(DAVIS);
+  opQuartzSurface2->SetModel(DAVIS);									//needed??
   
   
    G4LogicalBorderSurface* quartzSurface2 = new G4LogicalBorderSurface(
@@ -309,7 +326,21 @@ ss >> energy >> abs >> ref >> eff;
                                        
  //Photocathode                    
   
+  
+  
   G4Material* GaAr = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
+
+ G4MaterialPropertiesTable* MPT3 = new G4MaterialPropertiesTable();
+  MPT3->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexCathode, nBins);
+  MPT3->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsCathode, nBins);
+  
+  G4cout << "GaAr G4MaterialPropertiesTable:" << G4endl;
+  MPT3->DumpTable();
+
+  GaAr->SetMaterialPropertiesTable(MPT3);
+
+
+
 
   G4int o = 0;
   auto chamber1Solid
@@ -329,9 +360,23 @@ ss >> energy >> abs >> ref >> eff;
   }
    fWirePlane1Logical->SetVisAttributes(yellowVis);  
     
+    
+    
    
   //MCP-PMT (ceramic)
-  G4Material* shape7_mat = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
+  G4Material* GaOx = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
+  G4MaterialPropertiesTable* MPT4 = new G4MaterialPropertiesTable();
+  MPT4->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMCP, nBins);
+  MPT4->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsMCP, nBins);
+  MPT4->AddProperty("EFFICIENCY", mPhotonEnergyD, mEffMCP, nBins);
+  
+  G4cout << "GaOx G4MaterialPropertiesTable:" << G4endl;
+  MPT4->DumpTable();
+
+  GaOx->SetMaterialPropertiesTable(MPT4);
+  
+  
+  
   G4ThreeVector pos7 = G4ThreeVector(0.0*mm, 0.0*mm, 21.03*mm);
            
   G4Box* solidShape7 =    
@@ -340,7 +385,7 @@ ss >> energy >> abs >> ref >> eff;
                       
   G4LogicalVolume* logicShape7 =                         
     new G4LogicalVolume(solidShape7,         //its solid
-                        shape7_mat,          //its material
+                        GaOx,          //its material
                         "Shape7");           //its name
                         
   logicShape7->SetVisAttributes(greyVis);                        

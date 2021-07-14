@@ -70,7 +70,6 @@ B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygenerato
   // Creating ntuple
   if ( fPrimary ) {
     analysisManager->CreateNtuple("B5", "Hits");
-    analysisManager->CreateNtupleDColumn("ECEnergy"); // column Id = 2
     analysisManager->CreateNtupleDColumn("HCEnergy"); // column Id = 3
     analysisManager->CreateNtupleDColumn("PDG");      // column Id = 4
     analysisManager->CreateNtupleDColumn("X");      // column Id = 5

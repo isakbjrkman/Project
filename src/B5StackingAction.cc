@@ -86,7 +86,7 @@ G4ClassificationOfNewTrack B5StackingAction::ClassifyNewTrack(
   {  // particle is optical photon      
 	if(aTrack->GetCreatorProcess()->GetProcessName() == "Cerenkov")
         ++fCerenkovCounter;   
-        
+       
         
         
         
