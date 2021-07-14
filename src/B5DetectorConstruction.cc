@@ -123,7 +123,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   // geometries --------------------------------------------------------------
   // experimental hall (world volume)
   auto worldSolid 
-    = new G4Box("worldBox",1.5*env_sizeXY,0.5*env_sizeXY,1.5*env_sizeZ);
+    = new G4Box("worldBox",2.0*env_sizeXY,0.8*env_sizeXY,2.0*env_sizeZ);
   auto worldLogical
     = new G4LogicalVolume(worldSolid,air,"worldLogical");
   auto worldPhysical
@@ -144,25 +144,6 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   G4Color grey(0.5, 0.5, 0.5);
   G4VisAttributes* greyVis = new G4VisAttributes(grey);
   
-  
-  G4Box* solidEnv =    
-    new G4Box("Envelope",                    //its name
-        0.5*env_sizeXY, 0.4*env_sizeXY, 0.5*env_sizeZ); //its size
-      
-  G4LogicalVolume* logicEnv =                         
-    new G4LogicalVolume(solidEnv,            //its solid
-                        air,             //its material
-                        "Envelope");         //its name
-               
-  G4VPhysicalVolume* logicEnvPhys = new G4PVPlacement(0,                       //no rotation
-                    G4ThreeVector(),         //at (0,0,0)
-                    logicEnv,                //its logical volume
-                    "Envelope",              //its name
-                    worldLogical,            //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
- 
  G4double mPhotonEnergyD[354];
  G4double mEfficMet[354];
  G4double mReflMet[354];
@@ -259,7 +240,7 @@ ss >> energy >> abs >> ref >> eff;
      p++;
      G4double y1 = -13.255*mm+j*2*13.255*mm;
     logicPhys1 =  new G4PVPlacement(0,G4ThreeVector(x1,y1,0.0*mm),logicShape1,
-                        "Shape1",logicEnv,
+                        "Shape1",worldLogical,
                         false,p,checkOverlaps);
   	}
   }
@@ -272,10 +253,10 @@ ss >> energy >> abs >> ref >> eff;
   
   
    G4LogicalBorderSurface* quartzSurface = new G4LogicalBorderSurface(
-    "QuartzSurface", logicPhys1, logicEnvPhys, opQuartzSurface);
+    "QuartzSurface", logicPhys1, worldPhysical, opQuartzSurface);
 
   G4OpticalSurface* opticalSurface = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface->GetSurface(logicPhys1, logicEnvPhys)
+    quartzSurface->GetSurface(logicPhys1, worldPhysical)
       ->GetSurfaceProperty());
   if(opticalSurface)
     opticalSurface->DumpInfo();
@@ -304,7 +285,7 @@ ss >> energy >> abs >> ref >> eff;
                     pos5,                    //at position
                     logicShape5,             //its logical volume
                     "Shape5",                //its name
-                    logicEnv,                //its mother  volume
+                    worldLogical,                //its mother  volume
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
@@ -317,14 +298,14 @@ ss >> energy >> abs >> ref >> eff;
   
   
    G4LogicalBorderSurface* quartzSurface2 = new G4LogicalBorderSurface(
-    "QuartzSurface2", logicPhys2, logicEnvPhys, opQuartzSurface2);
+    "QuartzSurface2", logicPhys2, worldPhysical, opQuartzSurface2);
 
   G4OpticalSurface* opticalSurface2 = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface2->GetSurface(logicPhys2, logicEnvPhys)
+    quartzSurface2->GetSurface(logicPhys2, worldPhysical)
       ->GetSurfaceProperty());
   if(opticalSurface2)
     opticalSurface2->DumpInfo();         
-          
+         
                                        
  //Photocathode                    
   
@@ -342,7 +323,7 @@ ss >> energy >> abs >> ref >> eff;
       o++;
       G4double y1 = -13.255*mm+j*2*13.255*mm;
       new G4PVPlacement(0,G4ThreeVector(x1,y1,12.015*mm),fWirePlane1Logical,
-                        "chamber1Physical",logicEnv,
+                        "chamber1Physical",worldLogical,
                         false,o,checkOverlaps);
   	}
   }
@@ -368,7 +349,7 @@ ss >> energy >> abs >> ref >> eff;
                     pos7,                    //at position
                     logicShape7,             //its logical volume
                     "Shape7",                //its name
-                    logicEnv,                //its mother  volume
+                    worldLogical,                //its mother  volume
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking                 
@@ -376,7 +357,7 @@ ss >> energy >> abs >> ref >> eff;
  
   // return the world physical volume ----------------------------------------
   
-  return worldPhysical;
+  return worldPhysical;  //worldPhysical
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -402,7 +383,6 @@ void B5DetectorConstruction::ConstructMaterials()
 
 
 void B5DetectorConstruction::DefineCommands()
-{
-}
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

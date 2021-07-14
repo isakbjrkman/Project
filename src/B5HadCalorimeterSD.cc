@@ -101,38 +101,31 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   auto edep = step->GetTotalEnergyDeposit();
   if (edep==0.) return true;
   
-  auto touchable = step->GetPreStepPoint()->GetTouchable(); 
-  auto rowNo = touchable->GetCopyNumber(1);   //1
-  auto columnNo = touchable->GetCopyNumber(2);  //2
-  auto DetectorID = kNofHadRows*columnNo+rowNo;
-  auto hit = (*fHitsCollection)[DetectorID];
+  auto touchable = step->GetPreStepPoint()->GetTouchable(); //step->GetPreStepPoint()->GetTouchable(); 
+  //auto rowNo = touchable->GetCopyNumber(0);   //1  -1&0
+  //auto columnNo = touchable->GetCopyNumber(1);  //2
+  //auto DetectorID = kNofHadRows*columnNo+rowNo;
+  auto hit = (*fHitsCollection)[0];
   auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   auto track = step->GetTrack();
   
   // check if it is first touch
-  if (hit->GetColumnID() < 0 ) {
+  //if (hit->GetColumnID() < 0 ) {
     if (track->GetDynamicParticle()->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
     ++fCerenkovCounter;
     hit->AddCerenkov(1);
     std::cout << "Cerenkov photon detected" << std::endl;
     }
-    auto depth = touchable->GetHistory()->GetDepth();
-    auto transform = touchable->GetHistory()->GetTransform(depth-2);
-    transform.Invert();
-    hit->SetRot(transform.NetRotation());
-    hit->SetPos(transform.NetTranslation());
+
     hit->SetPDG(encoding);
-    
-    
-    hit->SetDetectorID(touchable->GetVolume(0)->GetCopyNo());
-    
+    hit->SetDetectorID(touchable->GetVolume(0)->GetCopyNo());   
     hit->SetX(step->GetTrack()->GetPosition()(0));                       //////////////////
     hit->SetY(step->GetTrack()->GetPosition()(1));
     hit->SetZ(step->GetTrack()->GetPosition()(2));
     hit->SetPX(step->GetTrack()->GetMomentum()(0));                       //////////////////
     hit->SetPY(step->GetTrack()->GetMomentum()(1));
     hit->SetPZ(step->GetTrack()->GetMomentum()(2));
-  }
+  //}
   // add energy deposition
   hit->AddEdep(edep);
   

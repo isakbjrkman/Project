@@ -59,7 +59,7 @@ class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     
     G4ParticleGun* GetParticleGun() { return fParticleGun; }
     
-     std::vector<G4double>& GetEmCalEdep() { return fCalEdep[0]; }
+     //std::vector<G4double>& GetEmCalEdep() { return fCalEdep[0]; }
     std::vector<G4double>& GetHadCalEdep() { return fCalEdep[1]; }
     
   private:
