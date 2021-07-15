@@ -124,9 +124,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 {
 
   // Fill ntuple
-  // 
-  std::ofstream myfile;
-  myfile.open("filename.txt", std::ofstream::app);
+
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
 
@@ -171,8 +169,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       analysisManager->FillNtupleDColumn(7, hit->GetPZ());
       G4cout << hit->GetPZ() << G4endl;
       analysisManager->FillNtupleDColumn(8, hit->GetDetectorID());
-      G4cout << hit->GetDetectorID() << G4endl;
-      myfile << hit->GetDetectorID() << "_";      
+      G4cout << hit->GetDetectorID() << G4endl; 
         // HadCalorimeter hits
 
     auto hc2 = GetHC(event, fCalHCID[0]);
@@ -183,12 +180,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       // columns 2
       analysisManager->FillNtupleDColumn(1, hit2->GetPDG());
       G4cout << hit2->GetPDG() << G4endl;
-      myfile << hit2->GetPDG() << "_";
-    
-        
-      myfile << hit->GetPX() << "_";
-      myfile << hit->GetPY() << "_";
-      myfile << hit->GetPZ() << "_";       
+      
   }
   
     auto hc3 = GetHC(event, fCalHCID[0]);
@@ -204,14 +196,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       G4cout << hit->GetY() << G4endl;
       analysisManager->FillNtupleDColumn(4, hit->GetZ());
       G4cout << hit->GetZ() << G4endl;
-      myfile << hit->GetX() << "_";
-      myfile << hit->GetY() << "_";
-      myfile << hit->GetZ() << "_";
-      myfile << "Cerenkov";
-      myfile << hit->GetCerenkov() << "\n";
-    
-    
-  myfile.close();
+ 
   analysisManager->AddNtupleRow();
 
 

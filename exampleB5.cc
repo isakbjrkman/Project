@@ -60,7 +60,7 @@ int main(int argc,char** argv)
   
 std::ofstream myfile;
   myfile.open("filename.txt");
-  myfile << "DetectorId_particlePDG_px_py_pz_x_y_z\n";
+  myfile << "EventID_DetectorID_particlePDG_px(GeV)_py(GeV)_pz(GeV)_x(mm)_y(mm)_z(mm)\n";
   myfile.close();
   
 

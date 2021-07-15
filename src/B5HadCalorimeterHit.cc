@@ -99,22 +99,6 @@ G4bool B5HadCalorimeterHit::operator==(const B5HadCalorimeterHit &right) const
   return (fColumnID==right.fColumnID&&fRowID==right.fRowID);
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void B5HadCalorimeterHit::Draw()
-{
-  auto visManager = G4VVisManager::GetConcreteInstance();
-  if (! visManager || (fEdep==0.)) return;
-
-  // Draw a calorimeter cell with depth propotional to the energy deposition
-  G4Transform3D trans(fRot.inverse(),fPos);
-  G4VisAttributes attribs;
-  G4Colour colour(1.,0.,0.);
-  attribs.SetColour(colour);
-  attribs.SetForceSolid(true);
-  G4Box box("dummy",15.*cm,15.*cm,1.*m*fEdep/(0.1*GeV));
-  visManager->Draw(box,attribs,trans);
-}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

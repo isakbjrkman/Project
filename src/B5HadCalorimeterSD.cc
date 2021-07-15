@@ -26,6 +26,9 @@
 //
 /// \file B5HadCalorimeterSD.cc
 /// \brief Implementation of the B5HadCalorimeterSD class
+#include <iostream>
+#include <fstream>
+
 #include "G4ParticleDefinition.hh"
 #include "B5HadCalorimeterSD.hh"
 #include "B5HadCalorimeterHit.hh"
@@ -97,7 +100,7 @@ void B5HadCalorimeterSD::Initialize(G4HCofThisEvent* hce)
 
 G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
 {
-
+  
   auto edep = step->GetTotalEnergyDeposit();
   if (edep==0.) return true;
   
@@ -108,21 +111,25 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   auto hit = (*fHitsCollection)[0];
   auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   auto track = step->GetTrack();
+  G4int runManager = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
+  std::ofstream myfile;
+  myfile.open("filename.txt", std::ofstream::app);
   
   // check if it is first touch
   //if (hit->GetColumnID() < 0 ) {
     if (track->GetDynamicParticle()->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
     hit->AddCerenkov(1);
-    std::cout << "Cerenkov photon detected" << std::endl;
-    std::cout << encoding << std::endl;
-    std::cout << touchable->GetVolume(0)->GetCopyNo() << std::endl;
-    std::cout << step->GetTrack()->GetPosition()(0) << std::endl;
-    std::cout << step->GetTrack()->GetPosition()(1) << std::endl;
-    std::cout << step->GetTrack()->GetPosition()(2) << std::endl;		//funkar
-    std::cout << step->GetTrack()->GetMomentum()(0) << std::endl;
-    std::cout << step->GetTrack()->GetMomentum()(1) << std::endl;
-    std::cout << step->GetTrack()->GetMomentum()(2) << std::endl;
-    std::cout << "Cerenkov photon detected" << std::endl;
+
+      myfile << runManager << "_";
+      myfile << touchable->GetVolume(0)->GetCopyNo() << "_";   
+      myfile << encoding << "_";
+      myfile << step->GetTrack()->GetMomentum()(0) << "_";
+      myfile << step->GetTrack()->GetMomentum()(1) << "_";
+      myfile << step->GetTrack()->GetMomentum()(2) << "_";
+      myfile << step->GetTrack()->GetPosition()(0) << "_";
+      myfile << step->GetTrack()->GetPosition()(1) << "_";
+      myfile << step->GetTrack()->GetPosition()(2) << "\n";     
+    
     }
 
     hit->SetPDG(encoding);

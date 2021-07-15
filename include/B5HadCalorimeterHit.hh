@@ -62,7 +62,6 @@ class B5HadCalorimeterHit : public G4VHit
     inline void *operator new(size_t);
     inline void operator delete(void *aHit);
     
-    virtual void Draw();
     virtual const std::map<G4String,G4AttDef>* GetAttDefs() const;
     virtual std::vector<G4AttValue>* CreateAttValues() const;
     virtual void Print();
@@ -104,8 +103,8 @@ class B5HadCalorimeterHit : public G4VHit
     void SetPZ(G4double pz) { fpz = pz; }
     G4double GetPZ() const { return fpz; }
     
-    void SetEvent(G4double e) { fEvent = e; }
-    G4double GetEvent() const { return fEvent; }
+    void SetEvent(G4int e) { fEvent = e; }
+    G4int GetEvent() const { return fEvent; }
     
     void SetDetectorID(G4int id) { fDetectorID = id; }
     G4int GetDetectorID() const { return fDetectorID; }
