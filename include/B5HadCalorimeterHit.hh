@@ -43,10 +43,6 @@ class G4AttValue;
 
 /// Hadron Calorimeter hit
 ///
-/// It records:
-/// - the cell column ID and row ID
-/// - the energy deposit 
-/// - the cell position and rotation
 
 class B5HadCalorimeterHit : public G4VHit
 {
@@ -66,22 +62,11 @@ class B5HadCalorimeterHit : public G4VHit
     virtual std::vector<G4AttValue>* CreateAttValues() const;
     virtual void Print();
     
-    void SetColumnID(G4int z) { fColumnID = z; }
-    G4int GetColumnID() const { return fColumnID; }
-
-    void SetRowID(G4int z) { fRowID = z; }
-    G4int GetRowID() const { return fRowID; }
 
     void SetEdep(G4double de) { fEdep = de; }
     void AddEdep(G4double de) { fEdep += de; }
     G4double GetEdep() const { return fEdep; }
 
-    void SetPos(G4ThreeVector xyz) { fPos = xyz; }
-    G4ThreeVector GetPos() const { return fPos; }
-
-    void SetRot(G4RotationMatrix rmat) { fRot = rmat; }
-    G4RotationMatrix GetRot() const { return fRot; }
-    
     void SetPDG(G4int p) { fpdg = p; }
     G4int GetPDG() const { return fpdg; }
     
@@ -114,11 +99,7 @@ class B5HadCalorimeterHit : public G4VHit
     G4int GetCerenkov() const { return fCerenkovCounter; }
     
   private:
-    G4int fColumnID;
-    G4int fRowID;
     G4double fEdep;
-    G4ThreeVector fPos;
-    G4RotationMatrix fRot;
     G4int fpdg;
     G4double fx;
     G4double fy;

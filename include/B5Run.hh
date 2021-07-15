@@ -62,8 +62,6 @@ class B5Run : public G4Run
  private:
   G4double fCerenkovCounter;
   G4double fCerenkov2;
-  
-
   G4ParticleDefinition* fParticle;
   G4double fEnergy;
 };

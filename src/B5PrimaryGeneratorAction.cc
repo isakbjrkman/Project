@@ -28,11 +28,9 @@
 /// \brief Implementation of the B5PrimaryGeneratorAction class
 
 #include "B5Run.hh"
-
 #include "B5EventAction.hh"
-
+#include "B5PrimaryGeneratorAction.hh"
 #include "B5HadCalorimeterHit.hh"
-#include "B5Constants.hh"
 
 #include "G4RunManager.hh"
 #include "G4EventManager.hh"
@@ -41,9 +39,6 @@
 #include "G4SDManager.hh"
 #include "G4ios.hh"
 #include "g4analysis.hh"
-
-#include "B5PrimaryGeneratorAction.hh"
-
 #include "G4Event.hh"
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
@@ -83,8 +78,6 @@ void B5PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
   fParticleGun->SetParticleEnergy(1.*GeV);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
   fParticleGun->GeneratePrimaryVertex(event);
-
-  
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

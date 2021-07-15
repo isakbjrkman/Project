@@ -69,10 +69,9 @@ void B5Run::Merge(const G4Run* run)
 
   fParticle = localRun->fParticle;
   fEnergy   = localRun->fEnergy;
-
   fCerenkovCounter += localRun->fCerenkovCounter;
   fCerenkov2 += localRun->fCerenkov2;
-  
+
   G4Run::Merge(run);
 }
 
@@ -82,7 +81,6 @@ void B5Run::EndOfRun()
   if(numberOfEvent == 0)
     return;
   G4double TotNbofEvents = G4double(numberOfEvent);
-
   fCerenkovCounter /= TotNbofEvents;
   fCerenkov2 /= TotNbofEvents;
   G4double rmsCerenkov = fCerenkov2 - fCerenkovCounter * fCerenkovCounter;

@@ -29,31 +29,21 @@
 #include <iostream>
 #include <fstream>
 
-#include "G4ParticleDefinition.hh"
 #include "B5HadCalorimeterSD.hh"
 #include "B5HadCalorimeterHit.hh"
-#include "B5Constants.hh"
+#include "B5EventAction.hh"
 
-#include "G4ios.hh"
 #include "G4ParticleDefinition.hh"
 #include "G4ParticleTypes.hh"
-#include "G4RunManager.hh"
-#include "G4Track.hh"
 #include "G4VProcess.hh"
-
-
-#include "G4Event.hh"
 #include "G4OpBoundaryProcess.hh"
 #include "G4OpticalPhoton.hh"
-#include "B5EventAction.hh"
 #include "G4Event.hh"
 #include "G4RunManager.hh"
 #include "G4EventManager.hh"
 #include "G4VHitsCollection.hh"
 #include "G4SystemOfUnits.hh"
 #include "g4analysis.hh"
-
-
 #include "G4VTrajectory.hh"
 #include "G4Trajectory.hh"
 #include "G4HCofThisEvent.hh"
@@ -89,8 +79,8 @@ void B5HadCalorimeterSD::Initialize(G4HCofThisEvent* hce)
   hce->AddHitsCollection(fHCID,fHitsCollection);
   
   // fill calorimeter hits with zero energy deposition
-  for (auto column=0;column<kNofHadColumns;column++) {
-    for (auto row=0;row<kNofHadRows;row++) {
+  for (auto column=0;column<2;column++) {
+    for (auto row=0;row<2;row++) {
       fHitsCollection->insert(new B5HadCalorimeterHit());
     }
   }
@@ -103,14 +93,10 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   
   auto analysisManager = G4AnalysisManager::Instance();
 
-  
   auto edep = step->GetTotalEnergyDeposit();
   if (edep==0.) return true;
   
   auto touchable = step->GetPreStepPoint()->GetTouchable(); //step->GetPreStepPoint()->GetTouchable(); 
-  //auto rowNo = touchable->GetCopyNumber(0);   //1  -1&0
-  //auto columnNo = touchable->GetCopyNumber(1);  //2
-  //auto DetectorID = kNofHadRows*columnNo+rowNo;
   auto hit = (*fHitsCollection)[0];
   auto encoding = step->GetTrack()->GetDefinition()->GetPDGEncoding();
   auto track = step->GetTrack();
@@ -118,11 +104,10 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   std::ofstream myfile;
   myfile.open("filename.txt", std::ofstream::app);
   
-  // check if it is first touch
-  //if (hit->GetColumnID() < 0 ) {
     if (track->GetDynamicParticle()->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
     hit->AddCerenkov(1);
 
+     //Store data to .txt	
       myfile << runManager << "_";
       myfile << touchable->GetVolume(0)->GetCopyNo() << "_";   
       myfile << encoding << "_";
@@ -133,19 +118,18 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
       myfile << step->GetTrack()->GetPosition()(1) << "_";
       myfile << step->GetTrack()->GetPosition()(2) << "\n";   
       
-    
-    hit->SetEvent(runManager);
-    hit->SetDetectorID(touchable->GetVolume(0)->GetCopyNo()); 
-    hit->SetPDG(encoding);  
-    hit->SetPX(step->GetTrack()->GetMomentum()(0));                       //////////////////
-    hit->SetPY(step->GetTrack()->GetMomentum()(1));
-    hit->SetPZ(step->GetTrack()->GetMomentum()(2));      
-    hit->SetX(step->GetTrack()->GetPosition()(0));                       //////////////////
-    hit->SetY(step->GetTrack()->GetPosition()(1));
-    hit->SetZ(step->GetTrack()->GetPosition()(2));
-      
-      
-      
+     //Process hit data to root file
+      hit->SetEvent(runManager);
+      hit->SetDetectorID(touchable->GetVolume(0)->GetCopyNo()); 
+      hit->SetPDG(encoding);  
+      hit->SetPX(step->GetTrack()->GetMomentum()(0));                       
+      hit->SetPY(step->GetTrack()->GetMomentum()(1));
+      hit->SetPZ(step->GetTrack()->GetMomentum()(2));      
+      hit->SetX(step->GetTrack()->GetPosition()(0));                       
+      hit->SetY(step->GetTrack()->GetPosition()(1));
+      hit->SetZ(step->GetTrack()->GetPosition()(2));
+          
+     //Write to root file
       analysisManager->FillNtupleDColumn(0, hit->GetEvent());
       analysisManager->FillNtupleDColumn(1, hit->GetDetectorID());
       analysisManager->FillNtupleDColumn(2, hit->GetPDG());
@@ -155,12 +139,9 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
       analysisManager->FillNtupleDColumn(6, hit->GetX());
       analysisManager->FillNtupleDColumn(7, hit->GetY());
       analysisManager->FillNtupleDColumn(8, hit->GetZ());
-      analysisManager->AddNtupleRow();
-    
+      analysisManager->AddNtupleRow();    
     }
 
-  // add energy deposition
-  //hit->AddEdep(edep); 
   return true;
 }
 

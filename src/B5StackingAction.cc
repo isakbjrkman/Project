@@ -32,33 +32,23 @@
 
 #include "B5HadCalorimeterSD.hh"
 #include "B5HadCalorimeterHit.hh"
-#include "B5Constants.hh"
+#include "B5StackingAction.hh"
+#include "B5Run.hh"   
+#include "B5EventAction.hh"
 
-#include "G4Event.hh"
 #include "G4OpBoundaryProcess.hh"
 #include "G4OpticalPhoton.hh"
-#include "B5EventAction.hh"
 #include "G4Event.hh"
-#include "G4RunManager.hh"
 #include "G4EventManager.hh"
 #include "G4VHitsCollection.hh"
 #include "G4SystemOfUnits.hh"
 #include "g4analysis.hh"
-
-
 #include "G4VTrajectory.hh"
 #include "G4Trajectory.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4TouchableHistory.hh"
-#include "G4Track.hh"
 #include "G4Step.hh"
-#include "G4SDManager.hh"
-#include "G4ios.hh"
-
-
-#include "B5StackingAction.hh"
-#include "B5Run.hh"                
-
+#include "G4SDManager.hh"   
 #include "G4ios.hh"
 #include "G4ParticleDefinition.hh"
 #include "G4ParticleTypes.hh"
@@ -85,11 +75,7 @@ G4ClassificationOfNewTrack B5StackingAction::ClassifyNewTrack(
   if(aTrack->GetDefinition() == G4OpticalPhoton::OpticalPhotonDefinition())
   {  // particle is optical photon      
 	if(aTrack->GetCreatorProcess()->GetProcessName() == "Cerenkov")
-        ++fCerenkovCounter;   
-       
-        
-        
-        
+        ++fCerenkovCounter;        
   }
   return fUrgent;
 }
@@ -98,8 +84,6 @@ G4ClassificationOfNewTrack B5StackingAction::ClassifyNewTrack(
 
 void B5StackingAction::NewStage()
 {
-  // G4cout << "Number of Scintillation photons produced in this event : "
-  //       << fScintillationCounter << G4endl;
   // G4cout << "Number of Cerenkov photons produced in this event : "
   //       << fCerenkovCounter << G4endl;
 
@@ -112,7 +96,7 @@ void B5StackingAction::NewStage()
 
 void B5StackingAction::PrepareNewEvent()
 {
-  fCerenkovCounter      = 0;
+  fCerenkovCounter = 0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -52,10 +52,8 @@ class B5DetectorConstruction : public G4VUserDetectorConstruction
   public:
     B5DetectorConstruction();
     virtual ~B5DetectorConstruction();
-    
     virtual G4VPhysicalVolume* Construct();
-    virtual void ConstructSDandField();
-
+    virtual void ConstructSDandField();   
     
     void ConstructMaterials();
     

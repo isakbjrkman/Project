@@ -33,23 +33,21 @@
 #include <vector>
 #include <cmath>
 
+#include "B5DetectorConstruction.hh"
+#include "B5HadCalorimeterSD.hh"
+
 #include "G4Cerenkov.hh"
 #include "G4OpticalPhoton.hh"
 #include "G4LogicalSkinSurface.hh"
 #include "G4OpticalSurface.hh"
 #include "G4MaterialPropertiesTable.hh"
-#include "B5DetectorConstruction.hh"
-#include "B5HadCalorimeterSD.hh"
 #include "G4TransportationManager.hh"
 #include "G4LogicalVolume.hh"
 #include "G4LogicalVolumeStore.hh"
-
-
 #include "G4Material.hh"
 #include "G4Element.hh"
 #include "G4MaterialTable.hh"
 #include "G4NistManager.hh"
-
 #include "G4VSolid.hh"
 #include "G4Box.hh"
 #include "G4Tubs.hh"
@@ -59,19 +57,14 @@
 #include "G4PVParameterised.hh"
 #include "G4PVReplica.hh"
 #include "G4UserLimits.hh"
-
-
 #include "G4LogicalBorderSurface.hh"
 #include "G4ThreeVector.hh"
-
 #include "G4SDManager.hh"
 #include "G4VSensitiveDetector.hh"
 #include "G4RunManager.hh"
 #include "G4GenericMessenger.hh"
-
 #include "G4VisAttributes.hh"
 #include "G4Colour.hh"
-
 #include "G4ios.hh"
 #include "G4SystemOfUnits.hh"
 
@@ -85,7 +78,6 @@ B5DetectorConstruction::B5DetectorConstruction()
   fVisAttributes()
 
 {
-  
   // define commands for this class
   DefineCommands();
 }
@@ -114,10 +106,7 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
   
   // Envelope parameters
   //
-  G4double env_sizeXY = 10*cm, env_sizeZ = 10*cm;
-  
-  // Option to switch on/off checking of volumes overlaps
-  //
+  G4double env_sizeXY = 10*cm, env_sizeZ = 10*cm; 
   G4bool checkOverlaps = true;
 
   // geometries --------------------------------------------------------------
@@ -158,6 +147,9 @@ G4VPhysicalVolume* B5DetectorConstruction::Construct()
  G4double mReflMet[354];
  int nBins = sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
  
+ 
+ //Read quartz properties data from .txt file.
+
  std::ifstream myfile("quartz.txt");
  std::string line;
  if (!myfile) {
@@ -238,7 +230,6 @@ ss >> energy >> abs >> ref >> eff;
  
 
   G4ThreeVector pos1 = G4ThreeVector(-13.255*mm, 13.255*mm, 0*mm);
-             
 
   G4Box* solidShape1 =    
     new G4Box("Shape1", 
@@ -249,7 +240,7 @@ ss >> energy >> abs >> ref >> eff;
                         SiO2,          //its material
                         "Shape1");           //its name                  
 
- G4VPhysicalVolume* logicPhys1;   //interpreted as last or all 4 volumes? 
+ G4VPhysicalVolume* logicPhys1;   
    G4int p = 0;
   for (auto i=0;i<2;i++) {
      G4double x1 = -13.255*mm+i*2*13.255*mm;
@@ -340,8 +331,6 @@ ss >> energy >> abs >> ref >> eff;
   GaAr->SetMaterialPropertiesTable(MPT3);
 
 
-
-
   G4int o = 0;
   auto chamber1Solid
     = new G4Box("chamber1Box",0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
@@ -361,8 +350,7 @@ ss >> energy >> abs >> ref >> eff;
    fWirePlane1Logical->SetVisAttributes(yellowVis);  
     
     
-    
-   
+ 
   //MCP-PMT (ceramic)
   G4Material* GaOx = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
   G4MaterialPropertiesTable* MPT4 = new G4MaterialPropertiesTable();
@@ -374,7 +362,6 @@ ss >> energy >> abs >> ref >> eff;
   MPT4->DumpTable();
 
   GaOx->SetMaterialPropertiesTable(MPT4);
-  
   
   
   G4ThreeVector pos7 = G4ThreeVector(0.0*mm, 0.0*mm, 21.03*mm);

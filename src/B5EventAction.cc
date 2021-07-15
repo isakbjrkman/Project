@@ -31,11 +31,8 @@
 #include <fstream>
 
 #include "B5Run.hh"
-
 #include "B5EventAction.hh"
-
 #include "B5HadCalorimeterHit.hh"
-#include "B5Constants.hh"
 
 #include "G4Event.hh"
 #include "G4RunManager.hh"
@@ -56,7 +53,6 @@ namespace {
 // Utility function which finds a hit collection with the given Id
 // and print warnings if not found 
 
-
 G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
   auto hce = event->GetHCofThisEvent();
   if (!hce) {
@@ -75,7 +71,7 @@ G4VHitsCollection* GetHC(const G4Event* event, G4int collId) {
                 "B5Code001", JustWarning, msg);
   }
   return hc;  
-}
+ }
 
 }
 
@@ -86,10 +82,7 @@ B5EventAction::B5EventAction()
 
 
   fCalHCID  {{ -1 }},
-  fCalEdep{{ vector<G4double>(kNofHadCells, 0.) }}
-      // std::array<T, N> is an aggregate that contains a C array. 
-    // To initialize it, we need outer braces for the class itself 
-      // and inner braces for the C array
+  fCalEdep{{ vector<G4double>(2, 0.) }}
 {
   // set printing per each event
   G4RunManager::GetRunManager()->SetPrintProgress(1);
@@ -109,13 +102,10 @@ void B5EventAction::BeginOfEventAction(const G4Event*)
     array<G4String, 1> cHCName 
       = {{ "HadCalorimeter/HadCalorimeterColl" }};
 
- 
       // hit collections IDs
       fCalHCID[0]   = sdManager->GetCollectionID(cHCName[0]);
-   
 
 }     
-
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -124,13 +114,11 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 {
 
   // Fill ntuple
-  // Get analysis manager
-      
+  // Get analysis manager      
   // Had Calorimeters hits
   array<G4int, 1> totalCalHit = {{ 0 }}; 
   array<G4double, 1> totalCalEdep = {{ 0. }}; 
-
-  
+ 
     auto hc = GetHC(event, fCalHCID[0]);
     if ( ! hc ) return;
 
@@ -149,7 +137,6 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       fCalEdep[0][i] = edep;
     }
 
-  //
   // Print diagnostics
   // 
   auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
@@ -160,14 +147,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
     << ">>> Event " << event->GetEventID() << " >>> Simulation truth : "
     << primary->GetG4code()->GetParticleName()
     << " " << primary->GetMomentum() << G4endl;
-
-
-  // Calorimeters
-
-    G4cout << "Hadron Calorimeter has " << totalCalHit[0] << " hits." 			
-           << " Total Edep is " << totalCalEdep[0]/MeV << " (MeV)" << G4endl;
-  
+ 
 }
-
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

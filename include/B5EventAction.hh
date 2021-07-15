@@ -34,10 +34,7 @@
 #include <array>
 
 // named constants
-const G4int kEm = 0;
 const G4int kHad = 1;
-const G4int kH1 = 0;
-const G4int kH2 = 1;
 const G4int kDim = 2;
 
 /// Event action
@@ -51,13 +48,10 @@ public:
     virtual void BeginOfEventAction(const G4Event*);
     virtual void EndOfEventAction(const G4Event*);
 
-    std::vector<G4double>& GetEmCalEdep() { return fCalEdep[kEm]; }
     std::vector<G4double>& GetHadCalEdep() { return fCalEdep[kHad]; }
     
 private:
     std::array<G4int, kDim> fCalHCID;
-    // histograms Ids
-    std::array<std::array<G4int, kDim>, kDim> fDriftHistoID;
     // energy deposit in calorimeters cells
     std::array<std::vector<G4double>, kDim> fCalEdep;
 };

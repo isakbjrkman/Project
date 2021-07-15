@@ -48,7 +48,6 @@ class G4ParticleDefinition;
 ///
 
 
-
 class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
   public:
@@ -58,8 +57,6 @@ class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     virtual void GeneratePrimaries(G4Event*);
     
     G4ParticleGun* GetParticleGun() { return fParticleGun; }
-    
-     //std::vector<G4double>& GetEmCalEdep() { return fCalEdep[0]; }
     std::vector<G4double>& GetHadCalEdep() { return fCalEdep[1]; }
     
   private:
@@ -70,8 +67,6 @@ class B5PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     
     
     std::array<G4int, 2> fCalHCID;						//delete if not filled x3, found in eventaction class
-    // histograms Ids
-    std::array<std::array<G4int, 2>, 2> fDriftHistoID;
     // energy deposit in calorimeters cells
     std::array<std::vector<G4double>, 2> fCalEdep;
 
