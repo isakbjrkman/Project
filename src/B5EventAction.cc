@@ -124,10 +124,7 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
 {
 
   // Fill ntuple
-
   // Get analysis manager
-  auto analysisManager = G4AnalysisManager::Instance();
-
       
   // Had Calorimeters hits
   array<G4int, 1> totalCalHit = {{ 0 }}; 
@@ -151,54 +148,6 @@ void B5EventAction::EndOfEventAction(const G4Event* event)
       }
       fCalEdep[0][i] = edep;
     }
-    // columns 0, 1
-    analysisManager->FillNtupleDColumn(0, totalCalEdep[0]);	/*iDet + 0*/ 
-  
-    if ( ! hc ) {
-    return;
-   } else {   
-   
-      auto hit = static_cast<B5HadCalorimeterHit*>(hc->GetHit(0));
-      // columns 6->10
-      //auto hceID = event->GetHCofThisEvent()->GetHC(collId);
-      hit->SetEvent(event->GetEventID());
-      analysisManager->FillNtupleDColumn(5, hit->GetPX());
-      G4cout << hit->GetPX() << G4endl;
-      analysisManager->FillNtupleDColumn(6, hit->GetPY());
-      G4cout << hit->GetPY() << G4endl;
-      analysisManager->FillNtupleDColumn(7, hit->GetPZ());
-      G4cout << hit->GetPZ() << G4endl;
-      analysisManager->FillNtupleDColumn(8, hit->GetDetectorID());
-      G4cout << hit->GetDetectorID() << G4endl; 
-        // HadCalorimeter hits
-
-    auto hc2 = GetHC(event, fCalHCID[0]);
-    if ( ! hc2 ) return;
-
-    
-      auto hit2 = static_cast<B5HadCalorimeterHit*>(hc2->GetHit(0));
-      // columns 2
-      analysisManager->FillNtupleDColumn(1, hit2->GetPDG());
-      G4cout << hit2->GetPDG() << G4endl;
-      
-  }
-  
-    auto hc3 = GetHC(event, fCalHCID[0]);
-    if ( ! hc3 ) return;
-
-
-      auto hit = static_cast<B5HadCalorimeterHit*>(hc3->GetHit(0));
-      // columns 3,4,5
-   
-      analysisManager->FillNtupleDColumn(2, hit->GetX());
-      G4cout << hit->GetX() << G4endl;
-      analysisManager->FillNtupleDColumn(3, hit->GetY());
-      G4cout << hit->GetY() << G4endl;
-      analysisManager->FillNtupleDColumn(4, hit->GetZ());
-      G4cout << hit->GetZ() << G4endl;
- 
-  analysisManager->AddNtupleRow();
-
 
   //
   // Print diagnostics

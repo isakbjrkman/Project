@@ -70,15 +70,15 @@ B5RunAction::B5RunAction(B5PrimaryGeneratorAction* prim)    //or primarygenerato
   // Creating ntuple
   if ( fPrimary ) {
     analysisManager->CreateNtuple("B5", "Hits");
-    analysisManager->CreateNtupleDColumn("HCEnergy"); // column Id = 3
-    analysisManager->CreateNtupleDColumn("PDG");      // column Id = 4
-    analysisManager->CreateNtupleDColumn("X");      // column Id = 5
-    analysisManager->CreateNtupleDColumn("Y");      // column Id = 6
-    analysisManager->CreateNtupleDColumn("Z");      // column Id = 7
-    analysisManager->CreateNtupleDColumn("PX");      // column Id = 8
-    analysisManager->CreateNtupleDColumn("PY");      // column Id = 9
-    analysisManager->CreateNtupleDColumn("PZ");      // column Id = 10
-    analysisManager->CreateNtupleDColumn("DetectorID");    // column Id = 12
+    analysisManager->CreateNtupleDColumn("EventID");  // column Id = 0
+    analysisManager->CreateNtupleDColumn("DetectorID");  // column Id = 1
+    analysisManager->CreateNtupleDColumn("PDG");      // column Id = 2
+    analysisManager->CreateNtupleDColumn("PX");      // column Id = 3
+    analysisManager->CreateNtupleDColumn("PY");      // column Id = 4
+    analysisManager->CreateNtupleDColumn("PZ");      // column Id = 5
+    analysisManager->CreateNtupleDColumn("X");      // column Id = 6
+    analysisManager->CreateNtupleDColumn("Y");      // column Id = 7
+    analysisManager->CreateNtupleDColumn("Z");      // column Id = 8
     analysisManager->FinishNtuple();
   }
 

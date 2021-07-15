@@ -55,5 +55,5 @@
 /gui/addButton gun "pi+" "/gun/particle pi+"
 /gui/addButton gun "neutron" "/gun/particle neutron"
 /gui/addButton gun "proton" "/gun/particle proton"
-/run/beamOn 5
+/run/beamOn 6
 /vis/scene/notifyHandlers scene-0

@@ -101,6 +101,9 @@ void B5HadCalorimeterSD::Initialize(G4HCofThisEvent* hce)
 G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
 {
   
+  auto analysisManager = G4AnalysisManager::Instance();
+
+  
   auto edep = step->GetTotalEnergyDeposit();
   if (edep==0.) return true;
   
@@ -128,22 +131,36 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
       myfile << step->GetTrack()->GetMomentum()(2) << "_";
       myfile << step->GetTrack()->GetPosition()(0) << "_";
       myfile << step->GetTrack()->GetPosition()(1) << "_";
-      myfile << step->GetTrack()->GetPosition()(2) << "\n";     
+      myfile << step->GetTrack()->GetPosition()(2) << "\n";   
+      
     
-    }
-
-    hit->SetPDG(encoding);
-    hit->SetDetectorID(touchable->GetVolume(0)->GetCopyNo());   
+    hit->SetEvent(runManager);
+    hit->SetDetectorID(touchable->GetVolume(0)->GetCopyNo()); 
+    hit->SetPDG(encoding);  
+    hit->SetPX(step->GetTrack()->GetMomentum()(0));                       //////////////////
+    hit->SetPY(step->GetTrack()->GetMomentum()(1));
+    hit->SetPZ(step->GetTrack()->GetMomentum()(2));      
     hit->SetX(step->GetTrack()->GetPosition()(0));                       //////////////////
     hit->SetY(step->GetTrack()->GetPosition()(1));
     hit->SetZ(step->GetTrack()->GetPosition()(2));
-    hit->SetPX(step->GetTrack()->GetMomentum()(0));                       //////////////////
-    hit->SetPY(step->GetTrack()->GetMomentum()(1));
-    hit->SetPZ(step->GetTrack()->GetMomentum()(2));
-  //}
+      
+      
+      
+      analysisManager->FillNtupleDColumn(0, hit->GetEvent());
+      analysisManager->FillNtupleDColumn(1, hit->GetDetectorID());
+      analysisManager->FillNtupleDColumn(2, hit->GetPDG());
+      analysisManager->FillNtupleDColumn(3, hit->GetPX());
+      analysisManager->FillNtupleDColumn(4, hit->GetPY());
+      analysisManager->FillNtupleDColumn(5, hit->GetPZ());
+      analysisManager->FillNtupleDColumn(6, hit->GetX());
+      analysisManager->FillNtupleDColumn(7, hit->GetY());
+      analysisManager->FillNtupleDColumn(8, hit->GetZ());
+      analysisManager->AddNtupleRow();
+    
+    }
+
   // add energy deposition
-  hit->AddEdep(edep);
-  
+  //hit->AddEdep(edep); 
   return true;
 }
 
