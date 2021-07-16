@@ -80,7 +80,6 @@ std::ofstream myfile;
   physicsList->RegisterPhysics(opticalPhysics);
   runManager->SetUserInitialization(physicsList);
 
-  runManager->SetUserInitialization(physicsList);
 
   // User action initialization
   runManager->SetUserInitialization(new B5ActionInitialization());
