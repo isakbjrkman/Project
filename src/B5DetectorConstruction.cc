@@ -365,26 +365,51 @@ ss >> energy >> abs >> ref >> eff;
 
   GaAr->SetMaterialPropertiesTable(MPT3);
  
+  G4double cathodeX = 26.5*mm;
+  G4double cathodeY = 26.5*mm;
+  G4double cathodeZ = 0.01*mm;
+ 
   auto chamber1Solid
-    = new G4Box("chamber1Box",0.5*26.5*mm, 0.5*26.5*mm, 0.5*0.01*mm);
+    = new G4Box("chamber1Box",0.5*cathodeX, 0.5*cathodeY, 0.5*cathodeZ);
   fWirePlane1Logical									
     = new G4LogicalVolume(chamber1Solid,GaAr,"fWirePlane1Logical");
+  G4double cathodePosX = 13.255*mm;  
+  G4double cathodePosY = 13.255*mm;
+  G4double cathodePosZ = 12.005*mm;  //12.015*mm correct?  if no space between::12.005
     
     
-    G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-13.255*mm,-13.255*mm,12.005*mm),fWirePlane1Logical,   //12.015*mm correct?  if no space between::12.005
+    G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,-cathodePosY,cathodePosZ),fWirePlane1Logical,   
                         "chamber1Physical",worldLogical,
                         false,1,checkOverlaps);
-    G4VPhysicalVolume* logicCathode2 = new G4PVPlacement(0,G4ThreeVector(-13.255*mm,13.255*mm,12.005*mm),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode2 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,cathodePosY,cathodePosZ),fWirePlane1Logical,   
                         "chamber1Physical",worldLogical,
                         false,2,checkOverlaps);
-    G4VPhysicalVolume* logicCathode3 = new G4PVPlacement(0,G4ThreeVector(13.255*mm,-13.255*mm,12.005*mm),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode3 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,-cathodePosY,cathodePosZ),fWirePlane1Logical,   
                         "chamber1Physical",worldLogical,
                         false,3,checkOverlaps);
-    G4VPhysicalVolume* logicCathode4 = new G4PVPlacement(0,G4ThreeVector(13.255*mm,13.255*mm,12.005*mm),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode4 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,cathodePosY,cathodePosZ),fWirePlane1Logical,   
                         "chamber1Physical",worldLogical,
                         false,4,checkOverlaps);                  
-                                                            
-   
+               
+  //Print geometry data             
+  G4cout << "---Detector Positions in World---" << G4endl;                                                          
+  G4cout << "For DetectorID = " << logicCathode1->GetCopyNo() << "  x = " <<  logicCathode1->GetTranslation()(0)-0.5*cathodeX  << " - " << logicCathode1->GetTranslation()(0)+0.5*cathodeX  
+  << " mm, y = " <<  logicCathode1->GetTranslation()(1)-0.5*cathodeY  << " - " << logicCathode1->GetTranslation()(1)+0.5*cathodeY 
+  << " mm, z = " <<  logicCathode1->GetTranslation()(2)-0.5*cathodeZ  << " - " << logicCathode1->GetTranslation()(2)+0.5*cathodeZ << " mm" << G4endl;
+  
+  G4cout << "For DetectorID = " << logicCathode2->GetCopyNo() << "  x = " <<  logicCathode2->GetTranslation()(0)-0.5*cathodeX  << " - " << logicCathode2->GetTranslation()(0)+0.5*cathodeX 
+  << " mm, y = " <<  logicCathode2->GetTranslation()(1)-0.5*cathodeY  << " - " << logicCathode2->GetTranslation()(1)+0.5*cathodeY 
+  << " mm, z = " <<  logicCathode2->GetTranslation()(2)-0.5*cathodeZ  << " - " << logicCathode2->GetTranslation()(2)+0.5*cathodeZ << " mm" << G4endl;
+  
+  G4cout << "For DetectorID = " << logicCathode3->GetCopyNo() << "  x = " <<  logicCathode3->GetTranslation()(0)-0.5*cathodeX  << " - " << logicCathode3->GetTranslation()(0)+0.5*cathodeX 
+  << " mm, y = " <<  logicCathode3->GetTranslation()(1)-0.5*cathodeY  << " - " << logicCathode3->GetTranslation()(1)+0.5*cathodeY
+  << " mm, z = " <<  logicCathode3->GetTranslation()(2)-0.5*cathodeZ  << " - " << logicCathode3->GetTranslation()(2)+0.5*cathodeZ << " mm" << G4endl;
+  
+  G4cout << "For DetectorID = " << logicCathode4->GetCopyNo() << "  x = " <<  logicCathode4->GetTranslation()(0)-0.5*cathodeX  << " - " << logicCathode4->GetTranslation()(0)+0.5*cathodeX  
+  << " mm, y = " <<  logicCathode4->GetTranslation()(1)-0.5*cathodeY  << " - " <<  logicCathode4->GetTranslation()(1)+0.5*cathodeY 
+  << " mm, z = " <<  logicCathode4->GetTranslation()(2)-0.5*cathodeZ  << " - " <<  logicCathode4->GetTranslation()(2)+0.5*cathodeZ << " mm" << G4endl;
+ 
+  
   G4OpticalSurface* opCathodeSurface = new G4OpticalSurface("CathodeSurface");
   opCathodeSurface->SetType(dielectric_dielectric);     
   opCathodeSurface->SetFinish(Polished_LUT);  
