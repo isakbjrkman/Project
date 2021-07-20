@@ -51,7 +51,13 @@
 /gui/addButton gun "1 GeV" "/gun/energy 1 GeV"
 /gui/addButton gun "10 GeV" "/gun/energy 10 GeV"
 /gui/addButton gun "e-" "/gun/particle e-"
-/gui/addButton gun "pi0" "/gun/particle pi0"
-/gui/addButton gun "pi+" "/gun/particle pi+"
-/gui/addButton gun "neutron" "/gun/particle neutron"
-/gui/addButton gun "proton" "/gun/particle proton"
+/gui/addMenu viewer Viewer
+/gui/addButton viewer "Set style surface" "/vis/viewer/set/style surface"
+/gui/addButton viewer "Set style wireframe" "/vis/viewer/set/style wireframe"
+/gui/addButton viewer "Refresh viewer" "/vis/viewer/refresh"
+/gui/addButton viewer "Update viewer (interaction or end-of-file)" "/vis/viewer/update"
+/gui/addButton viewer "Flush viewer (= refresh + update)" "/vis/viewer/flush"
+/gui/addButton viewer "Update scene" "/vis/scene/notifyHandlers"
+/gui/addIcon "Run beam on" user_icon "/run/beamOn 1" run.png
+/run/beamOn 100
+/vis/scene/notifyHandlers scene-0

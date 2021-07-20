@@ -2,7 +2,7 @@
 # GNUmakefile for examples module
 # --------------------------------------------------------------
 
-name := exampleB5
+name := FT0simulation
 G4TARGET := $(name)
 G4EXLIB := true
 

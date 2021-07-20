@@ -7,10 +7,10 @@
 #include <array>
 
 void rootMacro() {
-TFile* f = new TFile("data.root", "RECREATE");
+TFile* f = new TFile("dataProcessing.root", "RECREATE");
 
-TFile* f1 = new TFile("Results.root", "READ");
-TTree* t = (TTree*)f1->Get("B5");
+TFile* f1 = new TFile("FT0ntuple.root", "READ");
+TTree* t = (TTree*)f1->Get("FT0");
 
 
 double px,py,pz;

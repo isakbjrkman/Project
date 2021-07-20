@@ -1,1 +1,0 @@
-EventID_DetectorID_particlePDG_px(MeV)_py(MeV)_pz(MeV)_x(mm)_y(mm)_z(mm)

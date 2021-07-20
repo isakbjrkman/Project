@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.8...3.18)
 if(${CMAKE_VERSION} VERSION_LESS 3.12)
   cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 endif()
-project(B5)
+project(FT0)
 
 #----------------------------------------------------------------------------
 # Find Geant4 package, activating all available UI and Vis drivers by default
@@ -36,28 +36,24 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(exampleB5 exampleB5.cc ${sources} ${headers})
-target_link_libraries(exampleB5 ${Geant4_LIBRARIES})
+add_executable(FT0simulation FT0simulation.cc ${sources} ${headers})
+target_link_libraries(FT0simulation ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory, i.e. the directory in which we
-# build B5. This is so that we can run the executable directly because it
+# build FT0. This is so that we can run the executable directly because it
 # relies on these scripts being in the current working directory.
 #
-set(B5_SCRIPTS
-  exampleB5.in
-  exampleB5.out
+set(FT0_SCRIPTS
   icons.mac
   gui.mac
   run.png
   init.mac
   init_vis.mac
-  run1.mac
-  run2.mac
   vis.mac
   )
 
-foreach(_script ${B5_SCRIPTS})
+foreach(_script ${FT0_SCRIPTS})
   configure_file(
     ${PROJECT_SOURCE_DIR}/${_script}
     ${PROJECT_BINARY_DIR}/${_script}
@@ -69,10 +65,10 @@ endforeach()
 # Add program to the project targets
 # (this avoids the need of typing the program name after make)
 #
-add_custom_target(B5 DEPENDS exampleB5)
+add_custom_target(FT0 DEPENDS FT0simulation)
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS exampleB5 DESTINATION bin)
+install(TARGETS FT0simulation DESTINATION bin)
 

@@ -23,19 +23,6 @@
 /gui/addButton gun "1 GeV"   "/gun/energy 1 GeV"
 /gui/addButton gun "10 GeV"  "/gun/energy 10 GeV"
 /gui/addButton gun "e-"      "/gun/particle e-"
-/gui/addButton gun "pi0"     "/gun/particle pi0"
-/gui/addButton gun "pi+"     "/gun/particle pi+"
-/gui/addButton gun "neutron" "/gun/particle neutron"
-/gui/addButton gun "proton"  "/gun/particle proton"
-# Also, we need to switch off primary randomization for the /gun/ commands to
-# work
-/B5/generator/randomizePrimary false
-#
-# Field menu :
-/gui/addMenu field Field
-/gui/addButton field "off"       "/B5/field/value 0   tesla"
-/gui/addButton field "0.2 tesla" "/B5/field/value 0.2 tesla"
-/gui/addButton field "2.0 tesla" "/B5/field/value 2.0 tesla"
 #
 # Viewer menu :
 /gui/addMenu viewer Viewer

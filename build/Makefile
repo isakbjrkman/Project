@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/isak/Desktop/Project-master/Project/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -112,18 +124,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/isak/Desktop/Project-master/Project/build/CMakeFiles /home/isak/Desktop/Project-master/Project/build/CMakeFiles/progress.marks
@@ -157,300 +157,300 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named B5
+# Target rules for targets named FT0
 
 # Build rule for target.
-B5: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 B5
-.PHONY : B5
+FT0: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FT0
+.PHONY : FT0
 
 # fast build rule for target.
-B5/fast:
-	$(MAKE) -f CMakeFiles/B5.dir/build.make CMakeFiles/B5.dir/build
-.PHONY : B5/fast
+FT0/fast:
+	$(MAKE) -f CMakeFiles/FT0.dir/build.make CMakeFiles/FT0.dir/build
+.PHONY : FT0/fast
 
 #=============================================================================
-# Target rules for targets named exampleB5
+# Target rules for targets named FT0simulation
 
 # Build rule for target.
-exampleB5: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 exampleB5
-.PHONY : exampleB5
+FT0simulation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FT0simulation
+.PHONY : FT0simulation
 
 # fast build rule for target.
-exampleB5/fast:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/build
-.PHONY : exampleB5/fast
+FT0simulation/fast:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/build
+.PHONY : FT0simulation/fast
 
-exampleB5.o: exampleB5.cc.o
+FT0simulation.o: FT0simulation.cc.o
 
-.PHONY : exampleB5.o
-
-# target to build an object file
-exampleB5.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/exampleB5.cc.o
-.PHONY : exampleB5.cc.o
-
-exampleB5.i: exampleB5.cc.i
-
-.PHONY : exampleB5.i
-
-# target to preprocess a source file
-exampleB5.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/exampleB5.cc.i
-.PHONY : exampleB5.cc.i
-
-exampleB5.s: exampleB5.cc.s
-
-.PHONY : exampleB5.s
-
-# target to generate assembly for a file
-exampleB5.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/exampleB5.cc.s
-.PHONY : exampleB5.cc.s
-
-src/B5ActionInitialization.o: src/B5ActionInitialization.cc.o
-
-.PHONY : src/B5ActionInitialization.o
+.PHONY : FT0simulation.o
 
 # target to build an object file
-src/B5ActionInitialization.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.o
-.PHONY : src/B5ActionInitialization.cc.o
+FT0simulation.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/FT0simulation.cc.o
+.PHONY : FT0simulation.cc.o
 
-src/B5ActionInitialization.i: src/B5ActionInitialization.cc.i
+FT0simulation.i: FT0simulation.cc.i
 
-.PHONY : src/B5ActionInitialization.i
+.PHONY : FT0simulation.i
 
 # target to preprocess a source file
-src/B5ActionInitialization.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.i
-.PHONY : src/B5ActionInitialization.cc.i
+FT0simulation.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/FT0simulation.cc.i
+.PHONY : FT0simulation.cc.i
 
-src/B5ActionInitialization.s: src/B5ActionInitialization.cc.s
+FT0simulation.s: FT0simulation.cc.s
 
-.PHONY : src/B5ActionInitialization.s
+.PHONY : FT0simulation.s
 
 # target to generate assembly for a file
-src/B5ActionInitialization.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5ActionInitialization.cc.s
-.PHONY : src/B5ActionInitialization.cc.s
+FT0simulation.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/FT0simulation.cc.s
+.PHONY : FT0simulation.cc.s
 
-src/B5DetectorConstruction.o: src/B5DetectorConstruction.cc.o
+src/FT0ActionInitialization.o: src/FT0ActionInitialization.cc.o
 
-.PHONY : src/B5DetectorConstruction.o
+.PHONY : src/FT0ActionInitialization.o
 
 # target to build an object file
-src/B5DetectorConstruction.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.o
-.PHONY : src/B5DetectorConstruction.cc.o
+src/FT0ActionInitialization.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o
+.PHONY : src/FT0ActionInitialization.cc.o
 
-src/B5DetectorConstruction.i: src/B5DetectorConstruction.cc.i
+src/FT0ActionInitialization.i: src/FT0ActionInitialization.cc.i
 
-.PHONY : src/B5DetectorConstruction.i
+.PHONY : src/FT0ActionInitialization.i
 
 # target to preprocess a source file
-src/B5DetectorConstruction.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.i
-.PHONY : src/B5DetectorConstruction.cc.i
+src/FT0ActionInitialization.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.i
+.PHONY : src/FT0ActionInitialization.cc.i
 
-src/B5DetectorConstruction.s: src/B5DetectorConstruction.cc.s
+src/FT0ActionInitialization.s: src/FT0ActionInitialization.cc.s
 
-.PHONY : src/B5DetectorConstruction.s
+.PHONY : src/FT0ActionInitialization.s
 
 # target to generate assembly for a file
-src/B5DetectorConstruction.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5DetectorConstruction.cc.s
-.PHONY : src/B5DetectorConstruction.cc.s
+src/FT0ActionInitialization.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.s
+.PHONY : src/FT0ActionInitialization.cc.s
 
-src/B5EventAction.o: src/B5EventAction.cc.o
+src/FT0DetectorConstruction.o: src/FT0DetectorConstruction.cc.o
 
-.PHONY : src/B5EventAction.o
+.PHONY : src/FT0DetectorConstruction.o
 
 # target to build an object file
-src/B5EventAction.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EventAction.cc.o
-.PHONY : src/B5EventAction.cc.o
+src/FT0DetectorConstruction.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o
+.PHONY : src/FT0DetectorConstruction.cc.o
 
-src/B5EventAction.i: src/B5EventAction.cc.i
+src/FT0DetectorConstruction.i: src/FT0DetectorConstruction.cc.i
 
-.PHONY : src/B5EventAction.i
+.PHONY : src/FT0DetectorConstruction.i
 
 # target to preprocess a source file
-src/B5EventAction.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EventAction.cc.i
-.PHONY : src/B5EventAction.cc.i
+src/FT0DetectorConstruction.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.i
+.PHONY : src/FT0DetectorConstruction.cc.i
 
-src/B5EventAction.s: src/B5EventAction.cc.s
+src/FT0DetectorConstruction.s: src/FT0DetectorConstruction.cc.s
 
-.PHONY : src/B5EventAction.s
+.PHONY : src/FT0DetectorConstruction.s
 
 # target to generate assembly for a file
-src/B5EventAction.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5EventAction.cc.s
-.PHONY : src/B5EventAction.cc.s
+src/FT0DetectorConstruction.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.s
+.PHONY : src/FT0DetectorConstruction.cc.s
 
-src/B5HadCalorimeterHit.o: src/B5HadCalorimeterHit.cc.o
+src/FT0EventAction.o: src/FT0EventAction.cc.o
 
-.PHONY : src/B5HadCalorimeterHit.o
+.PHONY : src/FT0EventAction.o
 
 # target to build an object file
-src/B5HadCalorimeterHit.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.o
-.PHONY : src/B5HadCalorimeterHit.cc.o
+src/FT0EventAction.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o
+.PHONY : src/FT0EventAction.cc.o
 
-src/B5HadCalorimeterHit.i: src/B5HadCalorimeterHit.cc.i
+src/FT0EventAction.i: src/FT0EventAction.cc.i
 
-.PHONY : src/B5HadCalorimeterHit.i
+.PHONY : src/FT0EventAction.i
 
 # target to preprocess a source file
-src/B5HadCalorimeterHit.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.i
-.PHONY : src/B5HadCalorimeterHit.cc.i
+src/FT0EventAction.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.i
+.PHONY : src/FT0EventAction.cc.i
 
-src/B5HadCalorimeterHit.s: src/B5HadCalorimeterHit.cc.s
+src/FT0EventAction.s: src/FT0EventAction.cc.s
 
-.PHONY : src/B5HadCalorimeterHit.s
+.PHONY : src/FT0EventAction.s
 
 # target to generate assembly for a file
-src/B5HadCalorimeterHit.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterHit.cc.s
-.PHONY : src/B5HadCalorimeterHit.cc.s
+src/FT0EventAction.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.s
+.PHONY : src/FT0EventAction.cc.s
 
-src/B5HadCalorimeterSD.o: src/B5HadCalorimeterSD.cc.o
+src/FT0HadCalorimeterHit.o: src/FT0HadCalorimeterHit.cc.o
 
-.PHONY : src/B5HadCalorimeterSD.o
+.PHONY : src/FT0HadCalorimeterHit.o
 
 # target to build an object file
-src/B5HadCalorimeterSD.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.o
-.PHONY : src/B5HadCalorimeterSD.cc.o
+src/FT0HadCalorimeterHit.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o
+.PHONY : src/FT0HadCalorimeterHit.cc.o
 
-src/B5HadCalorimeterSD.i: src/B5HadCalorimeterSD.cc.i
+src/FT0HadCalorimeterHit.i: src/FT0HadCalorimeterHit.cc.i
 
-.PHONY : src/B5HadCalorimeterSD.i
+.PHONY : src/FT0HadCalorimeterHit.i
 
 # target to preprocess a source file
-src/B5HadCalorimeterSD.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.i
-.PHONY : src/B5HadCalorimeterSD.cc.i
+src/FT0HadCalorimeterHit.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.i
+.PHONY : src/FT0HadCalorimeterHit.cc.i
 
-src/B5HadCalorimeterSD.s: src/B5HadCalorimeterSD.cc.s
+src/FT0HadCalorimeterHit.s: src/FT0HadCalorimeterHit.cc.s
 
-.PHONY : src/B5HadCalorimeterSD.s
+.PHONY : src/FT0HadCalorimeterHit.s
 
 # target to generate assembly for a file
-src/B5HadCalorimeterSD.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5HadCalorimeterSD.cc.s
-.PHONY : src/B5HadCalorimeterSD.cc.s
+src/FT0HadCalorimeterHit.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.s
+.PHONY : src/FT0HadCalorimeterHit.cc.s
 
-src/B5PrimaryGeneratorAction.o: src/B5PrimaryGeneratorAction.cc.o
+src/FT0HadCalorimeterSD.o: src/FT0HadCalorimeterSD.cc.o
 
-.PHONY : src/B5PrimaryGeneratorAction.o
+.PHONY : src/FT0HadCalorimeterSD.o
 
 # target to build an object file
-src/B5PrimaryGeneratorAction.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.o
-.PHONY : src/B5PrimaryGeneratorAction.cc.o
+src/FT0HadCalorimeterSD.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o
+.PHONY : src/FT0HadCalorimeterSD.cc.o
 
-src/B5PrimaryGeneratorAction.i: src/B5PrimaryGeneratorAction.cc.i
+src/FT0HadCalorimeterSD.i: src/FT0HadCalorimeterSD.cc.i
 
-.PHONY : src/B5PrimaryGeneratorAction.i
+.PHONY : src/FT0HadCalorimeterSD.i
 
 # target to preprocess a source file
-src/B5PrimaryGeneratorAction.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.i
-.PHONY : src/B5PrimaryGeneratorAction.cc.i
+src/FT0HadCalorimeterSD.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.i
+.PHONY : src/FT0HadCalorimeterSD.cc.i
 
-src/B5PrimaryGeneratorAction.s: src/B5PrimaryGeneratorAction.cc.s
+src/FT0HadCalorimeterSD.s: src/FT0HadCalorimeterSD.cc.s
 
-.PHONY : src/B5PrimaryGeneratorAction.s
+.PHONY : src/FT0HadCalorimeterSD.s
 
 # target to generate assembly for a file
-src/B5PrimaryGeneratorAction.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5PrimaryGeneratorAction.cc.s
-.PHONY : src/B5PrimaryGeneratorAction.cc.s
+src/FT0HadCalorimeterSD.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.s
+.PHONY : src/FT0HadCalorimeterSD.cc.s
 
-src/B5Run.o: src/B5Run.cc.o
+src/FT0PrimaryGeneratorAction.o: src/FT0PrimaryGeneratorAction.cc.o
 
-.PHONY : src/B5Run.o
+.PHONY : src/FT0PrimaryGeneratorAction.o
 
 # target to build an object file
-src/B5Run.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5Run.cc.o
-.PHONY : src/B5Run.cc.o
+src/FT0PrimaryGeneratorAction.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o
+.PHONY : src/FT0PrimaryGeneratorAction.cc.o
 
-src/B5Run.i: src/B5Run.cc.i
+src/FT0PrimaryGeneratorAction.i: src/FT0PrimaryGeneratorAction.cc.i
 
-.PHONY : src/B5Run.i
+.PHONY : src/FT0PrimaryGeneratorAction.i
 
 # target to preprocess a source file
-src/B5Run.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5Run.cc.i
-.PHONY : src/B5Run.cc.i
+src/FT0PrimaryGeneratorAction.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.i
+.PHONY : src/FT0PrimaryGeneratorAction.cc.i
 
-src/B5Run.s: src/B5Run.cc.s
+src/FT0PrimaryGeneratorAction.s: src/FT0PrimaryGeneratorAction.cc.s
 
-.PHONY : src/B5Run.s
+.PHONY : src/FT0PrimaryGeneratorAction.s
 
 # target to generate assembly for a file
-src/B5Run.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5Run.cc.s
-.PHONY : src/B5Run.cc.s
+src/FT0PrimaryGeneratorAction.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.s
+.PHONY : src/FT0PrimaryGeneratorAction.cc.s
 
-src/B5RunAction.o: src/B5RunAction.cc.o
+src/FT0Run.o: src/FT0Run.cc.o
 
-.PHONY : src/B5RunAction.o
+.PHONY : src/FT0Run.o
 
 # target to build an object file
-src/B5RunAction.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5RunAction.cc.o
-.PHONY : src/B5RunAction.cc.o
+src/FT0Run.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o
+.PHONY : src/FT0Run.cc.o
 
-src/B5RunAction.i: src/B5RunAction.cc.i
+src/FT0Run.i: src/FT0Run.cc.i
 
-.PHONY : src/B5RunAction.i
+.PHONY : src/FT0Run.i
 
 # target to preprocess a source file
-src/B5RunAction.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5RunAction.cc.i
-.PHONY : src/B5RunAction.cc.i
+src/FT0Run.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0Run.cc.i
+.PHONY : src/FT0Run.cc.i
 
-src/B5RunAction.s: src/B5RunAction.cc.s
+src/FT0Run.s: src/FT0Run.cc.s
 
-.PHONY : src/B5RunAction.s
+.PHONY : src/FT0Run.s
 
 # target to generate assembly for a file
-src/B5RunAction.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5RunAction.cc.s
-.PHONY : src/B5RunAction.cc.s
+src/FT0Run.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0Run.cc.s
+.PHONY : src/FT0Run.cc.s
 
-src/B5StackingAction.o: src/B5StackingAction.cc.o
+src/FT0RunAction.o: src/FT0RunAction.cc.o
 
-.PHONY : src/B5StackingAction.o
+.PHONY : src/FT0RunAction.o
 
 # target to build an object file
-src/B5StackingAction.cc.o:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.o
-.PHONY : src/B5StackingAction.cc.o
+src/FT0RunAction.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o
+.PHONY : src/FT0RunAction.cc.o
 
-src/B5StackingAction.i: src/B5StackingAction.cc.i
+src/FT0RunAction.i: src/FT0RunAction.cc.i
 
-.PHONY : src/B5StackingAction.i
+.PHONY : src/FT0RunAction.i
 
 # target to preprocess a source file
-src/B5StackingAction.cc.i:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.i
-.PHONY : src/B5StackingAction.cc.i
+src/FT0RunAction.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.i
+.PHONY : src/FT0RunAction.cc.i
 
-src/B5StackingAction.s: src/B5StackingAction.cc.s
+src/FT0RunAction.s: src/FT0RunAction.cc.s
 
-.PHONY : src/B5StackingAction.s
+.PHONY : src/FT0RunAction.s
 
 # target to generate assembly for a file
-src/B5StackingAction.cc.s:
-	$(MAKE) -f CMakeFiles/exampleB5.dir/build.make CMakeFiles/exampleB5.dir/src/B5StackingAction.cc.s
-.PHONY : src/B5StackingAction.cc.s
+src/FT0RunAction.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.s
+.PHONY : src/FT0RunAction.cc.s
+
+src/FT0StackingAction.o: src/FT0StackingAction.cc.o
+
+.PHONY : src/FT0StackingAction.o
+
+# target to build an object file
+src/FT0StackingAction.cc.o:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o
+.PHONY : src/FT0StackingAction.cc.o
+
+src/FT0StackingAction.i: src/FT0StackingAction.cc.i
+
+.PHONY : src/FT0StackingAction.i
+
+# target to preprocess a source file
+src/FT0StackingAction.cc.i:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.i
+.PHONY : src/FT0StackingAction.cc.i
+
+src/FT0StackingAction.s: src/FT0StackingAction.cc.s
+
+.PHONY : src/FT0StackingAction.s
+
+# target to generate assembly for a file
+src/FT0StackingAction.cc.s:
+	$(MAKE) -f CMakeFiles/FT0simulation.dir/build.make CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.s
+.PHONY : src/FT0StackingAction.cc.s
 
 # Help Target
 help:
@@ -458,44 +458,44 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... B5"
-	@echo "... install/strip"
-	@echo "... exampleB5"
-	@echo "... exampleB5.o"
-	@echo "... exampleB5.i"
-	@echo "... exampleB5.s"
-	@echo "... src/B5ActionInitialization.o"
-	@echo "... src/B5ActionInitialization.i"
-	@echo "... src/B5ActionInitialization.s"
-	@echo "... src/B5DetectorConstruction.o"
-	@echo "... src/B5DetectorConstruction.i"
-	@echo "... src/B5DetectorConstruction.s"
-	@echo "... src/B5EventAction.o"
-	@echo "... src/B5EventAction.i"
-	@echo "... src/B5EventAction.s"
-	@echo "... src/B5HadCalorimeterHit.o"
-	@echo "... src/B5HadCalorimeterHit.i"
-	@echo "... src/B5HadCalorimeterHit.s"
-	@echo "... src/B5HadCalorimeterSD.o"
-	@echo "... src/B5HadCalorimeterSD.i"
-	@echo "... src/B5HadCalorimeterSD.s"
-	@echo "... src/B5PrimaryGeneratorAction.o"
-	@echo "... src/B5PrimaryGeneratorAction.i"
-	@echo "... src/B5PrimaryGeneratorAction.s"
-	@echo "... src/B5Run.o"
-	@echo "... src/B5Run.i"
-	@echo "... src/B5Run.s"
-	@echo "... src/B5RunAction.o"
-	@echo "... src/B5RunAction.i"
-	@echo "... src/B5RunAction.s"
-	@echo "... src/B5StackingAction.o"
-	@echo "... src/B5StackingAction.i"
-	@echo "... src/B5StackingAction.s"
+	@echo "... FT0"
+	@echo "... FT0simulation"
+	@echo "... FT0simulation.o"
+	@echo "... FT0simulation.i"
+	@echo "... FT0simulation.s"
+	@echo "... src/FT0ActionInitialization.o"
+	@echo "... src/FT0ActionInitialization.i"
+	@echo "... src/FT0ActionInitialization.s"
+	@echo "... src/FT0DetectorConstruction.o"
+	@echo "... src/FT0DetectorConstruction.i"
+	@echo "... src/FT0DetectorConstruction.s"
+	@echo "... src/FT0EventAction.o"
+	@echo "... src/FT0EventAction.i"
+	@echo "... src/FT0EventAction.s"
+	@echo "... src/FT0HadCalorimeterHit.o"
+	@echo "... src/FT0HadCalorimeterHit.i"
+	@echo "... src/FT0HadCalorimeterHit.s"
+	@echo "... src/FT0HadCalorimeterSD.o"
+	@echo "... src/FT0HadCalorimeterSD.i"
+	@echo "... src/FT0HadCalorimeterSD.s"
+	@echo "... src/FT0PrimaryGeneratorAction.o"
+	@echo "... src/FT0PrimaryGeneratorAction.i"
+	@echo "... src/FT0PrimaryGeneratorAction.s"
+	@echo "... src/FT0Run.o"
+	@echo "... src/FT0Run.i"
+	@echo "... src/FT0Run.s"
+	@echo "... src/FT0RunAction.o"
+	@echo "... src/FT0RunAction.i"
+	@echo "... src/FT0RunAction.s"
+	@echo "... src/FT0StackingAction.o"
+	@echo "... src/FT0StackingAction.i"
+	@echo "... src/FT0StackingAction.s"
 .PHONY : help
 
 

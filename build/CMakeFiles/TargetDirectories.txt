@@ -1,8 +1,8 @@
+/home/isak/Desktop/Project-master/Project/build/CMakeFiles/install/strip.dir
 /home/isak/Desktop/Project-master/Project/build/CMakeFiles/install/local.dir
 /home/isak/Desktop/Project-master/Project/build/CMakeFiles/install.dir
 /home/isak/Desktop/Project-master/Project/build/CMakeFiles/list_install_components.dir
 /home/isak/Desktop/Project-master/Project/build/CMakeFiles/rebuild_cache.dir
 /home/isak/Desktop/Project-master/Project/build/CMakeFiles/edit_cache.dir
-/home/isak/Desktop/Project-master/Project/build/CMakeFiles/B5.dir
-/home/isak/Desktop/Project-master/Project/build/CMakeFiles/install/strip.dir
-/home/isak/Desktop/Project-master/Project/build/CMakeFiles/exampleB5.dir
+/home/isak/Desktop/Project-master/Project/build/CMakeFiles/FT0.dir
+/home/isak/Desktop/Project-master/Project/build/CMakeFiles/FT0simulation.dir
