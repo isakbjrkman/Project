@@ -116,7 +116,8 @@ G4bool B5HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
       myfile << step->GetTrack()->GetMomentum()(2) << "_";
       myfile << step->GetTrack()->GetPosition()(0) << "_";
       myfile << step->GetTrack()->GetPosition()(1) << "_";
-      myfile << step->GetTrack()->GetPosition()(2) << "\n";   
+      myfile << step->GetTrack()->GetPosition()(2) << "\n"; 
+        
       
      //Process hit data to root file
       hit->SetEvent(runManager);
