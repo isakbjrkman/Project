@@ -140,7 +140,7 @@ G4bool FT0HadCalorimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
       analysisManager->FillNtupleDColumn(6, hit->GetX());
       analysisManager->FillNtupleDColumn(7, hit->GetY());
       analysisManager->FillNtupleDColumn(8, hit->GetZ());
-      analysisManager->AddNtupleRow();    
+      analysisManager->AddNtupleRow();               
     }
 
   return true;

@@ -26,7 +26,13 @@
 //
 /// \file FT0RunAction.cc
 /// \brief Implementation of the FT0RunAction class
-
+#include<algorithm>
+#include <chrono>
+#include <ctime> 
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 
 #include "FT0RunAction.hh"
 #include "FT0EventAction.hh"
@@ -54,7 +60,7 @@ FT0RunAction::FT0RunAction(FT0PrimaryGeneratorAction* prim)
 
   // Default settings
   analysisManager->SetNtupleMerging(true);
-  analysisManager->SetFileName("FT0");
+  analysisManager->SetFileName("FT0"); 
   // Book ntuple
 
   if ( fPrimary ) {
@@ -70,9 +76,28 @@ FT0RunAction::FT0RunAction(FT0PrimaryGeneratorAction* prim)
     analysisManager->CreateNtupleDColumn("Z");      // column Id = 8
     analysisManager->FinishNtuple();
   }
+  
+//renaming ntuple save for every run
 
-  // Set ntuple output file
-  analysisManager->SetNtupleFileName(0, "FT0ntuple");
+int k = 0;
+std::ostringstream fn;
+fn << "FT0ntuple" << k << ".root";
+
+std::ifstream myfile;
+  myfile.open( fn.str() );
+
+	while (myfile) {
+	myfile.close();
+	k++; 
+	std::ostringstream an; 
+	an << "FT0ntuple" << k << ".root";
+	myfile.open( an.str() );
+	}
+	std::ostringstream bn; 
+	bn << "FT0ntuple" << k;
+
+//Set ntuple output file
+analysisManager->SetNtupleFileName(0, bn.str());  //"FT0ntuple"
 
 }
 
@@ -116,9 +141,27 @@ void FT0RunAction::EndOfRunAction(const G4Run* /*run*/)
   analysisManager->Write();
   analysisManager->CloseFile();
 
-  if(isMaster)
-    fRun->EndOfRun();
+  if(isMaster) {
+  //renaming ntuple save for every run
+  int k = 0;
+std::ostringstream fn;
+fn << "FT0ntuple" << k << ".root";
 
+std::ifstream myfile;
+  myfile.open( fn.str() );
+
+	while (myfile) {
+	myfile.close();
+	k++; 
+	std::ostringstream an; 
+	an << "FT0ntuple" << k << ".root";
+	myfile.open( an.str() );
+	}
+	std::ostringstream bn; 
+	bn << "FT0ntuple" << k;
+  analysisManager->SetNtupleFileName(0, bn.str());   //store each run
+    fRun->EndOfRun();
+}
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
