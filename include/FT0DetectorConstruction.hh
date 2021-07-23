@@ -62,8 +62,7 @@ class FT0DetectorConstruction : public G4VUserDetectorConstruction
 
     G4GenericMessenger* fMessenger;
     
-    G4LogicalVolume* fWirePlane1Logical;
-    G4LogicalVolume* fHadCalScintiLogical;
+    G4LogicalVolume* fDetectorPlaneLogical;
     
     std::vector<G4VisAttributes*> fVisAttributes;
 };

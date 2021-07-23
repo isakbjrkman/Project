@@ -77,8 +77,7 @@
 FT0DetectorConstruction::FT0DetectorConstruction()
 : G4VUserDetectorConstruction(), 
   fMessenger(nullptr),
-  fWirePlane1Logical(nullptr),
-  fHadCalScintiLogical(nullptr),
+  fDetectorPlaneLogical(nullptr),
   fVisAttributes()
 
 {
@@ -102,7 +101,6 @@ FT0DetectorConstruction::~FT0DetectorConstruction()
 G4VPhysicalVolume* FT0DetectorConstruction::Construct()
 {
   
-
   
  G4double mPhotonEnergyD[354];
  G4double mEfficMet[354];
@@ -160,7 +158,8 @@ ss >> energy >> abs >> ref >> eff;
   ConstructMaterials();
   auto nist = G4NistManager::Instance();
   
-  
+  //Air properties
+  //--------------------------------------------------------------
     G4double zet      = 1.0;
     G4double amass    = 1.01*g/mole;
     G4double density  = universe_mean_density;
@@ -169,16 +168,14 @@ ss >> energy >> abs >> ref >> eff;
     G4Material* air = new G4Material("Vacuum", zet, amass, density,
                             kStateGas, tempture, pressure);
                            
-  //Air properties
-  //--------------------------------------------------------------
-  G4MaterialPropertiesTable* MPT2 = new G4MaterialPropertiesTable();
-  MPT2->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexAir, nBins);
-  MPT2->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsAir, nBins);
+  
+  G4MaterialPropertiesTable* MPTair = new G4MaterialPropertiesTable();
+  MPTair->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexAir, nBins);
+  MPTair->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsAir, nBins);
   
   G4cout << "Air G4MaterialPropertiesTable:" << G4endl;
-  MPT2->DumpTable();
 
-  air->SetMaterialPropertiesTable(MPT2);
+  air->SetMaterialPropertiesTable(MPTair);
   
   // Envelope parameters
   //
@@ -202,14 +199,9 @@ ss >> energy >> abs >> ref >> eff;
   opAirSurface->SetModel(glisur); 
   													
   
-   G4LogicalBorderSurface* airSurface = new G4LogicalBorderSurface(
+  new G4LogicalBorderSurface(
     "AirSurface", worldPhysical, worldPhysical, opAirSurface);
 
-  G4OpticalSurface* opticalSurface4 = dynamic_cast<G4OpticalSurface*>(
-    airSurface->GetSurface(worldPhysical, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurface4)
-    opticalSurface4->DumpInfo();
 
   //colors
  
@@ -236,31 +228,30 @@ ss >> energy >> abs >> ref >> eff;
   SiO2->AddElement(elSi, 1);
   
   
-  G4MaterialPropertiesTable *MPT = new G4MaterialPropertiesTable();
-  MPT->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins)->SetSpline(true);      
-  MPT->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
-  MPT->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);
-  MPT->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);
+  G4MaterialPropertiesTable *MPTquartz = new G4MaterialPropertiesTable();
+  MPTquartz->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins)->SetSpline(true);      
+  MPTquartz->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
+  MPTquartz->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);
+  MPTquartz->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);
   
   
-  G4cout << "Quartz G4MaterialPropertiesTable:" << G4endl;
-  MPT->DumpTable();  
-  SiO2->SetMaterialPropertiesTable(MPT);
+  G4cout << "Quartz G4MaterialPropertiesTable:" << G4endl;  
+  SiO2->SetMaterialPropertiesTable(MPTquartz);
  
 
-  G4Box* solidShape1 =    
-    new G4Box("Shape1", 
+  G4Box* solidQuartz1 =    
+    new G4Box("QuartzRadiator", 
     0.5*26.5*mm, 0.5*26.5*mm, 0.5*20.0*mm);
                       
-  G4LogicalVolume* logicShape1 =                         
-    new G4LogicalVolume(solidShape1,         //its solid
+  G4LogicalVolume* logicQuartz1 =                         
+    new G4LogicalVolume(solidQuartz1,         //its solid
                         SiO2,          //its material
-                        "Shape1");           //its name                  
+                        "QuartzRadiator");           //its name                  
 
-   G4VPhysicalVolume* logicQuartz1 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,-13.255*mm,0.0*mm),logicShape1,"Shape1",worldLogical,false,1,checkOverlaps);
-   G4VPhysicalVolume* logicQuartz2 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,13.255*mm,0.0*mm),logicShape1,"Shape1",worldLogical,false,2,checkOverlaps);
-   G4VPhysicalVolume* logicQuartz3 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,-13.255*mm,0.0*mm),logicShape1,"Shape1",worldLogical,false,3,checkOverlaps);
-   G4VPhysicalVolume* logicQuartz4 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,13.255*mm,0.0*mm),logicShape1,"Shape1",worldLogical,false,4,checkOverlaps);                     
+   G4VPhysicalVolume* logicVolumeQuartz1 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,-13.255*mm,0.0*mm),logicQuartz1,"QuartzRadiator",worldLogical,false,1,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeQuartz2 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,13.255*mm,0.0*mm),logicQuartz1,"QuartzRadiator",worldLogical,false,2,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeQuartz3 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,-13.255*mm,0.0*mm),logicQuartz1,"QuartzRadiator",worldLogical,false,3,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeQuartz4 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,13.255*mm,0.0*mm),logicQuartz1,"QuartzRadiator",worldLogical,false,4,checkOverlaps);                     
                                                
   
   
@@ -268,67 +259,45 @@ ss >> energy >> abs >> ref >> eff;
   opQuartzSurface->SetType(dielectric_metal);     //dielectric_metal
   opQuartzSurface->SetFinish(Polished_LUT);  //polishedbackpainted   works: Rough_LUT
   opQuartzSurface->SetModel(unified);  //unified													
+  opQuartzSurface->SetMaterialPropertiesTable(MPTquartz);
   
-   G4LogicalBorderSurface* quartzSurface1 = new G4LogicalBorderSurface(
-    "QuartzSurface1", logicQuartz1, worldPhysical, opQuartzSurface);
+    new G4LogicalBorderSurface(
+    "QuartzSurface1", logicVolumeQuartz1, worldPhysical, opQuartzSurface);
     
-   G4LogicalBorderSurface* quartzSurface2 = new G4LogicalBorderSurface(
-    "QuartzSurface2", logicQuartz2, worldPhysical, opQuartzSurface);
+    new G4LogicalBorderSurface(
+    "QuartzSurface2", logicVolumeQuartz2, worldPhysical, opQuartzSurface);
     
-   G4LogicalBorderSurface* quartzSurface3 = new G4LogicalBorderSurface(
-    "QuartzSurface3", logicQuartz3, worldPhysical, opQuartzSurface);
+    new G4LogicalBorderSurface(
+    "QuartzSurface3", logicVolumeQuartz3, worldPhysical, opQuartzSurface);
     
-   G4LogicalBorderSurface* quartzSurface4 = new G4LogicalBorderSurface(
-    "QuartzSurface4", logicQuartz4, worldPhysical, opQuartzSurface);   
-
-  G4OpticalSurface* opticalSurface11 = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface1->GetSurface(logicQuartz1, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurface11)
-    opticalSurface11->DumpInfo();
-    
-  G4OpticalSurface* opticalSurface12 = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface2->GetSurface(logicQuartz2, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurface12)
-    opticalSurface12->DumpInfo();
-    
-  G4OpticalSurface* opticalSurface13 = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface3->GetSurface(logicQuartz3, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurface13)
-    opticalSurface13->DumpInfo();
-    
-  G4OpticalSurface* opticalSurface14 = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface4->GetSurface(logicQuartz4, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurface14)
-    opticalSurface14->DumpInfo();      
-  
-  
-  logicShape1->SetVisAttributes(blueVis);              
+    new G4LogicalBorderSurface(
+    "QuartzSurface4", logicVolumeQuartz4, worldPhysical, opQuartzSurface);   
  
-  G4ThreeVector pos5 = G4ThreeVector(0*mm, 0*mm, 11*mm);
-      
+  
+  logicQuartz1->SetVisAttributes(blueVis);              
+   
         
   // Quartz window (monolithic)      
-   //--------------------------------------------------------------
-  G4Box* solidShape5 =    
-    new G4Box("Shape5", 
+  //--------------------------------------------------------------
+  
+  G4ThreeVector posQuartzWindow = G4ThreeVector(0*mm, 0*mm, 11*mm);
+  
+  G4Box* solidQuartz5 =    
+    new G4Box("QuartzWindow", 
     0.5*59.0*mm, 0.5*59.0*mm, 0.5*2.0*mm);
                       
-  G4LogicalVolume* logicShape5 =                         
-    new G4LogicalVolume(solidShape5,         //its solid
+  G4LogicalVolume* logicQuartz5 =                         
+    new G4LogicalVolume(solidQuartz5,         //its solid
                         SiO2,          //its material
-                        "Shape5");           //its name
+                        "QuartzWindow");           //its name
                
-  logicShape5->SetVisAttributes(purpleVis);           
+  logicQuartz5->SetVisAttributes(purpleVis);           
                
   
-  G4VPhysicalVolume* logicPhys2 = new G4PVPlacement(0,                      
-                    pos5,                    //at position
-                    logicShape5,             //its logical volume
-                    "Shape5",                //its name
+  G4VPhysicalVolume* logicQuartzWindow = new G4PVPlacement(0,                      
+                    posQuartzWindow,             //at position
+                    logicQuartz5,             //its logical volume
+                    "QuartzWindow",                //its name
                     worldLogical,                //its mother  volume
                     false,                   //no boolean operation
                     0,                       //copy number
@@ -338,16 +307,12 @@ ss >> energy >> abs >> ref >> eff;
   G4OpticalSurface* opQuartzSurface5 = new G4OpticalSurface("QuartzSurface5");
   opQuartzSurface5->SetType(dielectric_metal);     
   opQuartzSurface5->SetFinish(Polished_LUT);  
-  opQuartzSurface5->SetModel(unified); 
+  opQuartzSurface5->SetModel(unified);
+  opQuartzSurface5->SetMaterialPropertiesTable(MPTquartz); 
   
-   G4LogicalBorderSurface* quartzSurface5 = new G4LogicalBorderSurface(
-    "QuartzSurface5", logicPhys2, worldPhysical, opQuartzSurface5);
+   new G4LogicalBorderSurface(
+    "QuartzSurface5", logicQuartzWindow, worldPhysical, opQuartzSurface5);
 
-  G4OpticalSurface* opticalSurface5 = dynamic_cast<G4OpticalSurface*>(
-    quartzSurface5->GetSurface(logicPhys2, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurface5)
-    opticalSurface5->DumpInfo();         
          
                                       
  //Photocathode                    
@@ -356,14 +321,13 @@ ss >> energy >> abs >> ref >> eff;
   
   G4Material* GaAr = nist->FindOrBuildMaterial("G4_GALLIUM_ARSENIDE");
 
-  G4MaterialPropertiesTable* MPT3 = new G4MaterialPropertiesTable();
-  MPT3->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexCathode, nBins);
-  MPT3->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsCathode, nBins);
+  G4MaterialPropertiesTable* MPTgal = new G4MaterialPropertiesTable();
+  MPTgal->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexCathode, nBins);
+  MPTgal->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsCathode, nBins);
   
   G4cout << "GaAr G4MaterialPropertiesTable:" << G4endl;
-  MPT3->DumpTable();
 
-  GaAr->SetMaterialPropertiesTable(MPT3);
+  GaAr->SetMaterialPropertiesTable(MPTgal);
  
   G4double cathodeX = 26.5*mm;
   G4double cathodeY = 26.5*mm;
@@ -371,23 +335,23 @@ ss >> energy >> abs >> ref >> eff;
  
   auto chamber1Solid
     = new G4Box("chamber1Box",0.5*cathodeX, 0.5*cathodeY, 0.5*cathodeZ);
-  fWirePlane1Logical									
-    = new G4LogicalVolume(chamber1Solid,GaAr,"fWirePlane1Logical");
+  fDetectorPlaneLogical									
+    = new G4LogicalVolume(chamber1Solid,GaAr,"fDetectorPlaneLogical");
   G4double cathodePosX = 13.255*mm;  
   G4double cathodePosY = 13.255*mm;
-  G4double cathodePosZ = 12.005*mm;  //12.015*mm correct?  if no space between::12.005
+  G4double cathodePosZ = 12.005*mm;  
     
     
-    G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,-cathodePosY,cathodePosZ),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,-cathodePosY,cathodePosZ),fDetectorPlaneLogical,   
                         "chamber1Physical",worldLogical,
                         false,1,checkOverlaps);
-    G4VPhysicalVolume* logicCathode2 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,cathodePosY,cathodePosZ),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode2 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,cathodePosY,cathodePosZ),fDetectorPlaneLogical,   
                         "chamber1Physical",worldLogical,
                         false,2,checkOverlaps);
-    G4VPhysicalVolume* logicCathode3 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,-cathodePosY,cathodePosZ),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode3 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,-cathodePosY,cathodePosZ),fDetectorPlaneLogical,   
                         "chamber1Physical",worldLogical,
                         false,3,checkOverlaps);
-    G4VPhysicalVolume* logicCathode4 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,cathodePosY,cathodePosZ),fWirePlane1Logical,   
+    G4VPhysicalVolume* logicCathode4 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,cathodePosY,cathodePosZ),fDetectorPlaneLogical,   
                         "chamber1Physical",worldLogical,
                         false,4,checkOverlaps);                  
                
@@ -414,84 +378,53 @@ ss >> energy >> abs >> ref >> eff;
   opCathodeSurface->SetType(dielectric_dielectric);     
   opCathodeSurface->SetFinish(Polished_LUT);  
   opCathodeSurface->SetModel(unified);   
+  opCathodeSurface->SetMaterialPropertiesTable(MPTgal);
   												
   
-  G4LogicalBorderSurface* cathodeSurface1 = new G4LogicalBorderSurface(
+   new G4LogicalBorderSurface(
     "CathodeSurface1", logicCathode1, worldPhysical, opCathodeSurface);    
     
-  G4LogicalBorderSurface* cathodeSurface2 = new G4LogicalBorderSurface(
+   new G4LogicalBorderSurface(
     "CathodeSurface2", logicCathode2, worldPhysical, opCathodeSurface);    
     
-  G4LogicalBorderSurface* cathodeSurface3 = new G4LogicalBorderSurface(
+   new G4LogicalBorderSurface(
     "CathodeSurface3", logicCathode3, worldPhysical, opCathodeSurface);     
     
-  G4LogicalBorderSurface* cathodeSurface4 = new G4LogicalBorderSurface(
+   new G4LogicalBorderSurface(
     "CathodeSurface4", logicCathode4, worldPhysical, opCathodeSurface);     
+         
     
-     
-  G4OpticalSurface* opticalSurfaceCathode1 = dynamic_cast<G4OpticalSurface*>(
-    cathodeSurface1->GetSurface(logicCathode1, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurfaceCathode1) {
-    opticalSurfaceCathode1->DumpInfo();
-  } 
-  
-  
-  G4OpticalSurface* opticalSurfaceCathode2 = dynamic_cast<G4OpticalSurface*>(
-    cathodeSurface2->GetSurface(logicCathode2, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurfaceCathode2) {
-    opticalSurfaceCathode2->DumpInfo();
-  } 
-  
-  
-  G4OpticalSurface* opticalSurfaceCathode3 = dynamic_cast<G4OpticalSurface*>(
-    cathodeSurface3->GetSurface(logicCathode3, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurfaceCathode3) {
-    opticalSurfaceCathode3->DumpInfo();
-  }  
-
-
-  G4OpticalSurface* opticalSurfaceCathode4 = dynamic_cast<G4OpticalSurface*>(
-    cathodeSurface4->GetSurface(logicCathode4, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurfaceCathode4) {
-    opticalSurfaceCathode4->DumpInfo();
-  } 
-    
-  fWirePlane1Logical->SetVisAttributes(yellowVis);
+  fDetectorPlaneLogical->SetVisAttributes(yellowVis);
+ 
  
   //MCP-PMT (ceramic)
   //--------------------------------------------------------------
   G4Material* GaOx = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
   
-  G4MaterialPropertiesTable* MPT4 = new G4MaterialPropertiesTable();
-  MPT4->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMCP, nBins);
+  G4MaterialPropertiesTable* MPTalu = new G4MaterialPropertiesTable();
+  MPTalu->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMCP, nBins);
 
   G4cout << "GaOx G4MaterialPropertiesTable:" << G4endl;
-  MPT4->DumpTable();
 
-  GaOx->SetMaterialPropertiesTable(MPT4);
-  
-  
-  G4ThreeVector pos7 = G4ThreeVector(0.0*mm, 0.0*mm, 21.01*mm);    //correct:21.03?  if no space between:21.01
+  GaOx->SetMaterialPropertiesTable(MPTalu);
+    
+  G4ThreeVector posMCP = G4ThreeVector(0.0*mm, 0.0*mm, 21.01*mm);    
            
-  G4Box* solidShape7 =    
-    new G4Box("Shape7", 
+  G4Box* solidMCP =    
+    new G4Box("MCP", 
     0.5*59.0*mm, 0.5*59.0*mm, 0.5*18.0*mm);
                       
-  G4LogicalVolume* logicShape7 =                         
-    new G4LogicalVolume(solidShape7,         //its solid
+  G4LogicalVolume* logicMCP =                         
+    new G4LogicalVolume(solidMCP,         //its solid
                         GaOx,          //its material
-                        "Shape7");           //its name
+                        "MCP");           //its name
                         
-  logicShape7->SetVisAttributes(greyVis);                        
+  logicMCP->SetVisAttributes(greyVis);                        
                
-  G4VPhysicalVolume* logicPhys5 = new G4PVPlacement(0,                       //no rotation
-                    pos7,                    //at position
-                    logicShape7,             //its logical volume
-                    "Shape7",                //its name
+  G4VPhysicalVolume* logicPhysMCP = new G4PVPlacement(0,                       //no rotation
+                    posMCP,                    //at position
+                    logicMCP,             //its logical volume
+                    "MCP",                //its name
                     worldLogical,                //its mother  volume
                     false,                   //no boolean operation
                     0,                       //copy number
@@ -501,20 +434,11 @@ ss >> energy >> abs >> ref >> eff;
   opMCPSurface->SetType(dielectric_dielectric);       
   opMCPSurface->SetFinish(Polished_LUT);		
   opMCPSurface->SetModel(unified);			
-  													
+  opMCPSurface->SetMaterialPropertiesTable(MPTalu);													
   
-   G4LogicalBorderSurface* mcpSurface = new G4LogicalBorderSurface(
-    "MCPSurface", logicPhys5, worldPhysical, opMCPSurface);
-
-  G4OpticalSurface* opticalSurfaceMCP = dynamic_cast<G4OpticalSurface*>(
-    mcpSurface->GetSurface(logicPhys5, worldPhysical)
-      ->GetSurfaceProperty());
-  if(opticalSurfaceMCP) {
-    opticalSurfaceMCP->DumpInfo();
-  }
-  
-  
-                                                                                           
+  new G4LogicalBorderSurface(
+    "MCPSurface", logicPhysMCP, worldPhysical, opMCPSurface);
+                                                                                        
  
   // return the world physical volume ----------------------------------------
   
@@ -531,7 +455,7 @@ void FT0DetectorConstruction::ConstructSDandField()
   
   auto hadCalorimeter = new FT0HadCalorimeterSD(SDname="/HadCalorimeter");
   sdManager->AddNewDetector(hadCalorimeter);
-  fWirePlane1Logical->SetSensitiveDetector(hadCalorimeter);
+  fDetectorPlaneLogical->SetSensitiveDetector(hadCalorimeter);
 
 }    
 
