@@ -26,7 +26,7 @@
 //
 /// \file FT0RunAction.cc
 /// \brief Implementation of the FT0RunAction class
-#include<algorithm>
+#include <algorithm>
 #include <chrono>
 #include <ctime> 
 #include <stdio.h>
@@ -81,7 +81,7 @@ FT0RunAction::FT0RunAction(FT0PrimaryGeneratorAction* prim)
 
 int k = 0;
 std::ostringstream fn;
-fn << "FT0ntuple" << k << ".root";
+fn << "ntupleSave/FT0ntuple" << k << ".root";
 
 std::ifstream myfile;
   myfile.open( fn.str() );
@@ -90,11 +90,11 @@ std::ifstream myfile;
 	myfile.close();
 	k++; 
 	std::ostringstream an; 
-	an << "FT0ntuple" << k << ".root";
+	an << "ntupleSave/FT0ntuple" << k << ".root";
 	myfile.open( an.str() );
 	}
 	std::ostringstream bn; 
-	bn << "FT0ntuple" << k;
+	bn << "ntupleSave/FT0ntuple" << k;
 
 //Set ntuple output file
 analysisManager->SetNtupleFileName(0, bn.str());  //"FT0ntuple"
@@ -145,7 +145,7 @@ void FT0RunAction::EndOfRunAction(const G4Run* /*run*/)
   //renaming ntuple save for every run
   int k = 0;
 std::ostringstream fn;
-fn << "FT0ntuple" << k << ".root";
+fn << "ntupleSave/FT0ntuple" << k << ".root";
 
 std::ifstream myfile;
   myfile.open( fn.str() );
@@ -154,11 +154,11 @@ std::ifstream myfile;
 	myfile.close();
 	k++; 
 	std::ostringstream an; 
-	an << "FT0ntuple" << k << ".root";
+	an << "ntupleSave/FT0ntuple" << k << ".root";
 	myfile.open( an.str() );
 	}
 	std::ostringstream bn; 
-	bn << "FT0ntuple" << k;
+	bn << "ntupleSave/FT0ntuple" << k;
   analysisManager->SetNtupleFileName(0, bn.str());   //store each run
     fRun->EndOfRun();
 }

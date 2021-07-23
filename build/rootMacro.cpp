@@ -21,7 +21,7 @@ string numberStr = to_string(number);
 
 string init = "FT0ntuple";
 string last = ".root";
-string inp = init + numberStr + last;
+string inp = "ntupleSave/" + init + numberStr + last;
 
 cout << "Reading filename: " << inp << endl;
 
