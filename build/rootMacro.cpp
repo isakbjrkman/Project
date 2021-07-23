@@ -6,13 +6,42 @@
 #include <cmath>
 #include <array>
 #include <cstdlib> 
+#include <stdlib.h>
+#include <stdio.h>
+#include <algorithm>
 
-void rootMacro() {
 
-TFile* f1 = new TFile("FT0ntuple0.root", "READ");
+int rootMacro() {
+//enter name command
+int number;
+cout << "Type root file number to be read. \nIf file name is FT0ntupleX.root, type X.\nEnter number:" << endl;
+cin >> number;
+string numberStr = to_string(number);
+
+//read file
+
+string init = "FT0ntuple";
+string last = ".root";
+string inp = init + numberStr + last;
+
+cout << "Reading filename: " << inp << endl;
+
+TFile* f1 = new TFile( inp.c_str(), "READ");
+if (!f1) {
+cout << "File read failed" << endl;
+return -1;
+}
 TTree* t = (TTree*)f1->Get("FT0");
 
-TFile* f = new TFile("dataProcessing.root", "RECREATE");
+//Output filename according to input number, i.e. dataProcessingX belongs to FT0ntupleX. 
+string outputName = "dataProcessing";
+string outp = outputName + numberStr + last;
+
+TFile* f = new TFile( outp.c_str(), "RECREATE");
+if (!f) {
+cout << "File read failed" << endl;
+return -1;
+}
 
 double eventID,detectorID,PDG;
 double x,y,z,px,py,pz;
@@ -74,5 +103,10 @@ h1x->Write();
 h1y->Write();
 h1z->Write();
 
+f->Close();
+f1->Close();
+
+cout << "Dataprocessing completed successfully. \nOutput file " << outp << " created." << endl;
+return 1;
 
 }
