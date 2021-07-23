@@ -10,12 +10,11 @@
 #include <stdio.h>
 #include <algorithm>
 
-
-int rootMacro() {
+int help(int number) {
 //enter name command
-int number;
-cout << "Type root file number to be read. \nIf file name is FT0ntupleX.root, type X.\nEnter number:" << endl;
-cin >> number;
+//int number;
+//cout << "Type root file number to be read. \nIf file name is FT0ntupleX.root, type X.\nEnter number:" << endl;
+//cin >> number;
 string numberStr = to_string(number);
 
 //read file
@@ -35,7 +34,8 @@ TTree* t = (TTree*)f1->Get("FT0");
 
 //Output filename according to input number, i.e. dataProcessingX belongs to FT0ntupleX. 
 string outputName = "dataProcessing";
-string outp = outputName + numberStr + last;
+string outp = outputName + "/" + outputName + numberStr + last;
+cout << outp << endl;
 
 TFile* f = new TFile( outp.c_str(), "RECREATE");
 if (!f) {
@@ -110,3 +110,33 @@ cout << "Dataprocessing completed successfully. \nOutput file " << outp << " cre
 return 1;
 
 }
+
+
+
+void rootMacro() {
+
+int number;
+char p;
+cout << "Type root file number to be read. \nIf file name is FT0ntupleX.root, type X.\nEnter number:" << endl;
+cin >> number;
+cout << "Do you want to include preceding ntuple files starting from FT0ntuple0.root?\n [y] for yes, [n] for no." << endl;
+cin >> p;
+
+if (p == 'y') {
+
+for (int i = 0; i <= number; i++) {
+   help(i);
+ }
+
+} else {
+   help(number);
+}
+
+return;
+}
+
+
+
+
+
+
