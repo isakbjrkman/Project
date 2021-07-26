@@ -38,6 +38,8 @@
 #include "FT0DetectorConstruction.hh"
 #include "FT0HadCalorimeterSD.hh"
 
+
+#include "G4OpBoundaryProcess.hh"
 #include "G4Cerenkov.hh"
 #include "G4OpticalPhoton.hh"
 #include "G4LogicalSkinSurface.hh"
@@ -100,8 +102,7 @@ FT0DetectorConstruction::~FT0DetectorConstruction()
 
 G4VPhysicalVolume* FT0DetectorConstruction::Construct()
 {
-  
-  
+   
  G4double mPhotonEnergyD[354];
  G4double mEfficMet[354];
  G4double mRindexMet[354];
@@ -112,9 +113,10 @@ G4VPhysicalVolume* FT0DetectorConstruction::Construct()
  G4double mAbsCathode[354];
  G4double mReflMet[354];
  G4double mReflMCP[354];
- int nBins = sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
+
+ int nBins = 354; //sizeof(mPhotonEnergyD)/sizeof(mPhotonEnergyD[0]);
  
- 
+   
  //Read quartz properties data from .txt file.
 
  std::ifstream myfile("quartz.txt");
@@ -153,6 +155,7 @@ ss >> energy >> abs >> ref >> eff;
     mReflMCP[i] = 0.5;	
   }
  
+
   
   // Construct materials
   ConstructMaterials();
@@ -197,7 +200,7 @@ ss >> energy >> abs >> ref >> eff;
   opAirSurface->SetType(dielectric_dielectric);  
   opAirSurface->SetFinish(polished);  
   opAirSurface->SetModel(glisur); 
-  													
+  opAirSurface->SetMaterialPropertiesTable(MPTair);	//recently added												
   
   new G4LogicalBorderSurface(
     "AirSurface", worldPhysical, worldPhysical, opAirSurface);
@@ -228,11 +231,16 @@ ss >> energy >> abs >> ref >> eff;
   SiO2->AddElement(elSi, 1);
   
   
+  
+
+  
+  
+  
   G4MaterialPropertiesTable *MPTquartz = new G4MaterialPropertiesTable();
   MPTquartz->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins)->SetSpline(true);      
   MPTquartz->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
-  MPTquartz->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);
-  MPTquartz->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);
+  MPTquartz->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins)->SetSpline(true);   //has no effect. Registered in FT0HadCalorimeterSD instead
+  //MPTquartz->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMet, nBins);  //seems to be the issue. When enabled it decreases the number of registered photons by a factor >2
   
   
   G4cout << "Quartz G4MaterialPropertiesTable:" << G4endl;  
@@ -257,7 +265,7 @@ ss >> energy >> abs >> ref >> eff;
   
   G4OpticalSurface* opQuartzSurface = new G4OpticalSurface("QuartzSurface");
   opQuartzSurface->SetType(dielectric_metal);     //dielectric_metal
-  opQuartzSurface->SetFinish(Polished_LUT);  //polishedbackpainted   works: Rough_LUT
+  opQuartzSurface->SetFinish(polishedbackpainted);  //polishedbackpainted   
   opQuartzSurface->SetModel(unified);  //unified													
   opQuartzSurface->SetMaterialPropertiesTable(MPTquartz);
   
@@ -306,7 +314,7 @@ ss >> energy >> abs >> ref >> eff;
                
   G4OpticalSurface* opQuartzSurface5 = new G4OpticalSurface("QuartzSurface5");
   opQuartzSurface5->SetType(dielectric_metal);     
-  opQuartzSurface5->SetFinish(Polished_LUT);  
+  opQuartzSurface5->SetFinish(polishedbackpainted);  
   opQuartzSurface5->SetModel(unified);
   opQuartzSurface5->SetMaterialPropertiesTable(MPTquartz); 
   
@@ -376,7 +384,7 @@ ss >> energy >> abs >> ref >> eff;
   
   G4OpticalSurface* opCathodeSurface = new G4OpticalSurface("CathodeSurface");
   opCathodeSurface->SetType(dielectric_dielectric);     
-  opCathodeSurface->SetFinish(Polished_LUT);  
+  opCathodeSurface->SetFinish(polishedbackpainted);  
   opCathodeSurface->SetModel(unified);   
   opCathodeSurface->SetMaterialPropertiesTable(MPTgal);
   												
@@ -432,7 +440,7 @@ ss >> energy >> abs >> ref >> eff;
   
   G4OpticalSurface* opMCPSurface = new G4OpticalSurface("MCPSurface");
   opMCPSurface->SetType(dielectric_dielectric);       
-  opMCPSurface->SetFinish(Polished_LUT);		
+  opMCPSurface->SetFinish(polishedbackpainted);		
   opMCPSurface->SetModel(unified);			
   opMCPSurface->SetMaterialPropertiesTable(MPTalu);													
   
