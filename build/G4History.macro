@@ -59,5 +59,17 @@
 /gui/addButton viewer "Flush viewer (= refresh + update)" "/vis/viewer/flush"
 /gui/addButton viewer "Update scene" "/vis/scene/notifyHandlers"
 /gui/addIcon "Run beam on" user_icon "/run/beamOn 1" run.png
-/run/beamOn 5
+/run/beamOn 1
 /vis/scene/notifyHandlers scene-0
+/vis/viewer/set/picking true
+/vis/viewer/refresh
+/vis/set/touchable worldPhysical 0
+/vis/set/touchable worldPhysical 0
+/vis/viewer/set/picking false
+/vis/viewer/refresh
+/vis/viewer/set/picking false
+/vis/viewer/refresh
+/vis/viewer/set/picking true
+/vis/viewer/refresh
+/vis/set/touchable worldPhysical 0
+/run/beamOn 1
