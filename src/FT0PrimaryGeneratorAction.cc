@@ -27,6 +27,9 @@
 /// \file FT0PrimaryGeneratorAction.cc
 /// \brief Implementation of the FT0PrimaryGeneratorAction class
 
+#include <cstdlib> 
+#include <cmath>
+
 #include "FT0Run.hh"
 #include "FT0EventAction.hh"
 #include "FT0PrimaryGeneratorAction.hh"
@@ -73,10 +76,15 @@ FT0PrimaryGeneratorAction::~FT0PrimaryGeneratorAction()
 void FT0PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
 {
   auto particleTable = G4ParticleTable::GetParticleTable();
-  fParticleGun->SetParticlePosition(G4ThreeVector(-1.*cm,-1.*cm,-12.*cm));
+  fParticleGun->SetParticlePosition(G4ThreeVector(0,0,0));
   fParticleGun->SetParticleDefinition(particleTable->FindParticle("mu+"));
   fParticleGun->SetParticleEnergy(1.*GeV);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
+  
+  G4double x = -2.655 + ((float) rand()/RAND_MAX)*5.31;
+  G4double y = 4.775 + ((float) rand()/RAND_MAX)*5.31;
+  G4double z = 333.2995;
+  
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(x,y,z));
   fParticleGun->GeneratePrimaryVertex(event);
 }
 

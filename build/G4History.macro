@@ -61,4 +61,3 @@
 /gui/addIcon "Run beam on" user_icon "/run/beamOn 1" run.png
 /run/beamOn 5
 /vis/scene/notifyHandlers scene-0
-/run/beamOn 5
