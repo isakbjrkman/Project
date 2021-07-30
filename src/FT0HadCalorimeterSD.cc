@@ -149,6 +149,7 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
 	double momentZ = step->GetTrack()->GetMomentum()(2);
         double energy = abs(momentX) + abs(momentY) + abs(momentZ);
         int i = 0;
+        /*
     while ( i<(nbins-1) && energy > photonEnergy[i] ) {
      i++;          
     }
@@ -156,7 +157,7 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
      if ((float) rand()/RAND_MAX > eff[i]) {
         return true;     //kill photon e.g. don't register photon        
      } 
-     
+     */
      //Store data to .txt	
       myfile << runManager << "_";
       myfile << touchable->GetVolume(0)->GetCopyNo() << "_";   
@@ -192,7 +193,7 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
       analysisManager->FillNtupleDColumn(8, hit->GetZ());
       analysisManager->AddNtupleRow();               
     
- }
+  }
   return true;
 }
 

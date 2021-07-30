@@ -339,7 +339,7 @@ ss >> energy >> abs >> ref >> eff;
  
   G4double cathodeX = 26.5*mm;
   G4double cathodeY = 26.5*mm;
-  G4double cathodeZ = 0.01*mm;
+  G4double cathodeZ = 0.01*mm;  
  
   auto chamber1Solid
     = new G4Box("chamber1Box",0.5*cathodeX, 0.5*cathodeY, 0.5*cathodeZ);

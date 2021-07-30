@@ -1,5 +1,5 @@
 //Run root several times with this code without it bugging up
 
 
-root -l -b -q rootMacro.cpp && root -l -b -q rootMacro.cpp
+root -l -b -q rootMacro.cpp 		//&& root -l -b -q rootMacro.cpp
 
