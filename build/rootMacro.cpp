@@ -116,9 +116,9 @@ TH1D* h1w = new TH1D("h1w", "Wavelength distribution; Wavelength (nm); Count", 5
 
 TH2D* h2qe = new TH2D("h2qe", "Quantum efficiency as a function of wavelength; Wavelength (nm); Efficiency", 500, 0.06*pow(10.,3), 0.53*pow(10., 3), 500, 0, 0.5);
 
-TH2D* h2xy = new TH2D("h2xy", "X-Y hits; x (mm); y (mm)",  250, -31, 31,250, 44, 105);
-TH2D* h2xz = new TH2D("h2xz", "X-Z hits; x (mm); z (mm)",  250, -30, 30,250, 3354.993, 3355.008); 
-TH2D* h2xpx = new TH2D("h2xpx", "X-PX hits; x (mm); px (MeV)",  250, -30, 30,250, 8*pow(10., -6), 8*pow(10., -6)); 
+TH2D* h2xy = new TH2D("h2xy", "X-Y hits; x (mm); y (mm)",  200, -31, 31,200, 44, 105);
+TH2D* h2xz = new TH2D("h2xz", "X-Z hits; x (mm); z (mm)",  200, -30, 30,200, 3354.993, 3355.008); 
+TH2D* h2xpx = new TH2D("h2xpx", "X-PX hits; x (mm); px (MeV)",  200, -30, 30,200, 8*pow(10., -6), 8*pow(10., -6)); 
  
 h2qe->SetStats(0);
 h2xy->SetStats(0);
