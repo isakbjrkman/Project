@@ -30,6 +30,7 @@
 #include <cstdlib> 
 #include <cmath>
 
+#include "FT0Constants.hh"
 #include "FT0Run.hh"
 #include "FT0EventAction.hh"
 #include "FT0PrimaryGeneratorAction.hh"
@@ -80,9 +81,9 @@ void FT0PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
   fParticleGun->SetParticleDefinition(particleTable->FindParticle("mu+"));
   fParticleGun->SetParticleEnergy(1.*GeV);
   
-  G4double x = -2.655 + ((float) rand()/RAND_MAX)*5.31;
-  G4double y = 4.775 + ((float) rand()/RAND_MAX)*5.31;
-  G4double z = 333.2995;
+  G4double x = (-26.50-dist/2)*mm + ((float) rand()/RAND_MAX)*(53.00+dist)*mm;
+  G4double y = (74.30-26.50-dist/2)*mm + ((float) rand()/RAND_MAX)*(53.00+dist)*mm;
+  G4double z = 3332.945*mm;
   
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(x,y,z));
   fParticleGun->GeneratePrimaryVertex(event);

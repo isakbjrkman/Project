@@ -34,7 +34,7 @@
 #include <cmath>
 #include <array>
 
-
+#include "FT0Constants.hh"
 #include "FT0DetectorConstruction.hh"
 #include "FT0HadCalorimeterSD.hh"
 
@@ -249,10 +249,9 @@ ss >> energy >> abs >> ref >> eff;
   SiO2->AddElement(elO, 2);
   SiO2->AddElement(elSi, 1);
   
-  
-  
+ 
   G4double deltaY = 7.43*cm;
-  G4double deltaZ = 335.5*cm-12.005*mm;
+  G4double deltaZ = 335.5*cm;
   
   
   G4MaterialPropertiesTable *MPTquartz = new G4MaterialPropertiesTable();
@@ -272,10 +271,10 @@ ss >> energy >> abs >> ref >> eff;
                         SiO2,          //its material
                         "QuartzRadiator");           //its name                  
 
-   G4VPhysicalVolume* logicVolumeQuartz1 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,-13.255*mm+deltaY,0.0*mm+deltaZ),logicQuartz1,"QuartzRadiator1",worldLogical,false,1,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeQuartz2 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,13.255*mm+deltaY,0.0*mm+deltaZ),logicQuartz1,"QuartzRadiator2",worldLogical,false,2,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeQuartz3 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,-13.255*mm+deltaY,0.0*mm+deltaZ),logicQuartz1,"QuartzRadiator3",worldLogical,false,3,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeQuartz4 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,13.255*mm+deltaY,0.0*mm+deltaZ),logicQuartz1,"QuartzRadiator4",worldLogical,false,4,checkOverlaps);                     
+   G4VPhysicalVolume* logicVolumeQuartz1 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2)*mm,-(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator1",worldLogical,false,1,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeQuartz2 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator2",worldLogical,false,2,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeQuartz3 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,-(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator3",worldLogical,false,3,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeQuartz4 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator4",worldLogical,false,4,checkOverlaps);                     
                                                
   
   G4OpticalSurface* opQuartzSurface = new G4OpticalSurface("QuartzSurface");
@@ -324,10 +323,10 @@ ss >> energy >> abs >> ref >> eff;
                         C,          //its material
                         "TopBlackPaper");           //its name                  
   
-   G4VPhysicalVolume* logicVolumeTopPaper1 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,-13.255*mm+deltaY,0.0*mm+deltaZ-10*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper1",worldLogical,false,1,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeTopPaper2 =  new G4PVPlacement(0,G4ThreeVector(-13.255*mm,13.255*mm+deltaY,0.0*mm+deltaZ-10*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper2",worldLogical,false,2,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeTopPaper3 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,-13.255*mm+deltaY,0.0*mm+deltaZ-10*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper3",worldLogical,false,3,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeTopPaper4 =  new G4PVPlacement(0,G4ThreeVector(13.255*mm,13.255*mm+deltaY,0.0*mm+deltaZ-10*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper4",worldLogical,false,4,checkOverlaps);        
+   G4VPhysicalVolume* logicVolumeTopPaper1 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2)*mm,-(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper1",worldLogical,false,1,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeTopPaper2 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper2",worldLogical,false,2,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeTopPaper3 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,-(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper3",worldLogical,false,3,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeTopPaper4 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper4",worldLogical,false,4,checkOverlaps);        
          
   G4OpticalSurface* opTopPaperSurface = new G4OpticalSurface("TopBlackPaperSurface");
   opTopPaperSurface->SetType(dielectric_dielectric);     //dielectric_metal
@@ -360,21 +359,21 @@ ss >> energy >> abs >> ref >> eff;
         
      G4Box* solidMirror1 =    
     new G4Box("Mirror1", 
-    0.5*(53.01+2*thick)*mm, 0.5*thick*mm, 0.5*20.0*mm);
+    0.5*(53.00+dist+2*thick)*mm, 0.5*thick*mm, 0.5*20.0*mm);
                           
   G4LogicalVolume* logicMirror1 =                         
     new G4LogicalVolume(solidMirror1,         //its solid
                         SiO2,          //its material
                         "Mirror1");           //its name                  
 
-   G4VPhysicalVolume* logicVolumeMirror1 =  new G4PVPlacement(0,G4ThreeVector(0,-(13.255+26.5/2+thick/2)*mm+deltaY,0.0*mm+deltaZ),logicMirror1,"Mirror11",worldLogical,false,1,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeMirror2 =  new G4PVPlacement(0,G4ThreeVector(0,(13.255+26.5/2+thick/2)*mm+deltaY,0.0*mm+deltaZ),logicMirror1,"Mirror12",worldLogical,false,2,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeMirror1 =  new G4PVPlacement(0,G4ThreeVector(0,-(13.25+dist/2+26.5/2+thick/2)*mm+deltaY,-12.005*mm+deltaZ),logicMirror1,"Mirror11",worldLogical,false,1,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeMirror2 =  new G4PVPlacement(0,G4ThreeVector(0,(13.25+dist/2+26.5/2+thick/2)*mm+deltaY,-12.005*mm+deltaZ),logicMirror1,"Mirror12",worldLogical,false,2,checkOverlaps);
    
     //left & right side     
     
    G4Box* solidMirror2 =    
     new G4Box("Mirror2", 
-    0.5*thick*mm, 0.5*53.01*mm, 0.5*20.0*mm);
+    0.5*thick*mm, 0.5*(53.00+dist)*mm, 0.5*20.0*mm);
    
    G4LogicalVolume* logicMirror2 =                         
     new G4LogicalVolume(solidMirror2,         //its solid
@@ -382,8 +381,8 @@ ss >> energy >> abs >> ref >> eff;
                         "Mirror2");           //its name  
    
    
-   G4VPhysicalVolume* logicVolumeMirror3 =  new G4PVPlacement(0,G4ThreeVector(-(13.255+26.5/2+thick/2)*mm,deltaY,0.0*mm+deltaZ),logicMirror2,"Mirror21",worldLogical,false,1,checkOverlaps);
-   G4VPhysicalVolume* logicVolumeMirror4 =  new G4PVPlacement(0,G4ThreeVector((13.255+26.5/2+thick/2)*mm,deltaY,0.0*mm+deltaZ),logicMirror2,"Mirror22",worldLogical,false,2,checkOverlaps);                     
+   G4VPhysicalVolume* logicVolumeMirror3 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2+26.5/2+thick/2)*mm,deltaY,-12.005*mm+deltaZ),logicMirror2,"Mirror21",worldLogical,false,1,checkOverlaps);
+   G4VPhysicalVolume* logicVolumeMirror4 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2+26.5/2+thick/2)*mm,deltaY,-12.005*mm+deltaZ),logicMirror2,"Mirror22",worldLogical,false,2,checkOverlaps);                     
         
   G4MaterialPropertiesTable *MPTquartzSurf = new G4MaterialPropertiesTable();
   MPTquartzSurf->AddProperty("RINDEX", mPhotonEnergyD, mRindexQuartz, nBins)->SetSpline(true);      
@@ -417,7 +416,7 @@ ss >> energy >> abs >> ref >> eff;
   // Quartz window (monolithic)      
   //--------------------------------------------------------------
   
-  G4ThreeVector posQuartzWindow = G4ThreeVector(0*mm, 0*mm+deltaY, 11*mm+deltaZ);
+  G4ThreeVector posQuartzWindow = G4ThreeVector(0*mm, 0*mm+deltaY, -1.005*mm+deltaZ);
   
   G4Box* solidQuartz5 =    
     new G4Box("QuartzWindow", 
@@ -474,9 +473,9 @@ ss >> energy >> abs >> ref >> eff;
     = new G4Box("chamber1Box",0.5*cathodeX, 0.5*cathodeY, 0.5*cathodeZ);
   fDetectorPlaneLogical									
     = new G4LogicalVolume(chamber1Solid,GaAr,"fDetectorPlaneLogical");
-  G4double cathodePosX = 13.255*mm;  
-  G4double cathodePosY = 13.255*mm;
-  G4double cathodePosZ = 12.005*mm;  
+  G4double cathodePosX = (13.25+dist/2)*mm;  
+  G4double cathodePosY = (13.25+dist/2)*mm;
+  G4double cathodePosZ = 0*mm;  
     
     
     G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,-cathodePosY+deltaY,cathodePosZ+deltaZ),fDetectorPlaneLogical,   
@@ -550,7 +549,7 @@ ss >> energy >> abs >> ref >> eff;
 
   GaOx->SetMaterialPropertiesTable(MPTalu);
     
-  G4ThreeVector posMCP = G4ThreeVector(0.0*mm, 0.0*mm+deltaY, 21.01*mm+deltaZ);    
+  G4ThreeVector posMCP = G4ThreeVector(0.0*mm, 0.0*mm+deltaY, 9.005*mm+deltaZ);    
            
   G4Box* solidMCP =    
     new G4Box("MCP", 

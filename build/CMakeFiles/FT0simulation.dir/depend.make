@@ -519,6 +519,7 @@ CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o: /home/isak/Docume
 CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/tls.hh
 CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
 
+CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o: ../include/FT0Constants.hh
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o: ../include/FT0DetectorConstruction.hh
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o: ../include/FT0HadCalorimeterHit.hh
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o: ../include/FT0HadCalorimeterSD.hh
@@ -1808,6 +1809,7 @@ CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o: /home/isak/Documents/
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkgdefs.hh
 
+CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o: ../include/FT0Constants.hh
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o: ../include/FT0EventAction.hh
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o: ../include/FT0HadCalorimeterHit.hh
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o: ../include/FT0PrimaryGeneratorAction.hh

@@ -109,16 +109,16 @@ TH1D* h1pdg = new TH1D("h1pdg", "PDG; pdg; Count", 100, -50, 50);
 TH1D* h1px = new TH1D("h1px", "PX; px (MeV); Count", 200, 8*pow(10., -6), 8*pow(10., -6));
 TH1D* h1py = new TH1D("h1py", "PY; py (MeV); Count", 200, 8*pow(10., -6), 8*pow(10., -6));
 TH1D* h1pz = new TH1D("h1pz", "PZ; pz (MeV); Count", 200, 0, 8*pow(10., -6));
-TH1D* h1x = new TH1D("h1x", "X; x (mm); Count", 200, -30, 30);
-TH1D* h1y = new TH1D("h1y", "Y; y (mm); Count", 200, 47, 102);
+TH1D* h1x = new TH1D("h1x", "X; x (mm); Count", 200, -35, 35);
+TH1D* h1y = new TH1D("h1y", "Y; y (mm); Count", 200, 42, 107);
 TH1D* h1z = new TH1D("h1z", "Z; z (mm); Count", 500, 3354.993, 3355.008);
 TH1D* h1w = new TH1D("h1w", "Wavelength distribution; Wavelength (nm); Count", 500, 0.06*pow(10.,3), 0.53*pow(10., 3));
 
 TH2D* h2qe = new TH2D("h2qe", "Quantum efficiency as a function of wavelength; Wavelength (nm); Efficiency", 500, 0.06*pow(10.,3), 0.53*pow(10., 3), 500, 0, 0.5);
 
-TH2D* h2xy = new TH2D("h2xy", "X-Y hits; x (mm); y (mm)",  200, -31, 31,200, 44, 105);
-TH2D* h2xz = new TH2D("h2xz", "X-Z hits; x (mm); z (mm)",  200, -30, 30,200, 3354.993, 3355.008); 
-TH2D* h2xpx = new TH2D("h2xpx", "X-PX hits; x (mm); px (MeV)",  200, -30, 30,200, 8*pow(10., -6), 8*pow(10., -6)); 
+TH2D* h2xy = new TH2D("h2xy", "X-Y hits; x (mm); y (mm)",  200, -36, 36,200, 39, 110);
+TH2D* h2xz = new TH2D("h2xz", "X-Z hits; x (mm); z (mm)",  200, -35, 35,200, 3354.993, 3355.008); 
+TH2D* h2xpx = new TH2D("h2xpx", "X-PX hits; x (mm); px (MeV)",  200, -35, 35,200, 8*pow(10., -6), 8*pow(10., -6)); 
  
 h2qe->SetStats(0);
 h2xy->SetStats(0);
