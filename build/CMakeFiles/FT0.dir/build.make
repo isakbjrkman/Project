@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/isak/Desktop/Project-master/Project
+CMAKE_SOURCE_DIR = /home/isak/Desktop/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/isak/Desktop/Project-master/Project/build
+CMAKE_BINARY_DIR = /home/isak/Desktop/Project/build
 
 # Utility rule file for FT0.
 
@@ -71,6 +71,6 @@ CMakeFiles/FT0.dir/clean:
 .PHONY : CMakeFiles/FT0.dir/clean
 
 CMakeFiles/FT0.dir/depend:
-	cd /home/isak/Desktop/Project-master/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/isak/Desktop/Project-master/Project /home/isak/Desktop/Project-master/Project /home/isak/Desktop/Project-master/Project/build /home/isak/Desktop/Project-master/Project/build /home/isak/Desktop/Project-master/Project/build/CMakeFiles/FT0.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/isak/Desktop/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/isak/Desktop/Project /home/isak/Desktop/Project /home/isak/Desktop/Project/build /home/isak/Desktop/Project/build /home/isak/Desktop/Project/build/CMakeFiles/FT0.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/FT0.dir/depend
 

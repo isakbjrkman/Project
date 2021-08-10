@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/isak/Desktop/Project-master/Project
+CMAKE_SOURCE_DIR = /home/isak/Desktop/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/isak/Desktop/Project-master/Project/build
+CMAKE_BINARY_DIR = /home/isak/Desktop/Project/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/FT0simulation.dir/depend.make
@@ -59,133 +59,133 @@ include CMakeFiles/FT0simulation.dir/flags.make
 
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: ../FT0simulation.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FT0simulation.dir/FT0simulation.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/FT0simulation.cc.o -c /home/isak/Desktop/Project-master/Project/FT0simulation.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FT0simulation.dir/FT0simulation.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/FT0simulation.cc.o -c /home/isak/Desktop/Project/FT0simulation.cc
 
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/FT0simulation.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/FT0simulation.cc > CMakeFiles/FT0simulation.dir/FT0simulation.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/FT0simulation.cc > CMakeFiles/FT0simulation.dir/FT0simulation.cc.i
 
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/FT0simulation.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/FT0simulation.cc -o CMakeFiles/FT0simulation.dir/FT0simulation.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/FT0simulation.cc -o CMakeFiles/FT0simulation.dir/FT0simulation.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o: ../src/FT0ActionInitialization.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0ActionInitialization.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o -c /home/isak/Desktop/Project/src/FT0ActionInitialization.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0ActionInitialization.cc > CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0ActionInitialization.cc > CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0ActionInitialization.cc -o CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0ActionInitialization.cc -o CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o: ../src/FT0DetectorConstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0DetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o -c /home/isak/Desktop/Project/src/FT0DetectorConstruction.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0DetectorConstruction.cc > CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0DetectorConstruction.cc > CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0DetectorConstruction.cc -o CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0DetectorConstruction.cc -o CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o: ../src/FT0EventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0EventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o -c /home/isak/Desktop/Project/src/FT0EventAction.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0EventAction.cc > CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0EventAction.cc > CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0EventAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0EventAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o: ../src/FT0HadCalorimeterHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o -c /home/isak/Desktop/Project/src/FT0HadCalorimeterHit.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterHit.cc > CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0HadCalorimeterHit.cc > CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterHit.cc -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0HadCalorimeterHit.cc -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o: ../src/FT0HadCalorimeterSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o -c /home/isak/Desktop/Project/src/FT0HadCalorimeterSD.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterSD.cc > CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0HadCalorimeterSD.cc > CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterSD.cc -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0HadCalorimeterSD.cc -o CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o: ../src/FT0PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0PrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o -c /home/isak/Desktop/Project/src/FT0PrimaryGeneratorAction.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0PrimaryGeneratorAction.cc > CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0PrimaryGeneratorAction.cc > CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0PrimaryGeneratorAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0PrimaryGeneratorAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o: ../src/FT0Run.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0Run.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o -c /home/isak/Desktop/Project/src/FT0Run.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0Run.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0Run.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0Run.cc > CMakeFiles/FT0simulation.dir/src/FT0Run.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0Run.cc > CMakeFiles/FT0simulation.dir/src/FT0Run.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0Run.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0Run.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0Run.cc -o CMakeFiles/FT0simulation.dir/src/FT0Run.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0Run.cc -o CMakeFiles/FT0simulation.dir/src/FT0Run.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o: ../src/FT0RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0RunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o -c /home/isak/Desktop/Project/src/FT0RunAction.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0RunAction.cc > CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0RunAction.cc > CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0RunAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0RunAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.s
 
 CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o: CMakeFiles/FT0simulation.dir/flags.make
 CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o: ../src/FT0StackingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o -c /home/isak/Desktop/Project-master/Project/src/FT0StackingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o -c /home/isak/Desktop/Project/src/FT0StackingAction.cc
 
 CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project-master/Project/src/FT0StackingAction.cc > CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/isak/Desktop/Project/src/FT0StackingAction.cc > CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.i
 
 CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project-master/Project/src/FT0StackingAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/isak/Desktop/Project/src/FT0StackingAction.cc -o CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.s
 
 # Object files for target FT0simulation
 FT0simulation_OBJECTS = \
@@ -237,12 +237,6 @@ FT0simulation: /usr/lib/x86_64-linux-gnu/libQt5PrintSupport.so.5.12.8
 FT0simulation: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 FT0simulation: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 FT0simulation: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
-FT0simulation: /usr/lib/x86_64-linux-gnu/libXmu.so
-FT0simulation: /usr/lib/x86_64-linux-gnu/libXext.so
-FT0simulation: /usr/lib/x86_64-linux-gnu/libXt.so
-FT0simulation: /usr/lib/x86_64-linux-gnu/libICE.so
-FT0simulation: /usr/lib/x86_64-linux-gnu/libSM.so
-FT0simulation: /usr/lib/x86_64-linux-gnu/libX11.so
 FT0simulation: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4run.so
 FT0simulation: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4event.so
 FT0simulation: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4tracking.so
@@ -261,7 +255,7 @@ FT0simulation: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4glo
 FT0simulation: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4clhep.so
 FT0simulation: /home/isak/Documents/geant4/geant4.10.07.p02-install/lib/libG4ptl.so.0.0.2
 FT0simulation: CMakeFiles/FT0simulation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/isak/Desktop/Project-master/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable FT0simulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/isak/Desktop/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable FT0simulation"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FT0simulation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -274,6 +268,6 @@ CMakeFiles/FT0simulation.dir/clean:
 .PHONY : CMakeFiles/FT0simulation.dir/clean
 
 CMakeFiles/FT0simulation.dir/depend:
-	cd /home/isak/Desktop/Project-master/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/isak/Desktop/Project-master/Project /home/isak/Desktop/Project-master/Project /home/isak/Desktop/Project-master/Project/build /home/isak/Desktop/Project-master/Project/build /home/isak/Desktop/Project-master/Project/build/CMakeFiles/FT0simulation.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/isak/Desktop/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/isak/Desktop/Project /home/isak/Desktop/Project /home/isak/Desktop/Project/build /home/isak/Desktop/Project/build /home/isak/Desktop/Project/build/CMakeFiles/FT0simulation.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/FT0simulation.dir/depend
 

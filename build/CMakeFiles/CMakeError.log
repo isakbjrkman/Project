@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/isak/Desktop/Project-master/Project/build/CMakeFiles/CMakeTmp
+Change Dir: /home/isak/Desktop/Project/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_85b58/fast && /usr/bin/make -f CMakeFiles/cmTC_85b58.dir/build.make CMakeFiles/cmTC_85b58.dir/build
-make[1]: Entering directory '/home/isak/Desktop/Project-master/Project/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_85b58.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_85b58.dir/src.c.o   -c /home/isak/Desktop/Project-master/Project/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_85b58
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85b58.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_85b58.dir/src.c.o  -o cmTC_85b58 
-/usr/bin/ld: CMakeFiles/cmTC_85b58.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/make cmTC_76165/fast && /usr/bin/make -f CMakeFiles/cmTC_76165.dir/build.make CMakeFiles/cmTC_76165.dir/build
+make[1]: Entering directory '/home/isak/Desktop/Project/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76165.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_76165.dir/src.c.o   -c /home/isak/Desktop/Project/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_76165
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76165.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_76165.dir/src.c.o  -o cmTC_76165 
+/usr/bin/ld: CMakeFiles/cmTC_76165.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_85b58.dir/build.make:87: cmTC_85b58] Error 1
-make[1]: Leaving directory '/home/isak/Desktop/Project-master/Project/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_85b58/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_76165.dir/build.make:87: cmTC_76165] Error 1
+make[1]: Leaving directory '/home/isak/Desktop/Project/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_76165/fast] Error 2
 
 
 Source file was:

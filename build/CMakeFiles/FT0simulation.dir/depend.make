@@ -163,10 +163,8 @@ CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/gea
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.icc
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NullModel.hh
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateQt.hh
-CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateX.hh
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLQt.hh
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredQt.hh
-CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredX.hh
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalParameters.hh
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalPhysics.hh
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o: /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh

@@ -4,7 +4,7 @@
 CMakeFiles/FT0simulation.dir/FT0simulation.cc.o
  ../include/FT0ActionInitialization.hh
  ../include/FT0DetectorConstruction.hh
- /home/isak/Desktop/Project-master/Project/FT0simulation.cc
+ /home/isak/Desktop/Project/FT0simulation.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -164,10 +164,8 @@ CMakeFiles/FT0simulation.dir/FT0simulation.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NormalNavigation.icc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4NullModel.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateQt.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLImmediateX.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLQt.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredQt.hh
- /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpenGLStoredX.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalParameters.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OpticalPhysics.hh
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/G4OrderedTable.hh
@@ -381,7 +379,7 @@ CMakeFiles/FT0simulation.dir/src/FT0ActionInitialization.cc.o
  ../include/FT0PrimaryGeneratorAction.hh
  ../include/FT0RunAction.hh
  ../include/FT0StackingAction.hh
- /home/isak/Desktop/Project-master/Project/src/FT0ActionInitialization.cc
+ /home/isak/Desktop/Project/src/FT0ActionInitialization.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -524,7 +522,7 @@ CMakeFiles/FT0simulation.dir/src/FT0DetectorConstruction.cc.o
  ../include/FT0DetectorConstruction.hh
  ../include/FT0HadCalorimeterHit.hh
  ../include/FT0HadCalorimeterSD.hh
- /home/isak/Desktop/Project-master/Project/src/FT0DetectorConstruction.cc
+ /home/isak/Desktop/Project/src/FT0DetectorConstruction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -861,7 +859,7 @@ CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o
  ../include/FT0EventAction.hh
  ../include/FT0HadCalorimeterHit.hh
  ../include/FT0Run.hh
- /home/isak/Desktop/Project-master/Project/src/FT0EventAction.cc
+ /home/isak/Desktop/Project/src/FT0EventAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1224,7 +1222,7 @@ CMakeFiles/FT0simulation.dir/src/FT0EventAction.cc.o
 CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterHit.cc.o
  ../include/FT0DetectorConstruction.hh
  ../include/FT0HadCalorimeterHit.hh
- /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterHit.cc
+ /home/isak/Desktop/Project/src/FT0HadCalorimeterHit.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -1333,7 +1331,7 @@ CMakeFiles/FT0simulation.dir/src/FT0HadCalorimeterSD.cc.o
  ../include/FT0EventAction.hh
  ../include/FT0HadCalorimeterHit.hh
  ../include/FT0HadCalorimeterSD.hh
- /home/isak/Desktop/Project-master/Project/src/FT0HadCalorimeterSD.cc
+ /home/isak/Desktop/Project/src/FT0HadCalorimeterSD.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1815,7 +1813,7 @@ CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o
  ../include/FT0HadCalorimeterHit.hh
  ../include/FT0PrimaryGeneratorAction.hh
  ../include/FT0Run.hh
- /home/isak/Desktop/Project-master/Project/src/FT0PrimaryGeneratorAction.cc
+ /home/isak/Desktop/Project/src/FT0PrimaryGeneratorAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -2183,7 +2181,7 @@ CMakeFiles/FT0simulation.dir/src/FT0PrimaryGeneratorAction.cc.o
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/trkdefs.hh
 CMakeFiles/FT0simulation.dir/src/FT0Run.cc.o
  ../include/FT0Run.hh
- /home/isak/Desktop/Project-master/Project/src/FT0Run.cc
+ /home/isak/Desktop/Project/src/FT0Run.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/PhysicalConstants.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Utility/defs.h
@@ -2221,7 +2219,7 @@ CMakeFiles/FT0simulation.dir/src/FT0RunAction.cc.o
  ../include/FT0PrimaryGeneratorAction.hh
  ../include/FT0Run.hh
  ../include/FT0RunAction.hh
- /home/isak/Desktop/Project-master/Project/src/FT0RunAction.cc
+ /home/isak/Desktop/Project/src/FT0RunAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/PhysicalConstants.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Utility/defs.h
@@ -2369,7 +2367,7 @@ CMakeFiles/FT0simulation.dir/src/FT0StackingAction.cc.o
  ../include/FT0HadCalorimeterSD.hh
  ../include/FT0Run.hh
  ../include/FT0StackingAction.hh
- /home/isak/Desktop/Project-master/Project/src/FT0StackingAction.cc
+ /home/isak/Desktop/Project/src/FT0StackingAction.cc
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/isak/Documents/geant4/geant4.10.07.p02-install/include/Geant4/CLHEP/Geometry/Point3D.h
