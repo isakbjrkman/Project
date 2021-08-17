@@ -119,6 +119,10 @@ TH2D* h2qe = new TH2D("h2qe", "Quantum efficiency as a function of wavelength; W
 TH2D* h2xy = new TH2D("h2xy", "X-Y hits; x (mm); y (mm)",  200, -36, 36,200, 39, 110);
 TH2D* h2xz = new TH2D("h2xz", "X-Z hits; x (mm); z (mm)",  200, -35, 35,200, 3354.993, 3355.008); 
 TH2D* h2xpx = new TH2D("h2xpx", "X-PX hits; x (mm); px (MeV)",  200, -35, 35,200, 8*pow(10., -6), 8*pow(10., -6)); 
+
+TH2D* h2pypz = new TH2D("h2pypz", "Py~Pz; py (MeV); pz (MeV)",  200, -8*pow(10., -6), 8*pow(10., -6),200, 0, 8*pow(10., -6)); 
+
+TH1D* h1arcpypz = new TH1D("Angle", "Angle arc(py/pz); rad; Count",  250, -2, 2); 
  
 h2qe->SetStats(0);
 h2xy->SetStats(0);
@@ -142,9 +146,12 @@ for (int i=0; i<nentries; i++) {
   h1y->Fill(y);
   h1z->Fill(z);
   
+  h1arcpypz->Fill(atan(py/pz));
+  
   h2xy->Fill(x,y);
   h2xz->Fill(x,z);
   h2xpx->Fill(x,px);  
+  h2pypz->Fill(py,pz);
 }  
 
 for (int j = 0; j<354; j++) {
@@ -159,10 +166,12 @@ h1ev->SetFillColor(kBlue+2);
 
 h2xy->SetContour(10000);
 h2xz->SetContour(10000);
+h2pypz->SetContour(10000);
 h2xpx->SetContour(10000);
 h2xy->SetOption("colz");
 h2xz->SetOption("colz");
 h2xpx->SetOption("colz");
+h2pypz->SetOption("colz");
 
 TCanvas canvas("Canvas","",950,600);
 
@@ -253,12 +262,19 @@ canvas.SaveAs("h1z.pdf","pdf");
 h1z->Write();
 canvas.Clear();
 
+
 h2xy->Draw();
 gPad->Update();
 gPad->SetLogy(0);
 canvas.SaveAs("h2xy.pdf","pdf");
 h2xy->Write();
 canvas.Clear();
+
+h1arcpypz->Draw();
+canvas.SaveAs("h1arcpypz.pdf","pdf");
+h1arcpypz->Write();
+canvas.Clear();
+
 
 h2qe->Draw();
 canvas.SaveAs("h2qe.pdf","pdf");
@@ -275,6 +291,10 @@ canvas.SaveAs("h2xpx.pdf","pdf");
 h2xpx->Write();
 canvas.Clear();
 
+h2pypz->Draw();
+canvas.SaveAs("h2pypz.pdf","pdf");
+h2pypz->Write();
+canvas.Clear();
 
 f->Close();
 f1->Close();
