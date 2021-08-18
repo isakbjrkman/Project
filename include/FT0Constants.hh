@@ -32,6 +32,6 @@
 
 #include "globals.hh"
 
-constexpr G4double dist = 5.0; 	//gap between radiators (affects cathode, mirrors & paper also)
+constexpr G4double dist = 0.01; 	//gap between radiators (affects cathode, mirrors & paper also) original 0.01 mm
 
 #endif

@@ -154,23 +154,22 @@ ss >> energy >> abs >> ref >> eff;
      } 
 
  for (auto i = 0; i < nBins; i++) {
-    mReflBlackPaper[i] = 0.;
+    mReflBlackPaper[i] = 1.;
     mEffBlackPaper[i] = 0.; 
-    mAbsBlackPaper[i] = 1.; 
-    mRindexBlackPaper[i] = 0.;
+    mAbsBlackPaper[i] = 1*pow(10,-10)*cm; 
+    mRindexBlackPaper[i] = 1.;                  
  
-    mRefractiveIndexVacuum[i] = 1.0;       
-    mAbsVacuum[i] = 0.3;
+    mRefractiveIndexVacuum[i] = 1.;       
+    mAbsVacuum[i] = 100000.*cm;
     
     mRefractiveIndexCathode[i] = 1.; 
-    mAbsCathode[i] = 1.;
+    mAbsCathode[i] = 100000.*cm;
     
-    mEfficQuartz[i] = 0.;
+    //mEfficQuartz[i] = 0.;      //use same efficiency as in real quartz
     mReflQuartz[i] = 0.9;
-    mRindexQuartz[i] = 0.;  
-    mAbsQuartz[i] = 0.;
-    
-    mReflMCP[i] = 0.5;   //front window    	
+    mRindexQuartz[i] = 1.;    //use same refractive index as in real quartz
+    //mAbsQuartz[i] = 1*cm;     //use same absorption length as in real quartz 
+    	
   }
  
   
@@ -301,17 +300,23 @@ ss >> energy >> abs >> ref >> eff;
   
   //Black paper on top of radiator    
   //--------------------------------------------------------------
-    
-   G4Material* C = nist->FindOrBuildMaterial("G4_C");
+   
+   //G4Material* C = nist->FindOrBuildMaterial("G4_C");  alternativ använd samma som mirrors men ändra properties
+   
+  G4Element* elC = new G4Element("Carbon", "C", 6., 12.0107*g/mole); 
+  G4Material* C = new G4Material("Carbon Material", 3.52*g/cm3, 1); 
+  C->AddElement(elC, 1); 
+   
    
   G4MaterialPropertiesTable *MPTtopPaper = new G4MaterialPropertiesTable();
   MPTtopPaper->AddProperty("RINDEX", mPhotonEnergyD, mRindexBlackPaper, nBins); 
   MPTtopPaper->AddProperty("EFFICIENCY", mPhotonEnergyD, mEffBlackPaper, nBins);   
   MPTtopPaper->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflBlackPaper, nBins);  
-  MPTtopPaper->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsBlackPaper, nBins);
+  //MPTtopPaper->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsBlackPaper, nBins);
   
   C->SetMaterialPropertiesTable(MPTtopPaper);
    
+  
    G4double paperThick = 0.1;     
         
    G4Box* solidTopPaper =    
@@ -327,7 +332,8 @@ ss >> energy >> abs >> ref >> eff;
    G4VPhysicalVolume* logicVolumeTopPaper2 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper2",worldLogical,false,2,checkOverlaps);
    G4VPhysicalVolume* logicVolumeTopPaper3 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,-(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper3",worldLogical,false,3,checkOverlaps);
    G4VPhysicalVolume* logicVolumeTopPaper4 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,deltaZ-22.005*mm-paperThick/2*mm),logicTopPaper1,"TopBlackPaper4",worldLogical,false,4,checkOverlaps);        
-         
+  
+       
   G4OpticalSurface* opTopPaperSurface = new G4OpticalSurface("TopBlackPaperSurface");
   opTopPaperSurface->SetType(dielectric_dielectric);     //dielectric_metal
   opTopPaperSurface->SetFinish(groundbackpainted);  //polishedbackpainted   
@@ -346,7 +352,7 @@ ss >> energy >> abs >> ref >> eff;
     new G4LogicalBorderSurface(
     "TopBlackPaperSurface4", logicVolumeTopPaper4, worldPhysical, opTopPaperSurface);
         
-                
+             
     logicTopPaper1->SetVisAttributes(blackVis);     
         
         
@@ -386,9 +392,9 @@ ss >> energy >> abs >> ref >> eff;
         
   G4MaterialPropertiesTable *MPTquartzSurf = new G4MaterialPropertiesTable();
   MPTquartzSurf->AddProperty("RINDEX", mPhotonEnergyD, mRindexQuartz, nBins)->SetSpline(true);      
-  MPTquartzSurf->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsQuartz, nBins)->SetSpline(true);
+  //MPTquartzSurf->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsQuartz, nBins)->SetSpline(true);
   MPTquartzSurf->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflQuartz, nBins);
-  MPTquartzSurf->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficQuartz, nBins);      
+  MPTquartzSurf->AddProperty("EFFICIENCY", mPhotonEnergyD, mEfficMet, nBins);      
                                                  
   G4OpticalSurface* opMirrorSurface = new G4OpticalSurface("MirrorSurface");
   opMirrorSurface->SetType(dielectric_dielectric);     //dielectric_metal
@@ -509,7 +515,7 @@ ss >> energy >> abs >> ref >> eff;
   << " mm, y = " <<  logicCathode4->GetTranslation()(1)-0.5*cathodeY  << " - " <<  logicCathode4->GetTranslation()(1)+0.5*cathodeY 
   << " mm, z = " <<  logicCathode4->GetTranslation()(2)-0.5*cathodeZ  << " - " <<  logicCathode4->GetTranslation()(2)+0.5*cathodeZ << " mm" << G4endl;
  
-  
+  /*
   G4OpticalSurface* opCathodeSurface = new G4OpticalSurface("CathodeSurface");
   opCathodeSurface->SetType(dielectric_dielectric);     
   opCathodeSurface->SetFinish(polishedbackpainted);  
@@ -528,26 +534,37 @@ ss >> energy >> abs >> ref >> eff;
     
    new G4LogicalBorderSurface(
     "CathodeSurface4", logicCathode4, worldPhysical, opCathodeSurface);     
-         
+   */
+        
     
   fDetectorPlaneLogical->SetVisAttributes(yellowVis);
  
  
   //MCP-PMT (ceramic)
   //--------------------------------------------------------------
-  G4Material* GaOx = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
+  G4Element* elH = new G4Element("Hydrogen", "H", 1., 1.00784*g/mole);
+  G4Element* elAl = new G4Element("Aluminium", "Al", 13., 26.981539*g/mole);
   
-  G4MaterialPropertiesTable* MPTalu = new G4MaterialPropertiesTable();
-  MPTalu->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMCP, nBins);
+  G4Material* Ceramic = new G4Material("Ceramic", 2.65*g/cm3, 4); //kaolinite
+  Ceramic->AddElement(elAl, 2);
+  Ceramic->AddElement(elSi, 2);
+  Ceramic->AddElement(elO, 9);
+  Ceramic->AddElement(elH, 4);
+
+
   /*
-  MPTalu->AddProperty("RINDEX", mPhotonEnergyD, mRindexQuartz, nBins); //hits decline if not commented. Not used in larger simulation either
-  MPTalu->AddProperty("EFFICIENCY", mPhotonEnergyD, mEffBlackPaper, nBins);   
-  MPTalu->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsQuartz, nBins);
+  G4MaterialPropertiesTable* MPTcer = new G4MaterialPropertiesTable();
+  MPTcer->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflMCP, nBins);
+   
+  
+  MPTcer->AddProperty("RINDEX", mPhotonEnergyD, mRindexQuartz, nBins); //hits decline if not commented. Not used in larger simulation either
+  MPTcer->AddProperty("EFFICIENCY", mPhotonEnergyD, mEffBlackPaper, nBins);   
+  MPTcer->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsQuartz, nBins);
+
+  G4cout << "Ceramic G4MaterialPropertiesTable:" << G4endl;
+
+  Ceramic->SetMaterialPropertiesTable(MPTcer);
   */
-
-  G4cout << "GaOx G4MaterialPropertiesTable:" << G4endl;
-
-  GaOx->SetMaterialPropertiesTable(MPTalu);
     
   G4ThreeVector posMCP = G4ThreeVector(0.0*mm, 0.0*mm+deltaY, 9.005*mm+deltaZ);    
            
@@ -557,7 +574,7 @@ ss >> energy >> abs >> ref >> eff;
                       
   G4LogicalVolume* logicMCP =                         
     new G4LogicalVolume(solidMCP,         //its solid
-                        GaOx,          //its material
+                        Ceramic,          //its material
                         "MCP");           //its name
                                                              
   G4VPhysicalVolume* logicPhysMCP = new G4PVPlacement(0,                       //no rotation
@@ -568,17 +585,18 @@ ss >> energy >> abs >> ref >> eff;
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking                 
-  
+  /*
   G4OpticalSurface* opMCPSurface = new G4OpticalSurface("MCPSurface");
   opMCPSurface->SetType(dielectric_dielectric);       
   opMCPSurface->SetFinish(polishedbackpainted);		
   opMCPSurface->SetModel(unified);			
-  opMCPSurface->SetMaterialPropertiesTable(MPTalu);													
+  opMCPSurface->SetMaterialPropertiesTable(MPTcer);													
   
   new G4LogicalBorderSurface(
     "MCPSurface", logicPhysMCP, worldPhysical, opMCPSurface);
-                                                                                        
+    */                                                                                    
   logicMCP->SetVisAttributes(greyVis);  
+  
  
   // return the world physical volume ----------------------------------------
   
