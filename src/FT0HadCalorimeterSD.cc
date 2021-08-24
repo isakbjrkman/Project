@@ -26,11 +26,16 @@
 //
 /// \file FT0HadCalorimeterSD.cc
 /// \brief Implementation of the FT0HadCalorimeterSD class
-#include <iostream>
+
 #include <fstream>
 
 #include <cstdlib> 
-#include <cmath>
+#include <cmath> 
+#include <ctime>
+#include <random>
+#include <iostream>
+
+#include <cstdlib> 
 #include <vector>
 #include <utility>
 #include <string>
@@ -126,6 +131,11 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
 0.185077,0.187379,0.189703,0.192684,0.195696,0.198738,0.201811,0.204916,0.208053,0.211703,0.215597,0.219533,0.22351,0.227529,0.231591,0.233567,0.235325,0.237103,0.2389,0.240717,
 0.241684,0.240623,0.239549,0.238464,0.237367,0.236257,0.235135,0.234,0.225402,0.216705,0.207907,0.199006,0.19,0.165996,0.141707,0.117127,0.0922502};  
 
+
+  std::uniform_real_distribution<double> randVal(0.000000000, 1.000000000);
+  std::mt19937 rng; 
+  rng.seed(std::random_device{}()); 
+  
   
   auto analysisManager = G4AnalysisManager::Instance();
 
@@ -154,7 +164,7 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
      i++;          
     }
     
-     if ((float) rand()/RAND_MAX > eff[i]) {
+     if (randVal(rng) > eff[i]) {
         return true;     //kill photon e.g. don't register photon        
      } 
      

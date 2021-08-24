@@ -28,7 +28,10 @@
 /// \brief Implementation of the FT0PrimaryGeneratorAction class
 
 #include <cstdlib> 
-#include <cmath>
+#include <cmath> 
+#include <ctime>
+#include <random>
+#include <iostream>
 
 #include "FT0Constants.hh"
 #include "FT0Run.hh"
@@ -77,19 +80,24 @@ FT0PrimaryGeneratorAction::~FT0PrimaryGeneratorAction()
 void FT0PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
 {
   auto particleTable = G4ParticleTable::GetParticleTable();
-fParticleGun->SetParticlePosition(G4ThreeVector(0,0,0));
+  //fParticleGun->SetParticlePosition(G4ThreeVector(0,0,0));
   
-  //  fParticleGun->SetParticlePosition(G4ThreeVector(0,74.30*mm,3800*mm));
+   fParticleGun->SetParticlePosition(G4ThreeVector(0,74.30*mm,3800*mm));
   
   fParticleGun->SetParticleDefinition(particleTable->FindParticle("mu+"));
   fParticleGun->SetParticleEnergy(1.*GeV);
   
-  G4double x = (-26.50-dist/2)*mm + ((double) rand()/RAND_MAX)*(53.00+dist)*mm;
-  G4double y = (74.30-26.50-dist/2)*mm + ((double) rand()/RAND_MAX)*(53.00+dist)*mm;
+  std::uniform_real_distribution<double> randVal(0.000000000, 1.000000000);
+  std::mt19937 rng; 
+  rng.seed(std::random_device{}()); 
+  
+  
+  G4double x = (-26.50-dist/2)*mm + (randVal(rng))*(53.00+dist)*mm;
+  G4double y = (74.30-26.50-dist/2)*mm + (randVal(rng))*(53.00+dist)*mm;
   G4double z = 3332.945*mm;
   
- fParticleGun->SetParticleMomentumDirection(G4ThreeVector(x,y,z));
-  // fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.01,0.01,-1));
+  //fParticleGun->SetParticleMomentumDirection(G4ThreeVector(x,y,z));
+   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.01,0.01,-1));
   fParticleGun->GeneratePrimaryVertex(event);
 }
 

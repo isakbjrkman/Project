@@ -107,27 +107,15 @@ G4VPhysicalVolume* FT0DetectorConstruction::Construct()
  G4double mEfficMet[354];  //variable used in had class, i.e. unnecessary here
  G4double mRindexMet[354];
  G4double mAbs[354];
- G4double mRefractiveIndexVacuum[354];
- G4double mAbsVacuum[354];
  G4double mRefractiveIndexCathode[354];
  G4double mAbsCathode[354];
  G4double mReflQuartz[354];
- G4double mReflMCP[354];
- G4double mEfficQuartz[354];
  G4double mReflBlackPaper[354];
- G4double mEffBlackPaper[354]; 
  G4double mAbsBlackPaper[354]; 
  G4double mRindexBlackPaper[354];
  G4double mRindexQuartz[354];
- G4double mAbsQuartz[354];
- G4double mBackscatter[354];
- G4double mBlackPaperBackScatter[354];
- 
- G4double reff[354];
+
  G4double refl[354];
- G4double spec[354];
- G4double specSpike[354];
- G4double backscatter[354];
  G4double transmission[354];
 
  G4double mReflMirror[354];
@@ -169,32 +157,13 @@ ss >> energy >> abs >> ref >> eff;
 
  for (auto i = 0; i < nBins; i++) {
     mReflBlackPaper[i] = 0.0;
-    mEffBlackPaper[i] = 0.; 
-    //mAbsBlackPaper[i] = 1*pow(10,-10)*cm; 
     mRindexBlackPaper[i] = 1.;                  
- 
-    mRefractiveIndexVacuum[i] = 1.;       
-    mAbsVacuum[i] = 100.*cm;
-    
-    mRefractiveIndexCathode[i] = 1.; 
-    mAbsCathode[i] = 1*pow(10,20)*mm; //1000000.*cm;
-    mReflCathode[i] = 1.0;
-    
-    //mEfficQuartz[i] = 0.;      //use same efficiency as in real quartz
-    mReflQuartz[i] = 1.0;
-    //mRindexQuartz[i] = 1.;    //use same refractive index as in real quartz
-    //mAbsQuartz[i] = 1*cm;     //use same absorption length as in real quartz 
-    mBackscatter[i] = 1.0;	
-    
-    
-   reff[i] = 0;
-   refl[i] = 0.0;
-   spec[i] = 0.3;
-   specSpike[i] = 0.3;
-   backscatter[i] = 0.4;
+     
+    mRefractiveIndexCathode[i] = 1.0;  //3.3 
+    mAbsCathode[i] = 1*pow(10,-4)*cm; //1000000.*cm;
+
    transmission[i] = 0.0; 
-   
-   
+     
    mReflMirror[i] = 1.0;
    mRindexMirror[i] = 1.0;
   }
@@ -217,15 +186,7 @@ ss >> energy >> abs >> ref >> eff;
     G4Material* vacuum = new G4Material("Vacuum", zet, amass, density,
                             kStateGas, tempture, pressure);
                            
- /*
-  G4MaterialPropertiesTable* MPTvacuum = new G4MaterialPropertiesTable();
-  MPTvacuum->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexVacuum, nBins);
-  MPTvacuum->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsVacuum, nBins);
-  
-  G4cout << "Vacuum G4MaterialPropertiesTable:" << G4endl;
 
-  vacuum->SetMaterialPropertiesTable(MPTvacuum);
- */
   // Envelope parameters
   //
   G4double env_sizeXY = 400*cm, env_sizeZ = 350*cm; 
@@ -257,10 +218,8 @@ ss >> energy >> abs >> ref >> eff;
   
   G4Color black(0., 0., 0.);
   G4VisAttributes* blackVis = new G4VisAttributes(black);
-
-  //     
-  // Quartz radiators
-  //   --------------------------------------------------------------
+    
+    
   G4Element* elSi = new G4Element("Silicon", "Si", 14., 28.0855*g/mole);
   G4Element* elO = new G4Element("Oxygen", "O", 8., 16.00*g/mole);
   G4Material* SiO2 = new G4Material("Silicon_dioxide", 2.533*g/cm3, 2);
@@ -276,6 +235,12 @@ ss >> energy >> abs >> ref >> eff;
   G4cout << "Quartz G4MaterialPropertiesTable:" << G4endl;  
   SiO2->SetMaterialPropertiesTable(MPTquartz);
 
+ 
+    
+  //     
+  // Quartz radiators
+  //   --------------------------------------------------------------
+ 
 
   G4Box* solidQuartz1 =    
     new G4Box("QuartzRadiator", 
@@ -290,8 +255,9 @@ ss >> energy >> abs >> ref >> eff;
    G4VPhysicalVolume* logicVolumeQuartz2 =  new G4PVPlacement(0,G4ThreeVector(-(13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator2",worldLogical,false,2,checkOverlaps);
    G4VPhysicalVolume* logicVolumeQuartz3 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,-(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator3",worldLogical,false,3,checkOverlaps);
    G4VPhysicalVolume* logicVolumeQuartz4 =  new G4PVPlacement(0,G4ThreeVector((13.25+dist/2)*mm,(13.25+dist/2)*mm+deltaY,-12.005*mm+deltaZ),logicQuartz1,"QuartzRadiator4",worldLogical,false,4,checkOverlaps);                     
-             
-             
+   
+   
+         
   
   G4MaterialPropertiesTable *MPTquartzMirror = new G4MaterialPropertiesTable();
   MPTquartzMirror->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins)->SetSpline(true);      
@@ -299,7 +265,7 @@ ss >> energy >> abs >> ref >> eff;
 
   //mirror-like properties facing the vacuum
   G4OpticalSurface* opQuartzSurface = new G4OpticalSurface("QuartzSurfaceMirror");
-  opQuartzSurface->SetType(dielectric_metal);     //dielectric_metal
+  opQuartzSurface->SetType(dielectric_dielectric);     //dielectric_metal
   opQuartzSurface->SetFinish(polishedbackpainted);  //polishedbackpainted   
   opQuartzSurface->SetModel(unified);    //unified													
   opQuartzSurface->SetMaterialPropertiesTable(MPTquartzMirror);
@@ -314,8 +280,8 @@ ss >> energy >> abs >> ref >> eff;
     "QuartzSurface3", logicVolumeQuartz3, worldPhysical, opQuartzSurface);
     
     new G4LogicalBorderSurface(
-    "QuartzSurface4", logicVolumeQuartz4, worldPhysical, opQuartzSurface);   
- 
+    "QuartzSurface4", logicVolumeQuartz4, worldPhysical, opQuartzSurface);  
+    
   
   logicQuartz1->SetVisAttributes(blueVis);              
    
@@ -331,7 +297,7 @@ ss >> energy >> abs >> ref >> eff;
     
   G4MaterialPropertiesTable *MPTtopPaper = new G4MaterialPropertiesTable();
   MPTtopPaper->AddProperty("RINDEX", mPhotonEnergyD, mRindexBlackPaper, nBins); //commented recently
-  MPTtopPaper->AddProperty("REFLECTIVITY", mPhotonEnergyD, refl, nBins);
+  MPTtopPaper->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflBlackPaper, nBins);
   MPTtopPaper->AddProperty("TRANSMISSION", mPhotonEnergyD, transmission, nBins);
   
   
@@ -378,7 +344,7 @@ ss >> energy >> abs >> ref >> eff;
    
        
                    
-   // logicTopPaper1->SetVisAttributes(blackVis);     
+   logicTopPaper1->SetVisAttributes(blackVis);     
         
         
   // Quartz window (monolithic)      
@@ -386,8 +352,9 @@ ss >> energy >> abs >> ref >> eff;
   
   G4MaterialPropertiesTable *MPTquartzWindow = new G4MaterialPropertiesTable();
   MPTquartzWindow->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins)->SetSpline(true);      
-  MPTquartzWindow->AddProperty("REFLECTIVITY", mPhotonEnergyD, mReflQuartz, nBins);
-  
+  MPTquartzWindow->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbs, nBins)->SetSpline(true);
+    
+    
   G4ThreeVector posQuartzWindow = G4ThreeVector(0*mm, 0*mm+deltaY, -1.005*mm+deltaZ);
   
   G4Box* solidQuartz5 =    
@@ -410,20 +377,10 @@ ss >> energy >> abs >> ref >> eff;
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
-  
-  G4OpticalSurface* opQuartzSurface5 = new G4OpticalSurface("QuartzSurface5");
-  opQuartzSurface5->SetType(dielectric_dielectric);     
-  opQuartzSurface5->SetFinish(groundfrontpainted);  //to allow for reflection probability set by reflectivity param.
-  opQuartzSurface5->SetModel(unified);
-  opQuartzSurface5->SetMaterialPropertiesTable(MPTquartzWindow); 
-  
-   new G4LogicalBorderSurface(
-    "QuartzSurface5", logicQuartzWindow, worldPhysical, opQuartzSurface5);
-                  
-                             
+
+
  //Photocathode                    
- //--------------------------------------------------------------
-  
+ //-------------------------------------------------------------- 
   G4Element* elGa = new G4Element("Gallium", "Ga", 31., 69.723*g/mole);
   G4Element* elAr = new G4Element("Arsenic", "Ar", 33., 74.9216*g/mole);
   G4Material* GaAr = new G4Material("Galliumarsenide", 5.32*g/cm3, 2);
@@ -431,8 +388,8 @@ ss >> energy >> abs >> ref >> eff;
   GaAr->AddElement(elAr, 1);
 
   G4MaterialPropertiesTable* MPTgal = new G4MaterialPropertiesTable();
-  MPTgal->AddProperty("RINDEX", mPhotonEnergyD, mRefractiveIndexCathode, nBins);
-  MPTgal->AddProperty("REFLECTIVITY", mPhotonEnergyD,mReflCathode, nBins);  
+  MPTgal->AddProperty("RINDEX", mPhotonEnergyD, mRindexMet, nBins); 
+  MPTgal->AddProperty("ABSLENGTH", mPhotonEnergyD, mAbsCathode, nBins);
   
   G4cout << "GaAr G4MaterialPropertiesTable:" << G4endl;
 
@@ -449,9 +406,10 @@ ss >> energy >> abs >> ref >> eff;
   G4double cathodePosX = (13.25+dist/2)*mm;  
   G4double cathodePosY = (13.25+dist/2)*mm;
   G4double cathodePosZ = 0*mm;  
-    
-    
-    G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,-cathodePosY+deltaY,cathodePosZ+deltaZ),fDetectorPlaneLogical,   
+         
+      
+      
+       G4VPhysicalVolume* logicCathode1 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,-cathodePosY+deltaY,cathodePosZ+deltaZ),fDetectorPlaneLogical,   
                         "chamber1Physical",worldLogical,
                         false,1,checkOverlaps);
     G4VPhysicalVolume* logicCathode2 = new G4PVPlacement(0,G4ThreeVector(-cathodePosX,cathodePosY+deltaY,cathodePosZ+deltaZ),fDetectorPlaneLogical,   
@@ -462,8 +420,9 @@ ss >> energy >> abs >> ref >> eff;
                         false,3,checkOverlaps);
     G4VPhysicalVolume* logicCathode4 = new G4PVPlacement(0,G4ThreeVector(cathodePosX,cathodePosY+deltaY,cathodePosZ+deltaZ),fDetectorPlaneLogical,   
                         "chamber1Physical",worldLogical,
-                        false,4,checkOverlaps);                  
-               
+                        false,4,checkOverlaps);   
+    
+      
   //Print geometry data             
   G4cout << "---Detector Positions in World---" << G4endl;                                                          
   G4cout << "For DetectorID = " << logicCathode1->GetCopyNo() << "  x = " <<  logicCathode1->GetTranslation()(0)-0.5*cathodeX  << " - " << logicCathode1->GetTranslation()(0)+0.5*cathodeX  
@@ -498,8 +457,9 @@ ss >> energy >> abs >> ref >> eff;
   Ceramic->AddElement(elO, 9);
   Ceramic->AddElement(elH, 4);
     
-    
+  
   G4ThreeVector posMCP = G4ThreeVector(0.0*mm, 0.0*mm+deltaY, 9.005*mm+deltaZ);    
+   
            
   G4Box* solidMCP =    
     new G4Box("MCP", 
