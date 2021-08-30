@@ -168,7 +168,7 @@ ss >> energy >> abs >> ref >> eff;
    mRindexMirror[i] = 1.0;
   }
  
-  G4double deltaY = 7.43*cm;
+  G4double deltaY = 0.00*mm; //7.43*cm;
   G4double deltaZ = 335.5*cm;
   
   

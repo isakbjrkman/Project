@@ -163,13 +163,13 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
     while ( i<(nbins-1) && energy > photonEnergy[i] ) {
      i++;          
     }
-    
+    /*
      if (randVal(rng) > eff[i]) {
-        return true;     //kill photon e.g. don't register photon        
+        return true;     //kill photon e.g. don't register photon        QUANTUM EFFICIENCY TURNED OFF!! test only
      } 
-     
+     */
      //Store data to .txt	
-      
+      /*
       myfile << runManager << "_";
       myfile << touchable->GetVolume(0)->GetCopyNo() << "_";   
       myfile << encoding << "_";
@@ -179,7 +179,7 @@ double eff[354] = {0.0966295,0.0998724,0.103128,0.106396,0.109677,0.11218,0.1146
       myfile << step->GetTrack()->GetPosition()(0) << "_";
       myfile << step->GetTrack()->GetPosition()(1) << "_";
       myfile << step->GetTrack()->GetPosition()(2) << "\n"; 
-       
+       */
       
      //Process hit data to root file
       hit->SetEvent(runManager);
